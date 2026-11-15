@@ -31,3 +31,17 @@ def test_exact_frontier_comparison():
  assert lo<Fraction("1.567864384572806979362033445047061") and hi>Fraction("1.567864384572806979362033445047060")
  assert not improves([33980,64728,64728,88867],26)
  assert improves([33981,64728,64728,88867],26)
+
+def test_box_checker_agrees_with_literal_and_rejects_raised_claim():
+ from .verify_boxes import check
+ import pytest
+ rng=random.Random(991)
+ for _ in range(100):
+  n=rng.randrange(4,8);s=rng.sample(range(1<<n),rng.randrange(1,13))
+  expected=isvalid_c49(s,n) and len({x&3 for x in s})==4
+  try:valid=check({"n":n,"ports":[0,1],"masks":s})["valid"]
+  except ValueError:valid=False
+  assert valid==expected
+ F,H=ingredients()
+ assert check({"n":10,"ports":[0,1],"masks":F})["valid"]
+ with pytest.raises(ValueError):check({"n":10,"ports":[0,1],"masks":F,"claimed_rate_lower":"1.9"})
