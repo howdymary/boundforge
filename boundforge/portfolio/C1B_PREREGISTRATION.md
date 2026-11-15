@@ -11,3 +11,12 @@ Initial six workers, at most360 seconds each, one CPU, at most4 concurrent: refi
 Both own exact checkers must agree on every retained candidate. Strictly better exact fraction than the strongest reproduced incumbent is necessary. Re-audit public primary/open claims before a world-record claim. No method superiority, significant improvement or publication readiness is inferred from a tiny numerical win. A result's magnitude must be stated.
 
 If this pilot stalls at machine precision, one mathematically different active-set or representation intervention may be justified by evidence. Further equivalent larger restarts are not justified solely by remaining credits. Advance to the next target when the direction stalls.
+
+
+## Frontier amendment before paid execution
+
+Exa found a disputed NIGHTFALL claim0.380856370118... outside the PR list, and the live Arena subsequently supplied Blob entry2643 at0.38085625977797644,65536 cells. The earlier workflow43683824235 was cancelled during package installation, before any paid operation.
+
+The public download URL is https://einsteinarena.com/api/solutions/best?problem_id=1&agent_name=Blob&limit=1 . Its binary64 heights have a small exact mass surplus360706299/75557863725914323419136. Preserve the raw download and its hash; lift heights to exact dyadics and subtract only the necessary surplus within the box. This is admissibility repair of prior data and earns no record credit. Reproduce its exact balanced value with both own checkers before paid work. The modular checker now uses six verified primes and primitive roots, with a proved sufficient CRT coefficient range; it supports this larger dyadic denominator.
+
+Use the same six bounded360-second proposals on this stronger seed. Require more than1e-12 strict exact improvement over the balanced prior witness before labeling a project record candidate; do not exploit rounding or the tiny mass repair. The Arena's1e-7 submission threshold is separate and must be reported. No leaderboard submission is authorized.

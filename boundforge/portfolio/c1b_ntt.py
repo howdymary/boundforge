@@ -1,10 +1,10 @@
-"""Independent exact C1b verifier using four-prime NTT and CRT."""
+"""Independent exact C1b verifier using six-prime NTT and CRT."""
 import argparse,json,pathlib,subprocess,tempfile
 from fractions import Fraction
 HERE=pathlib.Path(__file__).resolve().parent
 def check(cert):
  n=cert["n"];den=cert["Q"];h=cert["heights_int"]
- if type(n)is not int or n<2 or n%2 or len(h)!=n or type(den)is not int or not 0<den<1<<63:raise ValueError("n/Q")
+ if type(n)is not int or n<2 or n%2 or len(h)!=n or type(den)is not int or not den>0:raise ValueError("n/Q")
  if any(type(x)is not int or not 0<=x<=den for x in h):raise ValueError("box")
  if sum(h)*2!=n*den:raise ValueError("exact integral")
  with tempfile.TemporaryDirectory() as td:
@@ -23,6 +23,6 @@ def check(cert):
   shift=n-1-k;l=max(0,-shift);u=min(n,n-shift);overlap=den*(prefix[u]-prefix[l])-c
   if overlap>maximum:maximum=overlap;arg=shift
  result=Fraction(2*maximum,n*den*den)
- return {"valid":True,"score":str(result),"argmax_shift":arg,"n":n,"shifts":2*n-1,"algorithm":"four exact NTTs plus unique nonnegative CRT reconstruction","CRT_product":str(prod),"coefficient_bound":str(n*den*den)}
+ return {"valid":True,"score":str(result),"argmax_shift":arg,"n":n,"shifts":2*n-1,"algorithm":"six exact NTTs plus unique nonnegative CRT reconstruction","CRT_product":str(prod),"coefficient_bound":str(n*den*den)}
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("certificate");a=p.parse_args();print(json.dumps(check(json.loads(pathlib.Path(a.certificate).read_text()))))

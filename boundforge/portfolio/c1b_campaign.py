@@ -1,5 +1,5 @@
 """Paid C1b pilot after exact baseline reproduction; all worker deadlines bounded."""
-import base64,hashlib,json,os,pathlib,subprocess,sys,time
+import base64,hashlib,json,os,pathlib,subprocess,sys,time,urllib.request
 from fractions import Fraction
 HERE=pathlib.Path(__file__).resolve().parent;OUT=HERE/"c1b";OUT.mkdir(exist_ok=True)
 from budget import Ledger
@@ -10,9 +10,26 @@ def check(p,name):return json.loads(subprocess.check_output([sys.executable,"-I"
 def main():
  start=time.monotonic();raw=fetch("C1b_15360_0.3808564712.json")
  assert hashlib.sha256(raw).hexdigest()=="7bfe24a36566ee3544d22f4064e9cb64495b21431a31f521de390dc5f0865b7b"
- base=OUT/"baseline.json";base.write_bytes(raw);cert=json.loads(raw);baseline=check(base,"c1b_exact.py");second=check(base,"c1b_ntt.py")
- assert baseline["score"]==second["score"]==str(Fraction(3707849734734953936493216938911489,9735556609752801803494680617287680))
- (OUT/"baseline-verification.json").write_text(json.dumps({"packed":baseline,"NTT":second,"source":"intervalplace/frontier@6d6c4ba","primary_sha256":hashlib.sha256(raw).hexdigest()},indent=2))
+ (OUT/"PR368-prior.json").write_bytes(raw)
+ # Exa found a stronger public Arena claim; primary UI exposes its download API.
+ url="https://einsteinarena.com/api/solutions/best?problem_id=1&agent_name=Blob&limit=1"
+ arena_raw=urllib.request.urlopen(url,timeout=45).read();entry=json.loads(arena_raw)[0];values_raw=entry["data"]["values"]
+ exact=[Fraction(float(x)) for x in values_raw]
+ if any(not 0<=x<=1 for x in exact):raise ValueError("Arena box")
+ Q=max(x.denominator for x in exact);ints=[int(x*Q) for x in exact];delta=len(ints)*Q//2-sum(ints);repair=delta
+ for i,k in enumerate(ints):
+  change=min(abs(delta),Q-k if delta>0 else k)
+  if delta>0:ints[i]+=change;delta-=change
+  elif delta<0:ints[i]-=change;delta+=change
+  if not delta:break
+ assert delta==0
+ cert={"n":len(ints),"Q":Q,"heights_int":ints}
+ source={"url":url,"entry_id":entry["id"],"agent":entry["agentName"],"reported_float_score":str(entry["score"]),"download_sha256":hashlib.sha256(arena_raw).hexdigest(),"mass_repair_in_height_units":str(Fraction(repair,Q)),"scope":"Original binary64 values read exactly; minimal exact mass repair, not a new research result."}
+ (OUT/"arena-source.json").write_text(json.dumps(source,indent=2));(OUT/"arena-download.json").write_bytes(arena_raw)
+ base=OUT/"baseline.json";base.write_text(json.dumps(cert));baseline=check(base,"c1b_exact.py");second=check(base,"c1b_ntt.py")
+ assert baseline["score"]==second["score"]
+ assert Fraction(baseline["score"])<Fraction(3707849734734953936493216938911489,9735556609752801803494680617287680)
+ (OUT/"baseline-verification.json").write_text(json.dumps({"packed":baseline,"NTT":second,"source":source,"weaker_PR368_sha256":hashlib.sha256(raw).hexdigest()},indent=2))
  # Free runner reproduces all-shift acceptance before the first paid reservation.
  import numpy as np
  from c1b_search import values
@@ -41,6 +58,6 @@ def main():
    if rate<best:best=rate;(OUT/"best.json").write_bytes(p.read_bytes())
    (OUT/"checks.json").write_text(json.dumps(checks,indent=2))
    print("C1B_RESULT "+json.dumps({"index":i,"spec":row["spec"],"score":str(rate),"float_gain":row["float_gain"],"strict_improvement":improved,"calls":row["calls"]}),flush=True)
- report={"run_id":os.environ["GITHUB_RUN_ID"],"source_sha":os.environ["GITHUB_SHA"],"baseline":baseline["score"],"best":str(best),"new_record_candidate":best<Fraction(baseline["score"]),"ledger":ledger.summary(),"elapsed_seconds":time.monotonic()-start,"outcomes":checks,"scope":"An exact improvement over the audited strongest public witness is a candidate record, pending final independent recertification and live frontier refresh. No method novelty or significance magnitude is assumed."}
+ report={"run_id":os.environ["GITHUB_RUN_ID"],"source_sha":os.environ["GITHUB_SHA"],"baseline":baseline["score"],"best":str(best),"new_record_candidate":best<Fraction(baseline["score"])-Fraction(1,10**12),"ledger":ledger.summary(),"elapsed_seconds":time.monotonic()-start,"outcomes":checks,"scope":"An exact improvement over the audited strongest public witness is a candidate record, pending final independent recertification and live frontier refresh. No method novelty or significance magnitude is assumed."}
  (OUT/"report.json").write_text(json.dumps(report,indent=2));print("C1B_FINAL "+json.dumps(report),flush=True)
 if __name__=="__main__":main()
