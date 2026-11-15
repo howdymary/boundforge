@@ -26,13 +26,16 @@ def main():
  if opt.success:
   # Freeze candidate heights, then repair all mass inequalities with exact scalars.
   masses=[F(max(0,int(round(v*10**17))),10**17)for v in opt.x]
-  factor=F(1);totals=[]
+  added=F(0);repairs=0
   for i,w in enumerate(doc["witnesses"]):
-   s=sum(int(A[i,j])*masses[j]for j in np.flatnonzero(A[i]));assert s>0
-   need=4*F(w["radius"])**2*F(d["lam"]);factor=max(factor,need/s)
-  factor*=1+F(1,10**14);masses=[m*factor for m in masses]
+   s=sum(int(A[i,j])*masses[j]for j in np.flatnonzero(A[i]))
+   need=4*F(w["radius"])**2*F(d["lam"])*(1+F(1,10**14))
+   if s<need:
+    j=int(np.argmax(A[i]));assert A[i,j]>0
+    delta=(need-s)/int(A[i,j]);masses[j]+=delta;added+=delta;repairs+=1
+  masses=[m*(1+F(1,10**15))for m in masses]
   newmass=sum(masses);ratio=Q*mass0/newmass
-  report.update({"numerical_mass":float(opt.fun),"old_mass":str(mass0),"exact_repair_factor":str(factor),"repaired_mass":str(newmass),"repaired_periodic_ratio":str(ratio),"ratio_float":float(ratio),"gain_float":float(ratio-Q),"passes_promising_gate":ratio>Q+F(1,10**9)})
+  report.update({"numerical_mass":float(opt.fun),"old_mass":str(mass0),"exact_added_mass":str(added),"repaired_constraints":repairs,"repaired_mass":str(newmass),"repaired_periodic_ratio":str(ratio),"ratio_float":float(ratio),"gain_float":float(ratio-Q),"passes_promising_gate":ratio>Q+F(1,10**9)})
   if report["passes_promising_gate"]:
    doc["measure"]["pts"]=[[str(a),str(b),str(m)]for (a,b,_),m in zip(pts,masses)if m>0];candidate=OUT/"candidate.json";candidate.write_text(json.dumps(doc))
    sub=subprocess.run([sys.executable,"-I",str(OUT/"primary.py"),str(candidate),"--claim",str(ratio),"--out",str(OUT/"candidate-primary-check.json")],capture_output=True,text=True,env={"PATH":os.environ["PATH"]},timeout=240)
