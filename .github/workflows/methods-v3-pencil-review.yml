@@ -1,0 +1,33 @@
+name: BoundForge exact-event search prior art
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: boundforge-paid-providers
+  cancel-in-progress: false
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Current primary-source leads for event-based alternative
+        env:
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+        run: python -m boundforge.methods_v3.focused_review --queries boundforge/methods_v3/collision/pencil-queries.json --out boundforge/methods_v3/output/pencil-review
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: methods-v3-pencil-review
+          path: boundforge/methods_v3/output/pencil-review/
+          retention-days: 30
+          if-no-files-found: error

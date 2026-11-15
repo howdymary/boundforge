@@ -8,8 +8,8 @@ QUERIES=[
  "Arithmetic Kakeya construction automated entropy search collision equality constraints nullspace support patterns"
 ]
 def main():
- p=argparse.ArgumentParser();p.add_argument("--out",required=True);a=p.parse_args();out=pathlib.Path(a.out);out.mkdir(parents=True,exist_ok=True);records=[]
- for q in QUERIES:
+ p=argparse.ArgumentParser();p.add_argument("--out",required=True);p.add_argument("--queries");a=p.parse_args();out=pathlib.Path(a.out);out.mkdir(parents=True,exist_ok=True);records=[]
+ for q in (json.loads(pathlib.Path(a.queries).read_text())if a.queries else QUERIES):
   token=reserve("exa",.05,"focused collision-method prior art")
   req=urllib.request.Request("https://api.exa.ai/search",data=json.dumps({"query":q,"type":"auto","numResults":5,"contents":{"text":{"maxCharacters":14000}}}).encode(),headers={"x-api-key":os.environ["EXA_API_KEY"],"Content-Type":"application/json"})
   with urllib.request.urlopen(req,timeout=35)as r:d=json.load(r)

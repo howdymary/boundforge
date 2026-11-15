@@ -1,0 +1,15 @@
+# Alternative hypothesis: evaluate exact collision events along a kernel trajectory
+
+The shared-signature pilot retained120 verified episodes. Its report aggregation failed only because some sub-10ms CPU measurements rounded to zero; all group/timing files survive. Larger complete repair families showed substantial reduction in repeated elimination, but the shared best-repair search did not beat random circuit repair in any task mean (two ties, four losses). Do not scale it as a successful discovery policy or call ordinary batching a new general method.
+
+A different potentially useful experiment changes the orientation of search. Choose constraints to release, then evaluate every new equality event along a rational trajectory, rather than choosing a proposed equality first and considering deletions.
+
+Let p be current rational coordinates, v a rational direction, and each projected point value be A_i+t B_i. For each pair with B_i != B_j there is exactly one collision event t=(A_j-A_i)/(B_i-B_j). Pairs with identical (A_i,B_i) form permanent generic blocks. Group all events by exact rational t. Exclude target collision events. At each remaining t, union only the affected generic blocks for each control, and update entropy from their masses. This permits exact evaluation of all singular points of the trajectory; ordinary floating perturbation almost surely misses them.
+
+For q control/target groups with m forms each, there are at most q*m*(m-1)/2 pair events. Each pair contributes once. A resettable local union-find can score all events from generic-block masses, avoiding full recomputation of every partition at every event. Complexity claims must include rational arithmetic, event dictionary operations, initialization, and target rejection.
+
+Generate v from the rational kernel of a subset of retained collision constraints. If this kernel has dimension exactly two and p is nonzero, any v independent of p parametrizes every projective line except the point at infinity; evaluating v separately completes the rank-restoring one-equality neighborhood for that released constraint set. For higher nullity, one sampled pencil is only a restricted slice; never claim exhaustion.
+
+Possible controller: use exact nullity and a complete event scan to distinguish a failed fully covered rank-restoring neighborhood from a failed sampled slice, then choose a different release set or higher-dimensional move. This is not yet new: parametric line search, hyperplane arrangements, low-dimensional subspace optimization and adaptive neighborhood selection are standard.
+
+Prior-art audit must find the closest implementations of exact arrangement-event local search and entropy construction optimization. Strong controls: coordinate-direction event scan, random global-direction event scan, random circuit repair, shared best repair, and shuffled/nullity-agnostic release selection with matched CPU. Separate benefit of enumerating events from selecting kernel directions. No novelty or benefit claim before results.
