@@ -1,6 +1,11 @@
 name: C49 freeze diagnostic policies before evaluation
 on:
   workflow_dispatch:
+    inputs:
+      recover_run:
+        description: Optional failed freeze run ledger to preserve consumed credits
+        type: string
+        required: false
 permissions:
   contents: read
   actions: read
@@ -25,7 +30,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           name: c49-pilot
           path: boundforge/c49/pilot
-      - run: python -m pip install modal tinker transformers
+      - uses: actions/download-artifact@v4
+        if: inputs.recover_run != ''
+        with:
+          run-id: ${{ inputs.recover_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-freeze
+          path: boundforge/c49/recovery
+      - run: python -m pip install modal tinker transformers jinja2
       - name: Freeze from development data only
         env:
           EXA_API_KEY: ${{ secrets.EXA_API_KEY }}

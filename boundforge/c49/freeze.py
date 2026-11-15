@@ -6,7 +6,8 @@ from tasks import digest
 from budget import Ledger
 from services import exa,write,read
 def main():
- previous=HERE/"pilot";shutil.copyfile(previous/"budget.sqlite",OUT/"budget.sqlite")
+ previous=HERE/"pilot";recovery=HERE/"recovery/budget.sqlite"
+ shutil.copyfile(recovery if recovery.exists() else previous/"budget.sqlite",OUT/"budget.sqlite")
  ledger=Ledger(OUT);events=[]
  def log(kind,payload):
   e={"kind":kind,**payload};events.append(e);(OUT/"trace.jsonl").write_text("\n".join(map(json.dumps,events))+"\n");print("C49_FREEZE_EVENT "+json.dumps(e),flush=True)

@@ -5,7 +5,7 @@ MODEL="Qwen/Qwen3.5-397B-A17B"
 def propose(ledger,summary,sources,log):
  import tinker
  service=tinker.ServiceClient(display_name="BoundForge C49 diagnostic policy study")
- sampler=service.create_sampling_client(base_model=MODEL);tokenizer=sampler.get_tokenizer();rules=[]
+ sampler=service.create_sampling_client(base_model=MODEL).result();tokenizer=sampler.get_tokenizer();rules=[]
  try:
   for i in range(4):
    task={"goal":"Return ONLY JSON: {rankings:{label:[six action IDs in preference order]},reason:short string}. Propose a diagnostic-conditioned search policy. Correctness is established by deterministic verifiers, not your explanation.",
