@@ -6,7 +6,7 @@ def main():
  for p,h in m["protected_sha256"].items():assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h,p
  assert not (ROOT/"src/compute_forecast").exists()
  for p in (ROOT/"boundforge").rglob("*.py"):
-  if "sources" in p.parts:continue
+  if "sources" in p.parts or p.name=="migration_check.py":continue
   s=p.read_text()
   assert "howdymary/compute-forecasting" not in s,p
   assert "compute-observatory" not in s,p
