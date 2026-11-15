@@ -23,7 +23,10 @@ def polished(z,p):
    peaks.append({"class":m,"theta":float(q.x),"modulus":float(-q.fun)})
  return max(v["modulus"]for v in peaks),peaks
 def main():
- start=time.monotonic();deadline=start+120;rng=np.random.default_rng(51301);inc=.58507881967446432084;trace=[];best=None
+ start=time.monotonic();deadline=start+120;rng=np.random.default_rng(51301);inc=.58507881967446432084;trace=[]
+ base=np.array([np.log(3.5681854310698435),3.9615431126097391]);bm,bp=polished(base,1)
+ assert abs(1/bm-inc)<1e-12,"period-1 regression does not match primary construction"
+ best={"period":1,"seed":"frozen incumbent","parameters":base.tolist(),"polished_modulus":bm,"beta_float":1/bm,"peaks":bp}
  for p in [1,2,3,4,5]:
   for seed in range(6 if p>1 else 1):
    z=np.r_[np.log(3.5681854310698435),3.9615431126097391,np.zeros(p-1)]
@@ -32,7 +35,7 @@ def main():
    def fun(x):
     if time.monotonic()>deadline:raise TimeoutError
     if not np.log(2.5)<x[0]<np.log(5):return 100+abs(x[0])
-    return maximum(x,p)
+    return polished(x,p)[0]
    try:
     opt=minimize(fun,z,method="Nelder-Mead",options={"maxiter":1200,"xatol":1e-10,"fatol":1e-12})
     value,peaks=polished(opt.x,p)
@@ -41,6 +44,6 @@ def main():
     if best is None or row["beta_float"]>best["beta_float"]:best=row
    except TimeoutError:trace.append({"period":p,"seed":seed,"status":"pilot deadline"});break
   if time.monotonic()>deadline:break
- report={"run_id":os.environ["GITHUB_RUN_ID"],"source_sha":os.environ["GITHUB_SHA"],"incumbent_certified_lower":str(inc),"best":best,"trace":trace,"seconds":time.monotonic()-start,"passes_promising_gate":best["beta_float"]>inc+1e-9,"scope":"Uncertified screen, periods at most 5, K in (2.5,5), truncation -10..9 and local peak polishing. No global numerical guarantee, no general-method novelty claim."}
+ report={"run_id":os.environ["GITHUB_RUN_ID"],"source_sha":os.environ["GITHUB_SHA"],"incumbent_certified_lower":"0.585078819674464320841496314106","best":best,"trace":trace,"seconds":time.monotonic()-start,"passes_promising_gate":best["beta_float"]>inc+1e-9,"scope":"Uncertified screen, periods at most 5, K in (2.5,5), truncation -10..9 and local peak polishing. No global numerical guarantee, no general-method novelty claim."}
  (OUT/"report.json").write_text(json.dumps(report,indent=2));print(json.dumps({"best":best,"seconds":report["seconds"],"passes":report["passes_promising_gate"]}))
 if __name__=="__main__":main()
