@@ -29,7 +29,7 @@ Think carefully, then give concise FINAL JSON (not your private reasoning) with:
  try:
   sampler=client.create_sampling_client(base_model="Qwen/Qwen3.5-397B-A17B",retry_config=RetryConfig(enable_retry_logic=False,progress_timeout=300)).result()
   result=sampler.sample(prompt=tinker.types.ModelInput.from_ints(ids),num_samples=1,sampling_params=tinker.types.SamplingParams(max_tokens=20000,temperature=.6,stop=["<|im_end|>"])).result();tokens=list(result.sequences[0].tokens);decoded=tok.decode(tokens);has_final="</think>"in decoded
-  final=decoded.rsplit("</think>",1)[-1]if has_final else "";final=re.sub(r"<\\|[^>]+\\|>","",final).strip()
+  final=decoded.rsplit("</think>",1)[-1]if has_final else "";final=final.replace("<|im_end|>","").replace("<|endoftext|>","").strip()
   if final.startswith("```"):final=final.split("\n",1)[1].rsplit("```",1)[0].strip()
   try:parsed=json.loads(final,object_pairs_hook=strict_pairs)
   except ValueError:parsed=None
