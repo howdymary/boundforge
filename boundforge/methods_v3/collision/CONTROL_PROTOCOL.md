@@ -1,0 +1,8 @@
+# Matched controls after the first collision pilot
+Written after observing the six-arm development outcomes, before the present run. These remain development results, not confirmatory evidence.
+
+First pilot: 162 exactly verified outputs, 195.62 worker CPU seconds. Guided pivots did not beat direct circuit repair on any task mean (ties on four, losses on five); useful pivot counts were not search advantage. Do not scale that controller unchanged as if positive evidence existed.
+
+Run 270 episodes: support sizes 8/10/12, four/five development projections, five seeds (9201..9205), nine procedures, 1.5 search CPU seconds each. Each task/seed group runs all procedures in a deterministically shuffled order on the same Modal CPU allocation. Include coordinate, random-flat, circuit, random/guided/shuffled pivots, conditional rebuild, library UCB and library random. Every witness is independently checked from its actual integer coordinates by two arithmetic backends. Count initialization and action overshoot; certification is reported separately. No model inference is in this numerical comparison.
+
+Primary diagnostic comparison is guided versus direct circuit repair, paired within task and seed. Report all task means, paired outcomes, CPU and wall time. This small selected development sample cannot establish broad transfer or a world record. If guided repair has no consistent advantage over circuit repair and the stronger alternatives, stop scaling it. A larger-neighborhood or representation result must be evaluated independently of the controller. No confirmatory set has been opened.
