@@ -24,13 +24,19 @@ class Services:
    rows=list(csv.DictReader(io.StringIO(raw.decode())))
    if rows and "estimated_cost_usd"not in rows[0]:raise Disabled("unknown live cost schema")
    observed-=sum(float(r.get("estimated_cost_usd")or 0)for r in rows)
+  from .remote_budget import reserve as reserve_shared
   self.db.execute("begin immediate");used=self.db.execute("select coalesce(sum(coalesce(actual,amount)),0)from reservations where provider=?",(p,)).fetchone()[0]
   if amount<0 or used+amount>s["campaign_cap"]or used+amount+s["old_unresolved_hold"]+s["external_pending_guard"]>observed:self.db.rollback();raise Disabled("credit guard refuses")
-  ident=uuid.uuid4().hex;self.db.execute("insert into reservations values(?,?,?,?,?)",(ident,p,amount,None,label));self.db.commit();self.trace.add("provider_reservation",id=ident,provider=p,amount=amount,label=label);return ident
+  ident=uuid.uuid4().hex
+  try:reserve_shared(ident,p,amount,s,observed,label,os.environ.get("GITHUB_RUN_ID","manual"))
+  except Exception:self.db.rollback();raise
+  self.db.execute("insert into reservations values(?,?,?,?,?)",(ident,p,amount,None,label));self.db.commit();self.trace.add("provider_reservation",id=ident,provider=p,amount=amount,label=label);return ident
  def settle(self,ident,actual):
   held=self.db.execute("select amount from reservations where id=?",(ident,)).fetchone()[0]
   if actual is None:return
   if not 0<=actual<=held:raise Disabled("unexpected cost, retain hold and stop")
+  from .remote_budget import settle as settle_shared
+  settle_shared(ident,actual)
   self.db.execute("update reservations set actual=?where id=?",(actual,ident));self.db.commit()
  def source_entry(self,x):
   text=x.get("text")or"";values=sorted(set(re.findall(r"0\.58[0-9]{4,}",text)))

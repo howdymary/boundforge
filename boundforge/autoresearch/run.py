@@ -46,7 +46,7 @@ def main(argv=None):
  if args.max_steps<1 or not 1<=args.wall_seconds<=600:raise ValueError("bounded limits required")
  args.out.mkdir(parents=True,exist_ok=True);trace=Trace(args.out);registry=json.loads(args.registry.read_text())
  if registry.get("unresolved_claims"):raise ValueError("unresolved frontier claim requires review")
- sources={q.name:filehash(q)for q in sorted(HERE.glob("*.py"))};sources.update({q:filehash(HERE/q)for q in ["Dockerfile","requirements-worker.txt"]});sources.update({q:filehash(PORT/q)for q in ["c51_bernstein.py","c51_taylor.py"]})
+ sources={q.name:filehash(q)for q in sorted(HERE.glob("*.py"))};sources.update({q:filehash(HERE/q)for q in ["Dockerfile","requirements-worker.txt"]});sources["provider-budget.json"]=filehash(HERE/"provider-budget.json");sources.update({q:filehash(PORT/q)for q in ["c51_bernstein.py","c51_taylor.py"]})
  config={"registry":registry,"source_hashes":sources,"policy":args.policy,"seed":args.seed,"max_steps":args.max_steps,"wall_seconds":args.wall_seconds,"sandbox":args.sandbox,"image":args.image,"providers":args.providers,"upstream":args.upstream};confhash=digest(config);statepath=args.out/"checkpoint.json"
  if statepath.exists():
   if not args.resume:raise ValueError("output already has checkpoint; use --resume")
@@ -72,16 +72,21 @@ def main(argv=None):
   else:trace.add("worker_isolation",scope="trusted-process testing only; not a filesystem sandbox")
   trace.save(state)
  start=time.monotonic();elapsed_start=state["elapsed_seconds"];deadline=start+args.wall_seconds-elapsed_start;providers=None
+ provider_error=None
  if args.providers:
   from .services import Services
-  providers=Services(args.out,trace)
+  try:providers=Services(args.out,trace)
+  except Exception as e:provider_error=type(e).__name__;trace.add("provider_gate_unavailable",error_type=provider_error);state["status"]="provider_gate_unavailable"
  accepted=None
  for step in range(state["step"],args.max_steps):
+  if provider_error:break
   elapsed=elapsed_start+time.monotonic()-start
   if elapsed>=args.wall_seconds-10:trace.add("stop",reason="wall allowance reached",elapsed=elapsed);break
   action,why=choose(state["history"],args.policy)
   if providers and state["history"]:
-   advisory=providers.research_and_choose(state["history"][-1],action,registry)
+   try:advisory=providers.research_and_choose(state["history"][-1],action,registry)
+   except Exception as e:
+    trace.add("provider_gate_unavailable",error_type=type(e).__name__,scope="No automatic paid retry; reservations retained");state["status"]="provider_gate_unavailable";break
    if advisory.get("frontier_review_required"):trace.add("stop",reason="new unverified frontier lead");break
    if advisory.get("action")in["float_local","precision_equioscillation","precision_restart"]:action=advisory["action"];why["provider_advisory"]=advisory
   trace.add("decision",step=step,action=action,why=why,remaining_wall_seconds=args.wall_seconds-elapsed)
