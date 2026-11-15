@@ -1,0 +1,9 @@
+# C51a structural periodic-phase pilot
+
+2026-11-15. Audit: [He–Tang](https://arxiv.org/html/2602.12217), [primary certification](https://github.com/QuanyuTang/ep513-arb-certification), [Tao C51a](https://teorth.github.io/optimizationproblems/constants/51a.html), and strongest accessible Röhrig exact certificate described in frontier audit. Incumbent certified lower endpoint 0.585078819674464320841496314106. Do not count the table's rounded 0.5850788 as frontier.
+
+Rather than reoptimizing only K and alpha, investigate a_n=K^{-n(n+1)/2} exp(i alpha n(n-1)/2+i delta[n mod p]). This is a hypothesis for a larger construction family, not an established novelty claim. Entire/transcendental follows all coefficients nonzero with nth-root modulus tending to zero.
+
+Proposed reduction to prove if promising: at r=K^m, normalize by maximal term K^{m(m-1)/2}, rotate theta by alpha*m, and use j=n-m. The limiting Laurent polynomial/series for residue m mod p has coefficient K^{-j(j+1)/2} exp(i alpha j(j-1)/2+i delta[(m+j)mod p]). Each residue occurs infinitely often. On each radial interval [K^m,K^{m+1}], log(mu/M) is concave as function of log r, so its minimum is at an endpoint. Uniform tails then give beta=1/max_residue max_theta |Laurent series|. This derivation must receive independent review and rigorous tails/interval maxima before any acceptance; He–Tang's unmodified theorem cannot simply be quoted for this extension.
+
+Bounded screen: periods 1..5, at most six starts each, K restricted to (2.5,5) as a search restriction, 120 second cap on free GitHub CPU. FFT grid 2048, terms j=-10..9, polish every detected local maximum. Require gain >1e-9 before exact certification. A missed peak can invalidate numerical proposals; no grid value is accepted as a proof. Period-1 must reproduce incumbent modulus to numerical precision. Periodic phase patterns may overlap prior scaling-identity work; search result alone establishes no originality.
