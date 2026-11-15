@@ -7,7 +7,8 @@ from exact import rate_interval,improves
 def main():
  frozen=HERE/"freeze";freeze=json.loads((frozen/"freeze.json").read_text())
  for p,h in freeze["code_hashes"].items():assert hashlib.sha256((HERE/p).read_bytes()).hexdigest()==h,("frozen source changed",p)
- shutil.copyfile(frozen/"budget.sqlite",OUT/"budget.sqlite");ledger=Ledger(OUT)
+ ledger_source=pathlib.Path(os.environ.get("C49_LEDGER_SOURCE",str(frozen/"budget.sqlite")))
+ shutil.copyfile(ledger_source,OUT/"budget.sqlite");ledger=Ledger(OUT)
  import modal
  image=modal.Image.debian_slim(python_version="3.11").apt_install("g++")
  for name in ["search.cpp","worker.py","controller.py","episode.py"]:image=image.add_local_file(str(HERE/name),"/root/c49/"+name,copy=True)
@@ -68,6 +69,6 @@ def main():
   for arm in freeze["arms"]:
    rr=[r for r in rows if r["task"]==task and r["arm"]==arm]
    summaries[task][arm]={"n":len(rr),"mean":statistics.mean(r["best_score"] for r in rr),"std":statistics.pstdev(r["best_score"] for r in rr),"min":min(r["best_score"] for r in rr),"max":max(r["best_score"] for r in rr),"cpu_seconds":sum(r["cpu_seconds"] for r in rr),"tested":sum(r["tested"] for r in rr)}
- report={"source_sha":os.environ["GITHUB_SHA"],"run_id":os.environ["GITHUB_RUN_ID"],"freeze_source_run":freeze["run_id"],"freeze_sha256":hashlib.sha256((frozen/"freeze.json").read_bytes()).hexdigest(),"episodes":len(rows),"summaries":summaries,"new_record":best is not None,"elapsed_seconds":time.monotonic()-start,"ledger":ledger.summary(),"scope":"Descriptive7-start comparison on2 C49 families and3 auxiliary instances; no universal superiority claim."}
+ report={"source_sha":os.environ["GITHUB_SHA"],"run_id":os.environ["GITHUB_RUN_ID"],"freeze_source_run":freeze["run_id"],"freeze_sha256":hashlib.sha256((frozen/"freeze.json").read_bytes()).hexdigest(),"episodes":len(rows),"summaries":summaries,"new_record":best is not None,"elapsed_seconds":time.monotonic()-start,"ledger":ledger.summary(),"scope":freeze.get("scope","No universal superiority claim.")}
  (OUT/"report.json").write_text(json.dumps(report,indent=2));print("C49_EVAL_FINAL "+json.dumps(report),flush=True)
 if __name__=="__main__":main()

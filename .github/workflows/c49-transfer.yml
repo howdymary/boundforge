@@ -1,0 +1,54 @@
+name: C49 harder transfer diagnostic
+on:
+  workflow_dispatch:
+    inputs:
+      production_run:
+        description: Completed production accounting ledger
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Wait for serialized accounting ledger
+        env:
+          RUN: ${{ inputs.production_run }}
+        run: gh run watch "$RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 10
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.production_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-production
+          path: boundforge/c49/production
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43679935507'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-freeze
+          path: boundforge/c49/freeze
+      - run: python -m pip install modal
+      - name: Run unchanged controllers on harder auxiliary tasks
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: python -u boundforge/c49/transfer_followup.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-transfer
+          path: boundforge/c49/transfer_followup/
+          retention-days: 30
