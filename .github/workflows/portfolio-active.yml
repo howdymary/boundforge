@@ -1,0 +1,53 @@
+name: BoundForge direct active-knot intervention
+on:
+  workflow_dispatch:
+    inputs:
+      previous_run:
+        description: Completed C1a C1d run with serialized credit accounting
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: boundforge-record-provider-ledger
+  cancel-in-progress: false
+jobs:
+  next:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Wait for previous ledger
+        env:
+          RUN: ${{ inputs.previous_run }}
+        run: gh run watch "$RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 10
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.previous_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: record-c1ad-pilot
+          path: boundforge/portfolio/c1ad
+      - run: python -m pip install numpy==2.3.5 scipy==1.16.3 modal==1.6.4 pytest
+      - name: Validate both objective variants and independent exact arithmetic
+        run: python -m pytest -q -p no:cacheprovider boundforge/portfolio/test_c1b.py boundforge/portfolio/test_c1d.py boundforge/portfolio/test_active.py
+      - name: Next-target decision and bounded search
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: python -u boundforge/portfolio/active_campaign.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-active-pilot
+          path: boundforge/portfolio/active/
+          retention-days: 30
