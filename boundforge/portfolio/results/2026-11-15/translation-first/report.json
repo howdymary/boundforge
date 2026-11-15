@@ -1,0 +1,117 @@
+{
+  "source_sha": "19546b9cbb9bfe5e25dec52c4de7e83b3662bcba",
+  "run_id": "43684842952",
+  "records": {
+    "baseline": {
+      "prefix": {
+        "valid": true,
+        "score": "16986756813148084294228435632139296838796245/44601490397061246283071436545296723011960832",
+        "n": 65536,
+        "translation_cells": "0",
+        "all_real_shifts": true,
+        "method": "packed-height convolution and exact prefix/knot union",
+        "positive_and_negative_maxima": [
+          {
+            "scaled_max": "71247622047784075261480615596347983218885479366656",
+            "arg": {
+              "sign": 1,
+              "knot_mesh": "autocorrelation",
+              "index": 17385,
+              "lag_cells": "17385"
+            }
+          },
+          {
+            "scaled_max": "71247622048414262547619504485624381288150445588480",
+            "arg": {
+              "sign": -1,
+              "knot_mesh": "autocorrelation",
+              "index": 9558,
+              "lag_cells": "9558"
+            }
+          }
+        ],
+        "scaled_denominator": "374144419156711147060143317175368453031918731001856",
+        "scope": "Continuum upper bound for the rationally shifted function; no global optimality claim."
+      },
+      "jump_sweep": {
+        "valid": true,
+        "score": "16986756813148084294228435632139296838796245/44601490397061246283071436545296723011960832",
+        "n": 65536,
+        "translation_cells": "0",
+        "event_count": 112023,
+        "argmax_lag_cells": "-9558",
+        "all_real_shifts": true,
+        "final_value": "0",
+        "final_slope": "0",
+        "algorithm": "six-prime exact signed jump-correlation and event integration"
+      },
+      "sha256": "e98b131ef61b9488e4fc96aec7c644566dd3c3bbb7ff2fbaef584423b47de33e"
+    },
+    "candidate": {
+      "prefix": {
+        "valid": true,
+        "score": "12959866953327696827811499909571599251137911410086934761/34028236692093846346337460743176821145600000000000000000",
+        "n": 65536,
+        "translation_cells": "-8684952757/100000000000000000",
+        "all_real_shifts": true,
+        "method": "packed-height convolution and exact prefix/knot union",
+        "positive_and_negative_maxima": [
+          {
+            "scaled_max": "7124762204806834861953898586932532731385996376307941705197364969472",
+            "arg": {
+              "sign": 1,
+              "knot_mesh": "autocorrelation",
+              "index": 15521,
+              "lag_cells": "15521"
+            }
+          },
+          {
+            "scaled_max": "7124762204806862879546026926632572947719093797384784552368713760768",
+            "arg": {
+              "sign": -1,
+              "knot_mesh": "autocorrelation",
+              "index": 9558,
+              "lag_cells": "9558"
+            }
+          }
+        ],
+        "scaled_denominator": "37414441915671114706014331717536845303191873100185600000000000000000",
+        "scope": "Continuum upper bound for the rationally shifted function; no global optimality claim."
+      },
+      "jump_sweep": {
+        "valid": true,
+        "score": "12959866953327696827811499909571599251137911410086934761/34028236692093846346337460743176821145600000000000000000",
+        "n": 65536,
+        "translation_cells": "-8684952757/100000000000000000",
+        "event_count": 175845,
+        "argmax_lag_cells": "-9558",
+        "all_real_shifts": true,
+        "final_value": "0",
+        "final_slope": "0",
+        "algorithm": "six-prime exact signed jump-correlation and event integration"
+      },
+      "sha256": "b747d085e9a96c265a69ed2d17ec4f6cd2dd4812a0a4d05191ffea02d97e689e"
+    }
+  },
+  "strict_improvement": true,
+  "project_record_candidate": true,
+  "gain_exact": "54531390920653827755950089/29514790517935282585600000000000000000",
+  "gain_display": 1.8475953907759124e-12,
+  "old_display": 0.38085625977797655,
+  "new_display": 0.38085625977612897,
+  "source": {
+    "url": "https://einsteinarena.com/api/solutions/best?problem_id=1&agent_name=Blob&limit=1",
+    "agent": "Blob",
+    "entry_id": 2643,
+    "reported_float_score": "0.38085625977797644",
+    "raw_sha256": "cc13e13958c61f578d170c4595ccfce405a6482022be2eff8a7f02e1314b81d9",
+    "mass_repair": "-360706299/75557863725914323419136"
+  },
+  "verifier_source_sha256": {
+    "c1b_translate_exact.py": "b3387b6cad613e95bdd4c9b6f260fdbea7492f56afc435edd19e6ef6e212b311",
+    "c1b_translate_sweep.py": "a8056abdb46146b5362295b7e7892334219921a704590fd93dbb66ded98dd074",
+    "ntt.cpp": "3bedd98550636fa5a95f1f516be9c5eaceeb7151d96707af7ec71451f886dcae"
+  },
+  "elapsed_seconds": 11.744892502999996,
+  "scope": "Small real continuum construction improvement over the strongest publicly retrieved witness, subject to final frontier audit. Almost all bound strength belongs to Blob. Does not meet the Arena1e-7 submission threshold; no method novelty or publication significance claimed."
+}

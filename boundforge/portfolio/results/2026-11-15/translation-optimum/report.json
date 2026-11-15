@@ -1,0 +1,67 @@
+{
+  "run_id": "43685498906",
+  "source_sha": "322d35b475c4d4dba9adb52569cb1f41b3e68009",
+  "candidate_sha256": "acb2516ef51af094675e9a3ea62310f2640cf7d7bcbc48ded62ecf7a4bdc4cfa",
+  "prefix_checker": {
+    "valid": true,
+    "score": "32457519678595757287118497866478302090056900682804010751305/85222492332605110688398788646530073557042534396050618187776",
+    "n": 65536,
+    "translation_cells": "-200685758454336933773087522176045/2309960283290992633282707803200257261568",
+    "all_real_shifts": true,
+    "method": "packed-height convolution and exact prefix/knot union",
+    "positive_and_negative_maxima": [
+      {
+        "scaled_max": "164579177209965916691134049444933957034375491580918553275745548778178941208267837900062720",
+        "arg": {
+          "sign": 1,
+          "knot_mesh": "autocorrelation",
+          "index": 15521,
+          "lag_cells": "15521"
+        }
+      },
+      {
+        "scaled_max": "164579177209965916691134049444933957034375491580918553275745548778178941208267837900062720",
+        "arg": {
+          "sign": -1,
+          "knot_mesh": "autocorrelation",
+          "index": 9558,
+          "lag_cells": "9558"
+        }
+      }
+    ],
+    "scaled_denominator": "864258748466980372370743838085884243519353749014168039428814185868519170649525307685470208",
+    "scope": "Continuum upper bound for the rationally shifted function; no global optimality claim."
+  },
+  "jump_checker": {
+    "valid": true,
+    "score": "32457519678595757287118497866478302090056900682804010751305/85222492332605110688398788646530073557042534396050618187776",
+    "n": 65536,
+    "translation_cells": "-200685758454336933773087522176045/2309960283290992633282707803200257261568",
+    "event_count": 175845,
+    "argmax_lag_cells": "-9558",
+    "all_real_shifts": true,
+    "final_value": "0",
+    "final_slope": "0",
+    "algorithm": "six-prime exact signed jump-correlation and event integration"
+  },
+  "gain_exact": "1260072893046061300995943571388000697172452698465/681779938660840885507190309172240588456340275168404945502208",
+  "gain_display": 1.8482105758657396e-12,
+  "upper_bound_24dp": "0.380856259776128335321500",
+  "baseline_upper_24dp": "0.380856259777976545897365",
+  "iterations": [
+    {
+      "iteration": 0,
+      "positive_knot": 15521,
+      "negative_knot": 9558,
+      "constant_positive": "71247622047572525468191445266952185201537371340800",
+      "constant_negative": "71247622048414262547619504485624381288150445588480",
+      "slope_positive": "-5708990770823839524233143877797980545530986496",
+      "slope_negative": "3979684885224704041515050591996071287692722176",
+      "translation": "-200685758454336933773087522176045/2309960283290992633282707803200257261568",
+      "all_knots_positive_equals_negative": true
+    }
+  ],
+  "optimal_within_translation_family": true,
+  "optimality_argument": "For positive lag x, overlap=prefix(n-x-t)-corr(x) is nonincreasing in translation t. For negative lag, overlap=mass-prefix(x-t)-corr(x) is nondecreasing. At this exact t, the maxima over all real positive and negative lags are equal. Every smaller t has positive-lag maximum at least this value; every larger t has negative-lag maximum at least this value. Thus this t globally minimizes the maximum over all admissible translations of this exact fixed height profile.",
+  "scope": "A standard monotonicity argument gives a witness-specific restricted-family optimum, not global optimality among all functions or a new general research method. Current world-record status still depends on the frontier audit."
+}
