@@ -2,6 +2,8 @@
 
 An autonomous research loop with sourced frontiers, isolated experiments, scoped memory and mathematical acceptance outside the search worker.
 
+**Latest research cycle (2026-11-15):** [failure diagnosis, stronger controls and method assessment](boundforge/methods_v4/RESEARCH_STATUS.md). Running the existing conventional solver produced a further tiny certified C3c refinement; the new representation experiments did not establish a new general method or performance advantage. [Exact witness and checks](boundforge/methods_v4/README.md) · [decision log](boundforge/methods_v4/decisions.jsonl). Earlier reports below remain historical.
+
 **C51a > 0.585078819674513593.** Three checker implementations certify this very small He–Tang-family parameter refinement, including the whole circle and infinite tail. It beats an upper bound on the strongest external prior function located by more than 1.58×10^-17. This is not a substantial mathematical advance or a new general algorithm.
 
 The Codex research agent found the initial refinement during development. The portable runner was built afterward; its recorded executions are autonomous historical replay/continuation, not a blind held-out discovery. It does choose, run, inspect and change experiments without human experiment-by-experiment control. A strong fixed high-precision method is faster, so no controller-advantage claim is made.
