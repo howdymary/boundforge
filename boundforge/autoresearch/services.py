@@ -62,12 +62,17 @@ class Services:
    payload={"diagnosis":last["diagnosis"],"evidence":last["evidence"],"source_entries":entries,"default":default,"operators":["float_local","precision_equioscillation","precision_restart"]}
    # The model is a separate bounded provider process. It cannot edit code.
    p=subprocess.run([sys.executable,"-I",str(HERE/"tinker_choice.py")],input=json.dumps(payload),capture_output=True,text=True,timeout=60,env={k:v for k,v in os.environ.items()if k in ["PATH","TINKER_API_KEY","HF_HOME"]})
-   if p.returncode:raise Disabled("inference failed; unresolved hold retained")
-   r=json.loads(p.stdout);estimate=r["input_tokens"]*1.65/1e6+r["output_tokens"]*7.5/1e6
-   if estimate>.05:raise Disabled("inference exceeds reservation")
-   # No itemized receipt: the reservation stays unresolved, estimate is separate.
-   eid=self.trace.add("tinker_operator_proposal",model=MODEL,result=r,estimated_usd=estimate,unresolved_hold=.05,source_event=source_id)
-   if r["action"]in payload["operators"]:advisory.update(action=r["action"],model_event=eid)
+   if p.returncode:
+    detail=p.stderr[-2000:]
+    for key in ["TINKER_API_KEY","EXA_API_KEY","GH_TOKEN"]:
+     if os.environ.get(key):detail=detail.replace(os.environ[key],"[REDACTED]")
+    detail=re.sub(r"(?:tml_|sk-|ghp_|fc-)[A-Za-z0-9_-]{8,}","[REDACTED]",detail)
+    self.trace.add("tinker_unavailable",error="provider process failed",sanitized_detail=detail,unresolved_hold=.05,fallback=default)
+   else:
+    r=json.loads(p.stdout);estimate=r["input_tokens"]*1.65/1e6+r["output_tokens"]*7.5/1e6
+    if estimate>.05:raise Disabled("inference exceeds reservation")
+    eid=self.trace.add("tinker_operator_proposal",model=MODEL,result=r,estimated_usd=estimate,unresolved_hold=.05,source_event=source_id)
+    if r["action"]in payload["operators"]:advisory.update(action=r["action"],model_event=eid)
   self.cache=advisory;return advisory
  def summary(self):
   return {p:{"reserved_or_actual":self.db.execute("select coalesce(sum(coalesce(actual,amount)),0)from reservations where provider=?",(p,)).fetchone()[0],"campaign_cap":s["campaign_cap"],"old_hold":s["old_unresolved_hold"],"enabled":s["enabled"]}for p,s in self.spec["providers"].items()}
