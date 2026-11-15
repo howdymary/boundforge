@@ -10,6 +10,7 @@ def main():
  for entry in a.artifact:
   ident,folder=entry.split(":");assert ident.isdigit()and re.fullmatch("[a-z0-9-]+",folder)
   meta=api("actions/artifacts/"+ident);assert meta["size_in_bytes"]<90000000
+  assert meta["name"]in {"methods-v3-pencil","methods-v3-pencil-verified","methods-v3-production-events","methods-v3-reasoned-alternative"},"Only owned experiment artifacts; source excerpts require separate redaction"
   raw=subprocess.check_output(["gh","api",f"repos/{REPO}/actions/artifacts/{ident}/zip"]);z=zipfile.ZipFile(io.BytesIO(raw));assert sum(i.file_size for i in z.infolist())<1500000000
   members={}
   for info in z.infolist():
