@@ -29,7 +29,9 @@ def float_local(req):
   return -b
  try:r=minimize(fun,z0,method="Nelder-Mead",options={"maxiter":400,"xatol":1e-12,"fatol":1e-16});status=str(r.message)
  except TimeoutError:status="bounded deadline"
- return {"status":"proposal","operator":"float_local","baseline_beta":repr(baseline),"best_beta":repr(best[0]),"gain":repr(best[0]-baseline),"ulp":repr(math.ulp(baseline)),"parameters":{"K":repr(best[1]),"alpha":repr(best[2])},"peaks":[{"theta":t,"modulus":v}for t,v in base],"calls":calls,"termination":status}
+ candidate={"name":"double-precision proposal, not certified","K":repr(best[1]),"alpha":repr(best[2]),"lower_bound":format(best[0],".18f"),"N":12}
+ inside=[t for t,v in base if 1e-5<t<math.pi/2-1e-5]
+ return {"status":"proposal","candidate":candidate,"baseline_test_theta":repr(inside[0]if inside else 0.),"operator":"float_local","baseline_beta":repr(baseline),"best_beta":repr(best[0]),"gain":repr(best[0]-baseline),"ulp":repr(math.ulp(baseline)),"parameters":{"K":repr(best[1]),"alpha":repr(best[2])},"peaks":[{"theta":t,"modulus":v}for t,v in base],"calls":calls,"termination":status}
 def square(K,a,t,N):
  P=mp.mpc(0);dk=mp.mpc(0);da=mp.mpc(0);dt=mp.mpc(0)
  for n in range(N+1):

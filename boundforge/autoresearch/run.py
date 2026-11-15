@@ -105,7 +105,7 @@ def main(argv=None):
     trace.add("certified_improvement",step=step,result=accepted,comparison_scope=registry["reference_scope"],fresh_discovery=False)
     state["status"]="certified_historical_replay"
    except Exception as e:
-    accepted=None;label="CERTIFICATION_FAILURE";evidence={"type":type(e).__name__,"detail":str(e)[:500],"scope":"specific proposal/cover, no mathematical impossibility conclusion"};event=trace.add("certification_refused",step=step,evidence=evidence)
+    accepted=None;screen_label=label;screen_evidence=evidence;label="CERTIFICATION_FAILURE";evidence={"screen_diagnosis":screen_label,"screen_evidence":screen_evidence,"type":type(e).__name__,"detail":str(e)[:500],"scope":"specific proposal/cover, no mathematical impossibility conclusion"};event=trace.add("certification_refused",step=step,evidence=evidence)
   state["history"].append({"step":step,"operator":action,"diagnosis":label,"evidence":evidence,"event_id":event,"request_sha256":digest(request),"target":"C51a","context_sha256":digest(registry["incumbent"])})
   state["step"]=step+1;state["elapsed_seconds"]=elapsed_start+time.monotonic()-start;trace.save(state)
   if accepted:break
