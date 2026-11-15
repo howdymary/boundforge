@@ -1,6 +1,6 @@
 # C49a campaign assessment
 
-Research date: November14,2026 America/Los_Angeles; runs and collection November15 UTC.
+Research date: November 14, 2026, America/Los_Angeles; runs and collection November 15 UTC.
 
 **No new C49a lower bound and no demonstrated new general research method.** The strongest retained result is an independent reproduction of a prior open claim, not a BoundForge record. The hypotheses were tested rather than declared successful.
 
@@ -8,17 +8,17 @@ Research date: November14,2026 America/Los_Angeles; runs and collection November
 
 The reproduced incumbent is [PR370](https://github.com/teorth/optimizationproblems/pull/370), pinned to [Pinho's certificate packet](https://github.com/rpinho/math-certificates/tree/a50021b04687719f4a2ea27609029982c980573e/c49/round1). Its rate is
 (64728+sqrt(3019700660))^(1/26) = 1.567864384572806979362033445047060687289228710864066381805835...
-on a 252303-member Sperner sunflower-free family on28 points with ports0,1. Port counts are [33980,64728,64728,88867]. The weaker merged Koshta table value is 1.56785990242458988585...; beating that alone would not establish a new record.
+on a 252,303-member Sperner sunflower-free family on 28 points with ports 0 and 1. Port counts are [33980,64728,64728,88867]. The weaker merged Koshta table value is 1.56785990242458988585...; beating that alone would not establish a new record.
 
-StageA replayed both primary checkers and our BDD implementation. Final certification freshly executes our own Cartesian-box and BDD implementations, agrees on all counts, checks every required finite property and isolates the rate using exact rationals. These independently implemented algorithms were written after reading primary sources, not claimed clean-room. See [certification](results/certification.json), [exact baseline](results/baseline.json), [frontier audit](results/stage_a/frontier.json), [refresh](results/frontier-refresh.json), [source hashes](results/stage_a/sources.json), and [proof/specification](RESEARCH_DESIGN.md). The original1997 publisher typeset proof was inaccessible; operative complete gluing proofs in Koshta/Pinho were inspected. Prior authors retain credit.
+StageA replayed both primary checkers and our BDD implementation. Final certification freshly executes our own Cartesian-box and BDD implementations, agrees on all counts, checks every required finite property and isolates the rate using exact rationals. These independently implemented algorithms were written after reading primary sources, not claimed clean-room. See [certification](results/certification.json), [exact baseline](results/baseline.json), [frontier audit](results/stage_a/frontier.json), [refresh](results/frontier-refresh.json), [source hashes](results/stage_a/sources.json), and [proof/specification](RESEARCH_DESIGN.md). The original 1997 publisher typeset proof was inaccessible; operative complete gluing proofs in Koshta/Pinho were inspected. Prior authors retain credit.
 
 An accessible witness is not proof no newer unpublished claim exists. The frontier audit distinguishes merged entry, open claim, and independently reproduced witness. No external leaderboard was updated.
 
 ## Experiment outcomes
 
-The development pilot used24 saved-state/seed comparisons: a common250ms probe followed by six paired250ms interventions,42CPU seconds total. F10 remained flat. Uniform8 favored removal6 and conflict-guided repair. Two families and their deletions do not provide a broad learning distribution.
+The development pilot used 24 saved-state/seed comparisons: a common 250 ms probe followed by six paired 250 ms interventions, 42 CPU seconds total. F10 remained flat. Uniform8 favored removal of six sets and conflict-guided repair. Two families and their deletions do not provide a broad learning distribution.
 
-The frozen primary study used245 episodes, seven arms, five held-out tasks and seven paired starts per task. Each arm had the same six operators and6.25CPU seconds per episode, including warmup. Tinker was disabled at freeze by its failed billing probe; the full arm therefore used the frozen **numerical fallback**, not a model-written policy. Archived trace wording saying "model rule" is a labeling limitation.
+The frozen primary study used 245 episodes, seven arms, five held-out tasks and seven paired starts per task. Each arm had the same six operators and 6.25 CPU seconds per episode, including warmup. Tinker was disabled at freeze by its failed billing probe; the full arm therefore used the frozen **numerical fallback**, not a model-written policy. Archived trace wording saying "model rule" is a labeling limitation.
 
 | Task | Fixed | Scheduled | Global UCB | No memory | Full | Numerical | Shuffled |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -38,17 +38,19 @@ A separately registered **post-hoc** harder auxiliary follow-up kept controller/
 |MIS128-b|21|21|21|21|21|21|21|
 |cap5|45|44.28571429|45|45|43.28571429|43.71428571|44.28571429|
 
+On cap5, the full arm averaged 43.2857 members versus 45 for fixed search, global UCB and the no-memory arm. Both larger graph tasks again tied. This follow-up gives no support for scaling the full policy.
+
 Raw episodes, exact checks, per-phase resource summaries and paired differences are in [primary results](results/evaluation/report.json) and [follow-up results](results/transfer/report.json). Paired bootstrap ranges resample starts only; no problem-level confidence or multiplicity-adjusted significance is claimed. Different task objectives are never pooled into one score.
 
-Four later Tinker proposals were tested only on development data: two failed the strict integer-action schema and two were valid. Their expected rewards (0.0077916315 and0.0075969703) were below the numerical rule (0.0083885031). No fine-tuning was justified or run. The model study neither repairs nor changes frozen held-out results.
+Four later Tinker proposals were tested only on development data: two failed the strict integer-action schema and two were valid. Their expected rewards (0.0077916315 and 0.0075969703) were below the numerical rule (0.0083885031). No fine-tuning was justified or run. The model study neither repairs nor changes frozen held-out results.
 
-Production switched from stalled greedy repair to classical CP-SAT whole-family search, with exact containment constraints, valid separated sunflower clauses and sufficient rational Collatz inequalities. Six bounded configurations covered n10/n11 and different Perron-vector ratios. 0 valid candidates were found; none improved the incumbent. Solver UNKNOWN/timeouts are unsuccessful finite-budget attempts, not impossibility proofs. Any infeasible status has only its stated ratio restriction and no independently checked UNSAT certificate. Details: [production](results/production/report.json).
+Production switched from stalled greedy repair to classical CP-SAT whole-family search, with exact containment constraints, valid separated sunflower clauses and sufficient rational Collatz inequalities. Six bounded configurations covered n=10/n=11 and different Perron-vector ratios. No valid above-threshold candidates were found; none improved the incumbent. Solver UNKNOWN/timeouts are unsuccessful finite-budget attempts, not impossibility proofs. Any infeasible status has only its stated ratio restriction and no independently checked UNSAT certificate. Details: [production](results/production/report.json).
 
-A separate free periodic-gluing search enumerated956 ordered port choices, deduplicated26 matrices, tested all matrix pairs and a width256 beam through period8. Exact comparison of the leading screened candidates found no record. The common-positive-vector hypothesis failed754 inequalities: it proves no exclusion and is retained as a failed diagnostic. Neither bounded beam search nor failed sampling rules out other compositions.
+A separate free periodic-gluing search enumerated 956 ordered port choices, deduplicated 26 matrices, tested all matrix pairs and a width-256 beam through period 8. Exact comparison of the leading screened candidates found no record. The common-positive-vector hypothesis failed 754 matrix-wise tests: it proves no exclusion and is retained as a failed diagnostic. Neither bounded beam search nor failed sampling rules out other compositions.
 
 ## Diagnostics, memory and limits
 
-Measured rejection counts, exact state hashes, action choices, budgets, conflict examples and observed objectives support inspectable decision chains. [Memory examples](results/memory-decision-chains.json) link aggregate archive reads to changed actions and measured consequences. They do not establish a causal memory benefit. Development paired probes are the actual same-state intervention tests. Hosted past.dev source retrieval was asymmetric; a later role retrieved a controller record. No hosted-memory performance advantage is claimed.
+Measured rejection counts, exact state hashes, action choices, budgets, conflict examples and observed objectives support inspectable decision chains. [Memory examples](results/memory-decision-chains.json) link aggregate archive reads to changed actions and measured consequences. They do not establish a causal memory benefit. Development paired probes are the actual same-state intervention tests. A separately labeled [post-hoc leave-state-out diagnostic check](results/posthoc-diagnostic.json) had mean normalized reward 0.007597 versus 0.007198 for unconditional action choice. All of that small difference came from one of 24 rows; only three labels appeared (19 pair, 3 repeat, 2 mismatch). This is not robust evidence that diagnoses predict intervention efficacy, and it did not alter the frozen policies. Hosted past.dev source retrieval was asymmetric; a later role retrieved a controller record. No hosted-memory performance advantage is claimed.
 
 Limitations: small development distribution; weak differentiation on ceiling tasks; coarse heuristic diagnosis labels; mismatch labels in episode logs lack their raw counter (pilot records retain it); no complete isomorphism reduction; no literal neighborhood-exhaustion certificate; per-family port counts for all intermediate states are not retained; fixed-controller selection is development-best, not globally strongest possible search. CPU equalization does not equal end-to-end inference cost. Final task adapters and several action heuristics are human designed.
 
@@ -61,7 +63,9 @@ The full controller is contextual UCB with a tiny ranking bias and aggregate rew
 - tinker: 0.8 USD campaign actual-or-reserved; 0.8 unresolved; historical hold 2.4 separate.
 - past: 12.0 credits campaign actual-or-reserved; 0 unresolved; historical hold 78 separate.
 
-These are conservative ledger amounts, **not all final charges**. Exa receipts total0.063USD; Tinker token estimates total0.0185256USD within0.80USD held for four calls; Modal actual metered invoice is unresolved. past usage entries are reported in credits with API estimation caveats. Old holds and external-project guards remain separate. See [provider records](results/provider-usage.json), [resource summary](results/resource-summary.json), and the initial [billing snapshot](campaign-budget.json). No GPUs or training were needed.
+These are conservative ledger amounts, **not all final charges**. Exa receipts total 0.063 USD; Tinker token estimates total 0.0185256 USD within 0.80 USD held for four calls; Modal actual metered invoice is unresolved. past usage entries are reported in credits with API estimation caveats. Old holds and external-project guards remain separate. See [provider records](results/provider-usage.json), [resource summary](results/resource-summary.json), and the initial [billing snapshot](campaign-budget.json). No GPUs or training were needed.
+
+Exa used a recent manual dashboard balance snapshot and conservative guards rather than a live balance API for every query. This is a limitation of per-call freshness, and future calls need another dashboard check. Modal, Tinker and past checked available billing/usage interfaces at reservation time; provider-specific accounting assumptions and unresolved holds remain explicit.
 
 The paid ledger was serialized across pilot, freeze, held-out evaluation, model component, production and follow-up. Unknown charges remain held; there were no purchases, auto-replenishment changes or upgrades. Final independent certification used GitHub Actions, outside paid provider experiments. No unsupported large batch is launched merely because credits remain.
 
