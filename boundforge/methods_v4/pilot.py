@@ -1,7 +1,7 @@
 """Small discriminating tests; formal-order advantage is not assumed."""
 import argparse,json,math,pathlib,random,time
 from fractions import Fraction as Q
-from .jets import compile,json_result,proposed_bits
+from .jets import compile,json_result,proposed_bits,check_polynomials
 from .finite import certify
 MAPS=[[0,0,1,1],[0,1,0,1],[0,1,2,3]]
 def cases():
@@ -26,8 +26,16 @@ def evaluate(case):
  # Strong arbitrary-precision finite baseline uses the same safe domain, no fixed64-bit handicap.
  for precision in [128,256,512,1024,2048,4096]:
   e=Q(1,2**b);v=certify(case["polys"],case["maps"],case["margins"],e,precision);grid.append({"precision":precision,"signs":v["signs"],"positive":v["strict_all_margins"]})
-  if v["strict_all_margins"]or all(x==-1 for x in v["signs"]):break
+  if all(x!=0 for x in v["signs"]):break
  gridcpu=time.process_time()-gridcpu
+ # Blind finite control knows only probability-validity radius, never the jet-selected epsilon.
+ blind=[];blindstart=time.process_time();radius=check_polynomials(case["polys"]);safe=max(8,radius.denominator.bit_length()-radius.numerator.bit_length()+3)
+ for bb in [safe+16*k for k in range(16)]:
+  for precision in [128,256,512,1024,2048,4096]:
+   v=certify(case["polys"],case["maps"],case["margins"],Q(1,2**bb),precision);blind.append({"epsilon_bits":bb,"precision":precision,"signs":v["signs"],"positive":v["strict_all_margins"]})
+   if all(x!=0 for x in v["signs"]):break
+  if v["strict_all_margins"]:break
+ blindcpu=time.process_time()-blindstart
  start=time.process_time()
  if positive:
   for extra in [0,16,64]:
@@ -35,11 +43,11 @@ def evaluate(case):
    if bits>8192:break
    check=certify(case["polys"],case["maps"],case["margins"],ee,bits);checks.append(check)
    if check["strict_all_margins"]:break
- return encode({"case":case,"jet":prediction,"compile_cpu":compilecpu,"predicted_all_positive":positive,"jet_verification_cpu":time.process_time()-start,"finite_checks":checks,"adaptive_finite_baseline":grid,"adaptive_finite_cpu":gridcpu,"known_limit":"Baseline is given the same candidate direction and safe radius. Candidate search and synthesis are not evaluated yet. Global epsilon reparameterizations are not independent transfer cases."})
+ return encode({"case":case,"jet":prediction,"compile_cpu":compilecpu,"predicted_all_positive":positive,"jet_verification_cpu":time.process_time()-start,"finite_checks":checks,"oracle_epsilon_finite_baseline":grid,"oracle_epsilon_finite_cpu":gridcpu,"blind_finite":blind,"blind_finite_cpu":blindcpu,"known_limit":"Baseline is given the same candidate direction and safe radius. Candidate search and synthesis are not evaluated yet. Global epsilon reparameterizations are not independent transfer cases."})
 def main():
  p=argparse.ArgumentParser();p.add_argument("--out",required=True);a=p.parse_args();out=pathlib.Path(a.out);out.mkdir(parents=True,exist_ok=True);rows=[]
  for case in cases():
   r=evaluate(case);rows.append(r);(out/"cases.json").write_text(json.dumps(rows,indent=2))
- report={"stage":"development","cases":len(rows),"predicted_positive":sum(r["predicted_all_positive"]for r in rows),"independently_finite_verified_positive":sum(any(c["strict_all_margins"]for c in r["finite_checks"])for r in rows),"compile_cpu":sum(r["compile_cpu"]for r in rows),"jet_total_cpu":sum(r["compile_cpu"]+r["jet_verification_cpu"]for r in rows),"adaptive_finite_cpu":sum(r["adaptive_finite_cpu"]for r in rows),"cases_summary":[{"name":r["case"]["name"],"orders":[x["leading"].get("order")for x in r["jet"]["margins"]],"signs":[x["leading"]["sign"]for x in r["jet"]["margins"]],"positive":r["predicted_all_positive"]}for r in rows],"new_method_claim":False,"record_claim":False}
+ report={"stage":"development","cases":len(rows),"predicted_positive":sum(r["predicted_all_positive"]for r in rows),"independently_finite_verified_positive":sum(any(c["strict_all_margins"]for c in r["finite_checks"])for r in rows),"compile_cpu":sum(r["compile_cpu"]for r in rows),"jet_total_cpu":sum(r["compile_cpu"]+r["jet_verification_cpu"]for r in rows),"oracle_epsilon_finite_cpu":sum(r["oracle_epsilon_finite_cpu"]for r in rows),"blind_finite_cpu":sum(r["blind_finite_cpu"]for r in rows),"cases_summary":[{"name":r["case"]["name"],"orders":[x["leading"].get("order")for x in r["jet"]["margins"]],"signs":[x["leading"]["sign"]for x in r["jet"]["margins"]],"positive":r["predicted_all_positive"]}for r in rows],"new_method_claim":False,"record_claim":False}
  (out/"report.json").write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 if __name__=="__main__":main()
