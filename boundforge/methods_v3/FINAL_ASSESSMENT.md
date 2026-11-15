@@ -72,7 +72,7 @@ No fresh credit-balance, usage-dashboard or credit-availability checks were made
 - Modal: CPU-only isolated bounded search, no GPUs allocated. Production and evaluation are separate. Reservations are not actual spending.
 - past.dev: one source ingestion and a recall completed. Recall functionality was established, not memory advantage or multi-agent sponsor compliance. An extracted standing prohibition was narrowed back to the original scoped negative finding rather than treated as an instruction.
 
-See[provider ledger](provider-ledger.json) and the final own-use summary. Unknown charges and reservations are preserved, not silently cleared.
+See[provider ledger](provider-ledger.json) and the[final own-use summary](USAGE_FINAL.json). Unknown charges and reservations are preserved, not silently cleared.
 
 ## Direct answers to the requested contribution questions
 
