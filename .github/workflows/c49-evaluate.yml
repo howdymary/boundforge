@@ -1,0 +1,44 @@
+name: C49 frozen controller evaluation
+on:
+  workflow_dispatch:
+    inputs:
+      freeze_run:
+        description: Successful frozen-policy run in this repository
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.freeze_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-freeze
+          path: boundforge/c49/freeze
+      - run: python -m pip install modal
+      - name: Open held-out outcomes using frozen procedures
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: python -u boundforge/c49/evaluate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-evaluation
+          path: boundforge/c49/evaluation/
+          retention-days: 30

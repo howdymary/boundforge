@@ -7,6 +7,9 @@ def http(url,key,payload=None,header="Authorization"):
 class Ledger:
  def __init__(self,out):
   self.snapshot=json.loads((HERE/"campaign-budget.json").read_text());self.db=sqlite3.connect(str(out/"budget.sqlite"));self.db.execute("create table if not exists reservations(id text,provider text,amount real,actual real,label text)")
+  for row in [("stage-a-exa","exa",.042,.042,"actual Exa review receipts"),("failed-image","modal",2,None,"unresolved first image-build allowance")]:
+   if not self.db.execute("select 1 from reservations where id=?",(row[0],)).fetchone():self.db.execute("insert into reservations values(?,?,?,?,?)",row)
+  self.db.commit()
  def reserve(self,p,amount,label):
   s=self.snapshot["providers"][p];observed=s["initial_cap"]
   if p=="modal":

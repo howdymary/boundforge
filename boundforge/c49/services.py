@@ -1,5 +1,5 @@
 """Research-source and cross-role memory calls with explicit reservation receipts."""
-import hashlib,json,os,time
+import hashlib,json,os,time,datetime as dt
 from budget import http
 def exa(ledger,query,log):
  rid=ledger.reserve("exa",.1,"research loop search")
@@ -10,7 +10,7 @@ def exa(ledger,query,log):
  return sources
 def write(ledger,role,content,log):
  sid="boundforge-c49-"+os.environ["GITHUB_RUN_ID"]+"-"+role
- item={"id":sid,"identity":"boundforge-c49-"+role,"audience":"project","label":"BoundForge C49 measured development findings","content":content,"metadata":{"project":"boundforge-c49"}}
+ item={"id":sid,"identity":"boundforge-c49-"+role,"audience":"project","label":"BoundForge C49 measured development findings","content":content,"timestamp":dt.datetime.now(dt.timezone.utc).isoformat(),"metadata":{"project":"boundforge-c49"}}
  estimate=http("https://api.past.dev/api/v1/ingest/estimate",os.environ["PAST_API_KEY"],{"items":[item]})
  if not estimate.get("fits") or not isinstance(estimate.get("credits"),(int,float)):raise RuntimeError("unverified memory estimate")
  token=ledger.reserve("past",estimate["credits"],"memory ingest")
