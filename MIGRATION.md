@@ -14,7 +14,7 @@ Research/publishing workflows are manual. Migration does not spend provider cred
 
 The five required GitHub secrets are migrated using GitHub's destination repository public key and sealed-box encryption inside an old-repository Actions job. Only destination-specific encrypted envelopes leave that job; plaintext keys are never printed or committed. Old secrets remain because the independent forecasting project uses them.
 
-After standalone CI passes, the old default branch's boundforge/ directory and BoundForge-only workflows are removed in a normal commit. Forecasting code and workflows remain unchanged. Original commits and research runs are not deleted or rewritten.
+Standalone CI passed. The old default branch's boundforge/ directory and BoundForge-only workflows, including the temporary encrypted credential bridge, were removed in a normal commit. See migration-completion.json for the exact cleanup commit and preservation check. Forecasting code and workflows remain unchanged. Original commits and research runs are not deleted or rewritten.
 
 ## Updated operational files
 
