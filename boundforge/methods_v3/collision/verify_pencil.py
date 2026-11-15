@@ -5,11 +5,13 @@ from .certify import verify,verify_intervals
 from .verify_family import check_family,rank
 def main():
  p=argparse.ArgumentParser();p.add_argument("--artifact",type=int,required=True);p.add_argument("--out",required=True);a=p.parse_args();out=pathlib.Path(a.out);out.mkdir(parents=True,exist_ok=True)
- raw=subprocess.check_output(["gh","api",f"repos/howdymary/boundforge/actions/artifacts/{a.artifact}/zip"]);z=zipfile.ZipFile(io.BytesIO(raw));rows=[]
- for name in z.namelist():
-  if name.startswith("group-"):rows+=json.loads(z.read(name))
- families=[];chains=[];hits=0;cross=0
- for r in rows:
+ raw=subprocess.check_output(["gh","api",f"repos/howdymary/boundforge/actions/artifacts/{a.artifact}/zip"]);z=zipfile.ZipFile(io.BytesIO(raw))
+ def episodes():
+  for name in z.namelist():
+   if name.startswith("group-"):yield from json.loads(z.read(name))
+ families=[];chains=[];hits=0;cross=0;count=0
+ for r in episodes():
+  count+=1
   c=verify(r["witness"]);d=verify_intervals(r["witness"]);lo,hi=map(Q,c["ratio_interval"]);l,u=map(Q,d["ratio_interval_rational"]);assert max(lo,l)<=min(hi,u)
   task=r["task"];byturn={e["turn"]:e for e in r["trace"]};checked={}
   for e in r["trace"]:
@@ -33,6 +35,6 @@ def main():
     union=[public[i]for i in set(source["retained_basis_ids"]+e["retained_basis_ids"])];assert rank(union)==dimen-2
     next_event=next((n for n in r["trace"]if n["turn"]>e["turn"]and n.get("triggered_by_record")==key),None)
     chains.append({"policy":r["policy"],"task":task,"seed":r["seed"],"retrieval_turn":e["turn"],"source_turn":source["turn"],"cross_state":e.get("cross_state_reuse",False),"decision":e["decision_changed"],"intervention_turn":None if next_event is None else next_event["turn"],"released_rows":None if next_event is None else next_event.get("released_basis_rows"),"measured_global_best_improved":None if next_event is None else tuple(next_event["best_key"])>tuple(e["best_key"]),"scope":"Measured next consequence, not an isolated causal effect or general advantage"})
- report={"artifact_id":a.artifact,"artifact_sha256":hashlib.sha256(raw).hexdigest(),"episodes":len(rows),"all_witnesses_reverified_by_two_arithmetic_backends":True,"retained_complete_family_certificates":len(families),"all_complete_families_independently_verified":True,"memory_hits":hits,"cross_state_hits":cross,"chains":len(chains),"new_method_claim":False,"record_claim":False}
+ report={"artifact_id":a.artifact,"artifact_sha256":hashlib.sha256(raw).hexdigest(),"episodes":count,"all_witnesses_reverified_by_two_arithmetic_backends":True,"retained_complete_family_certificates":len(families),"all_complete_families_independently_verified":True,"memory_hits":hits,"cross_state_hits":cross,"chains":len(chains),"new_method_claim":False,"record_claim":False}
  (out/"family-checks.json").write_text(json.dumps(families,indent=2));(out/"memory-chains.json").write_text(json.dumps(chains,indent=2));(out/"report.json").write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 if __name__=="__main__":main()
