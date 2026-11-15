@@ -45,3 +45,27 @@ def test_box_checker_agrees_with_literal_and_rejects_raised_claim():
  F,H=ingredients()
  assert check({"n":10,"ports":[0,1],"masks":F})["valid"]
  with pytest.raises(ValueError):check({"n":10,"ports":[0,1],"masks":F,"claimed_rate_lower":"1.9"})
+
+def test_positive_ports_do_not_hide_a_sunflower():
+ from .verify_boxes import check
+ import pytest
+ family=[3,5,6,9,10,12] # Sperner, all four port cells, but {3,5,9} has core1.
+ with pytest.raises(ValueError,match="sunflower"):check({"n":4,"ports":[0,1],"masks":family})
+ with tempfile.TemporaryDirectory() as td:
+  binary=pathlib.Path(td)/"bdd";path=pathlib.Path(td)/"masks";compile_binary("verify_bdd.cpp",binary)
+  path.write_text("\n".join(map(str,family)))
+  r=json.loads(subprocess.run([str(binary),str(path),"4","0","1"],capture_output=True,text=True).stdout)
+  assert r["ordered_containments"]==6 and r["ordered_equal_intersection_triples"]>6 and not r["valid"]
+
+def test_gluing_small_blocks_and_transfer_counts():
+ from .verify_boxes import check
+ cycle=[3,6,12,9];kept=[0,2,3,5,6,7]
+ glued=[]
+ for a in cycle:
+  for b in cycle:
+   if ((a>>1)&1)==(b&1):continue
+   union=a|(b<<4)
+   glued.append(sum(((union>>old)&1)<<new for new,old in enumerate(kept)))
+ assert isvalid_c49(glued,6) and len(glued)==len(set(glued))==8
+ report=check({"n":6,"ports":[0,3],"masks":glued})
+ assert report["counts"]==[2,2,2,2] and report["exponent"]==4
