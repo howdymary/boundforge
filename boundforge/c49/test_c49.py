@@ -1,7 +1,7 @@
 """Remote correctness checks, not tests mirroring a proposed performance claim."""
 import itertools,json,os,pathlib,random,subprocess,tempfile
-from tasks import ingredients,isvalid_c49
-from exact import bounds,improves
+from .tasks import ingredients,isvalid_c49
+from .exact import bounds,improves
 HERE=pathlib.Path(__file__).resolve().parent
 def compile_binary(name,out):
  subprocess.run(["g++","-O2","-std=c++17",str(HERE/name),"-o",str(out)],check=True)

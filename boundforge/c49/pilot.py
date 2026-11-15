@@ -33,11 +33,11 @@ def main():
     ledger.reserve("modal",.2,"paired worker")
     batch.append((task,state,k,seed,work.spawn(task,state,seed)))
    for task,state,k,seed,call in batch:
-    result=call.get()
-    row={"task":task,"state":state,"state_hash":digest(state),"state_index":k,"seed":seed,"interventions":result}
+    bundle=call.get();result=bundle["interventions"]
+    row={"task":task,"state":state,"state_hash":digest(state),"state_index":k,"seed":seed,"probe":bundle["probe"],"interventions":result}
     rows.append(row)
     (OUT/"paired.json").write_text(json.dumps(rows))
     print("C49_PILOT_ROW "+json.dumps({k:v for k,v in row.items() if k not in ["task","state","interventions"]}|{"task_id":task["id"],"actions":[{"action":x["action"],"best_score":x["best_score"],"cpu_seconds":x["cpu_seconds"],"tested":x["tested"],"rejected":x["rejected"]} for x in result]}),flush=True)
- report={"source_sha":os.environ["GITHUB_SHA"],"run_id":os.environ["GITHUB_RUN_ID"],"paired_states":8,"seeds":3,"worker_calls":len(rows),"interventions":len(rows)*6,"initialization_differences":"Saved states differ by deletion; not independent construction families.","cpu_seconds":sum(x["cpu_seconds"] for r in rows for x in r["interventions"]),"ledger":ledger.summary()}
+ report={"source_sha":os.environ["GITHUB_SHA"],"run_id":os.environ["GITHUB_RUN_ID"],"paired_states":8,"seeds":3,"worker_calls":len(rows),"interventions":len(rows)*6,"common_probes":len(rows),"initialization_differences":"Saved states differ by deletion; not independent construction families.","cpu_seconds":sum(x["cpu_seconds"] for r in rows for x in r["interventions"]),"ledger":ledger.summary()}
  (OUT/"report.json").write_text(json.dumps(report,indent=2));print("C49_PILOT_FINAL "+json.dumps(report),flush=True)
 if __name__=="__main__":main()
