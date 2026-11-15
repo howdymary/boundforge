@@ -1,0 +1,38 @@
+name: BoundForge C1b record pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: boundforge-record-provider-ledger
+  cancel-in-progress: false
+jobs:
+  c1b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.3.5 scipy==1.16.3 modal==1.6.4 pytest
+      - name: Adversarial exact arithmetic and gradient checks
+        run: python -m pytest -q -p no:cacheprovider boundforge/portfolio/test_c1b.py
+      - name: Reproduce incumbent before bounded paid search
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: python -u boundforge/portfolio/c1b_campaign.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-c1b-pilot
+          path: boundforge/portfolio/c1b/
+          retention-days: 30

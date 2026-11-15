@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-11-15T05:53:19Z",
+  "verification": "Fresh authenticated Exa/Modal/Tinker dashboards and read-only preflight43682960895. Existing credits only; no account settings changed.",
+  "providers": {
+    "exa": {
+      "initial_cap": 119.36,
+      "campaign_cap": 5,
+      "old_hold": 0.31,
+      "external_pending_guard": 2,
+      "boundary": "No payment method, automatic credit purchases disabled; fresh authenticated UI",
+      "expiration": "not exposed"
+    },
+    "modal": {
+      "initial_cap": 248.85,
+      "campaign_cap": 60,
+      "old_hold": 89.78,
+      "external_pending_guard": 50,
+      "metered_at_start": 2.14016283,
+      "boundary": "Starter; no payment method; credit total251, usage credited, UI and live CLI",
+      "expiration": "previously observed2027-11-30; not re-read"
+    },
+    "tinker": {
+      "initial_cap": 278.03,
+      "campaign_cap": 10,
+      "old_hold": 3.2,
+      "external_pending_guard": 50,
+      "boundary": "Auto-reload off; free storage23GB/100GB,82/100checkpoints; no training storage increase planned",
+      "expiration": "not exposed"
+    },
+    "past": {
+      "initial_cap": 699250,
+      "campaign_cap": 200,
+      "old_hold": 90,
+      "external_pending_guard": 500,
+      "spent_at_start": 750,
+      "period": "2026-11-01T00:00:00Z",
+      "boundary": "Prepaid live API balance; no purchasing/replenishment",
+      "expiration": "resetsAt null"
+    }
+  },
+  "connector_calls": {
+    "exa_allowance_usd": 1.1,
+    "cost_receipts": "not exposed by Exa MCP; allowance remains unresolved",
+    "calls": "one initial 3-page fetch, two 6-result searches, one Decimal documentation fetch"
+  }
+}
