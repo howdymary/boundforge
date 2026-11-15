@@ -17,3 +17,6 @@ Read the source audit before choosing. Any overlap with prior art narrows or rej
 Project code and experiment artifacts stay in this directory. Protected verifiers and prior reports remain unchanged. Remote execution only. No external submissions.
 
 Current evidence: [results through the first two pilots](RESULTS_SO_FAR.md), [exact representation hypothesis](collision/SPECIFICATION.md), [complete experiment artifacts](results/manifest.json). No new-method claim is established yet.
+
+
+Current status: [research assessment and unmet contribution gates](FINAL_ASSESSMENT.md). Complete owned artifacts are retained under results/, including split ZIP archives with SHA256 reconstruction manifests. No new-method or new-record claim is established by this campaign.
