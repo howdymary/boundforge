@@ -1,6 +1,6 @@
 """Exact circuit repair and basis-change controller; shared objective and action interface."""
 import hashlib,json,math,random,time
-from .linear import Problem,repairs,entropy
+from .linear import Problem,repairs,entropy,Space
 from .certify import recover,verify,verify_intervals,actual_groups
 POLICIES=["coordinate","random_flat","circuit","random_pivot","guided_pivot","shuffled_core"]
 def coord_score(problem,points):
@@ -33,6 +33,13 @@ def propose(problem,space,policy,rng,forced_row=None,allow_pivot=True):
  cores,proof=problem.obstruction(trial,row)
  event={"proposed_row":row,"forced_target_pairs":proof,"basis_before":list(space.ids),"diagnosis":"legal_addition"if not cores else"target_collision_forced","diagnostic_is_exact":policy!="shuffled_core"}
  if not cores:return trial,event
+ if policy=="conditional_rebuild":
+  candidate=problem.rebuild([row]);closed=[i for i,(_,u,v,r)in enumerate(problem.public)if not any(space.reduce(r)[0])];rng.shuffle(closed);kept=0
+  for ident in closed:
+   expanded=candidate.add(problem.public[ident][3],ident)
+   if expanded is not None and problem.valid(expanded):candidate=expanded;kept+=1
+  event.update(intervention="greedy conditional rebuild",closed_rows_tested=len(closed),independent_rows_kept=kept,scope="Greedy construction, not an optimality certificate")
+  return candidate,event
  if policy=="random_flat":
   removed=rng.sample(space.ids,min(len(space.ids),rng.choice([1,2])));candidate=problem.rebuild([i for i in space.ids if i not in removed]+[row]);event["removed"]=removed
   return (candidate if problem.valid(candidate)else space),event
@@ -67,7 +74,7 @@ def propose(problem,space,policy,rng,forced_row=None,allow_pivot=True):
  event["acceptance"]="exact target separation"
  return candidate,event
 def episode(spec,policy,seed,cpu=2,certify=True):
- m,controls=spec;start=time.process_time();wall=time.monotonic();problem=Problem(m,controls);rng=random.Random(seed);space=problem.initial;current=problem.evaluate(space);best=space;bestscore=current;points=list(problem.initial_points);bestpoints=points;trace=[];turn=0;lastbest=0;tested=0;repairs_count=0;pending=None;pivot_streak=0
+ m,controls=spec;start=time.process_time();wall=time.monotonic();problem=Problem(m,controls);rng=random.Random(seed);space=problem.initial;current=problem.evaluate(space);best=space;bestscore=current;points=list(problem.initial_points);bestpoints=points;trace=[];turn=0;lastbest=0;tested=0;repairs_count=0;pending=None;pivot_streak=0;library=["random_flat","circuit","random_pivot","guided_pivot","conditional_rebuild"];armcounts=[0]*5;armrewards=[0.0]*5
  while time.process_time()-start<cpu:
   begin=time.process_time();before=current
   if policy=="coordinate":
@@ -87,8 +94,17 @@ def episode(spec,policy,seed,cpu=2,certify=True):
    if value["key"]<current["key"]or rng.random()<.025:points=candidate;current=value
    if value["key"]<bestscore["key"]:bestpoints=candidate;bestscore=value;lastbest=time.process_time()-start
   else:
-   candidate,event=propose(problem,space,policy,rng,pending,pivot_streak<2);tested+=1
+   chosen=policy;arm=None
+   if policy in ["library_ucb","library_random"]:
+    unseen=[i for i in range(5)if not armcounts[i]]
+    arm=(unseen[0]if unseen else max(range(5),key=lambda i:armrewards[i]/armcounts[i]+math.sqrt(2*math.log(turn+2)/armcounts[i])))if policy=="library_ucb"else rng.randrange(5)
+    chosen=library[arm]
+   candidate,event=propose(problem,space,chosen,rng,pending,pivot_streak<2);tested+=1
+   event["selected_procedure"]=chosen
    value=problem.evaluate(candidate);repairs_count+=event.get("repair_subsets_checked",0)
+   if arm is not None:
+    armcounts[arm]+=1;armrewards[arm]+=100*max(0,value["ratio"]-current["ratio"])
+    event["library_counts"]=list(armcounts);event["library_rewards"]=list(armrewards)
    if event.get("representation_only"):
     assert candidate.key()==space.key();space=candidate;current=value;pending=event["pending_proposed_row"];pivot_streak+=1
    else:

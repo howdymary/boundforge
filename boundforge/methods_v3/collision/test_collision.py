@@ -45,3 +45,10 @@ def test_all_flat_policies_keep_target_separation():
   task=Problem(6,[(1,0),(0,1),(1,1),(1,2)]);state=task.initial;rng=random.Random(7)
   for _ in range(12):state,e=propose(task,state,policy,rng);assert task.valid(state)
   witness=recover(task,state);assert verify(witness)["valid"]
+
+def test_conditional_rebuild_and_full_library_are_valid():
+ from .search import episode
+ task=Problem(6,[(1,0),(0,1),(1,1),(1,2)]);state,e=propose(task,task.initial,"conditional_rebuild",random.Random(91));assert task.valid(state)
+ for policy in ["library_ucb","library_random"]:
+  result=episode([6,[(1,0),(0,1),(1,1),(1,2)]],policy,93,.05)
+  assert result["check"]["valid"]and result["second_check"]["valid"]
