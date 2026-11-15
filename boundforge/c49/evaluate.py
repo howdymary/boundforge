@@ -44,7 +44,7 @@ def main():
    b=json.loads(subprocess.check_output([str(OUT/"bdd"),str(p),str(r["n"]),*map(str,r["ports"])]))
    exact=rate_interval(b["counts"],r["n"]-2)
    record=improves(b["counts"],r["n"]-2)
-   if record:best={"n":r["n"],"ports":r["ports"],"masks":family,"rate":exact,"source":{"arm":r["arm"],"seed":r["seed"]}}
+   if record and (best is None or improves(b["counts"],r["n"]-2,best["rate"]["counts"],best["n"]-2)):best={"n":r["n"],"ports":r["ports"],"masks":family,"rate":exact,"source":{"arm":r["arm"],"seed":r["seed"]}}
    c={"task":r["task"],"valid":True,"checkers":["literal Python","BDD C++"],"exact":exact,"beats_frontier":record}
   elif r["kind"]==1:
    edges=json.loads(subprocess.check_output([str(OUT/"graph"),str(r["n"]),str(r["param"])]));s=set(family)

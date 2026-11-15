@@ -20,7 +20,7 @@ class Ledger:
    if r["month"]["from"]!=s["period"]:raise RuntimeError("past accounting period changed")
    observed=min(r["balance"]["left"],s["initial_cap"]-max(0,r["balance"]["spent"]-s["spent_at_start"]))
   elif p=="tinker":
-   end=(dt.datetime.now(dt.timezone.utc)+dt.timedelta(hours=1)).isoformat()
+   end=(dt.datetime.now(dt.timezone.utc).replace(minute=0,second=0,microsecond=0)+dt.timedelta(hours=1)).isoformat().replace("+00:00","Z")
    r=subprocess.run(["tinker","billing","usage","2026-11-14T00:00:00Z",end,"--csv","-"],capture_output=True,text=True,check=True,timeout=45)
    rows=list(csv.DictReader(io.StringIO(r.stdout)))
    if rows and "estimated_cost_usd" not in rows[0]:raise RuntimeError("unverified Tinker usage schema")
