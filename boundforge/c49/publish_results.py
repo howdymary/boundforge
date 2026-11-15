@@ -167,7 +167,10 @@ The preregistered greedy direction stalled; controlled evaluation did not suppor
 
 Reproduction requires no paid service: run the remote C49 publication/check workflow or follow [the C49 guide](README.md). The [offline actual-artifact demo](results/demo.html) replays recorded outcomes; it does not run fresh inference or claim a simulated record.
 """
- (HERE/"FINAL_RESEARCH_REPORT.md").write_text(text)
+ # Preserve the separately reviewed final assessment on later artifact-replay runs.
+ # Raw phase artifacts remain the quantitative source of truth.
+ reportpath=HERE/"FINAL_RESEARCH_REPORT.md"
+ if not reportpath.exists():reportpath.write_text(text)
  from render_results import render
  render(OUT,ev,tr,rows,finalcheck,usage)
  # Immutable artifact hashes; report/source hashes are not circularly included.
