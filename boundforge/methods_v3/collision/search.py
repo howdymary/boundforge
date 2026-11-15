@@ -27,12 +27,12 @@ def pivot(problem,space,rng):
  return None,None
 def deficit(cores,ids):
  return min((sum(i not in c for c in cores)for i in ids),default=len(cores))
-def propose(problem,space,policy,rng,forced_row=None,allow_pivot=True):
+def propose(problem,space,policy,rng,forced_row=None,allow_pivot=True,deadline=None):
  row,trial=(forced_row,space.add(problem.public[forced_row][3],forced_row))if forced_row is not None else sample_row(problem,space,rng)
  if trial is None:return space,{"diagnosis":"sampled_rows_dependent","scope":"24 sampled rows; not exhaustion"}
  if policy in ["batch_repair","naive_best_repair"]:
   from .batch import best_repair
-  return best_repair(problem,space,row,trial,shared=policy=="batch_repair")
+  return best_repair(problem,space,row,trial,shared=policy=="batch_repair",deadline=deadline)
  cores,proof=problem.obstruction(trial,row)
  event={"proposed_row":row,"forced_target_pairs":proof,"basis_before":list(space.ids),"diagnosis":"legal_addition"if not cores else"target_collision_forced","diagnostic_is_exact":policy!="shuffled_core"}
  if not cores:return trial,event
@@ -102,7 +102,7 @@ def episode(spec,policy,seed,cpu=2,certify=True):
     unseen=[i for i in range(5)if not armcounts[i]]
     arm=(unseen[0]if unseen else max(range(5),key=lambda i:armrewards[i]/armcounts[i]+math.sqrt(2*math.log(turn+2)/armcounts[i])))if policy=="library_ucb"else rng.randrange(5)
     chosen=library[arm]
-   candidate,event=propose(problem,space,chosen,rng,pending,pivot_streak<2);tested+=1
+   candidate,event=propose(problem,space,chosen,rng,pending,pivot_streak<2,deadline=start+cpu);tested+=1
    event["selected_procedure"]=chosen
    value=problem.evaluate(candidate);repairs_count+=event.get("repair_subsets_checked",0)
    if arm is not None:

@@ -21,11 +21,12 @@ def groups_for(problem,space):
 def score(groups,m):
  hs=[entropy(g)for g in groups[:-1]]
  return {"key":tuple(sorted(hs,reverse=True)),"ratio":math.log(m)/max(hs)}
-def best_repair(problem,space,row,trial,shared=True,limit=2):
+def best_repair(problem,space,row,trial,shared=True,limit=2,deadline=None):
  start=time.process_time();setup=time.process_time();table=Tables(trial,forms_for(problem))if shared else None;setup=time.process_time()-setup
- best=None;bestscore=None;checked=valid=0;records=[];choices=sorted(space.ids)
+ best=None;bestscore=None;checked=valid=0;records=[];choices=sorted(space.ids);aborted=False
  for size in range(limit+1):
   for deleted in itertools.combinations(choices,size):
+   if deadline is not None and time.process_time()>=deadline:aborted=True;break
    checked+=1
    if shared:groups=table.all_partitions(deleted)
    else:
@@ -35,6 +36,6 @@ def best_repair(problem,space,row,trial,shared=True,limit=2):
    valid+=1;s=score(groups,problem.m);records.append([list(deleted),True,s["ratio"]])
    if bestscore is None or s["key"]<bestscore["key"]:best=deleted;bestscore=s
   # No deletion is optimal if already feasible: removing constraints can only refine partitions.
-  if size==0 and best is not None:break
+  if aborted or (size==0 and best is not None):break
  result=problem.rebuild([i for i in trial.ids if i not in best])if best is not None else space
- return result,{"diagnosis":"objective_aware_exact_repair"if best is not None else"no_repair_within_two_basis_deletions","scope":"Complete subsets of the stated trial basis of size at most "+str(limit)+"; not a global optimum","basis_before":list(space.ids),"proposed_row":row,"removed":None if best is None else list(best),"repair_subsets_checked":checked,"feasible_repairs":valid,"counterfactual_records":records,"table_setup_cpu":setup,"counterfactual_total_cpu":time.process_time()-start,"shared_table":shared,"linear_eliminations_in_table":table.eliminations if table else 0}
+ return result,{"diagnosis":("objective_aware_exact_repair"if best is not None else("evaluation_budget_exhausted"if aborted else"no_repair_within_two_basis_deletions")),"complete_repair_family":not aborted,"scope":("Partial family under CPU deadline; no impossibility claim"if aborted else"Complete subsets of the stated trial basis of size at most "+str(limit)+"; not a global optimum"),"basis_before":list(space.ids),"proposed_row":row,"removed":None if best is None else list(best),"repair_subsets_checked":checked,"feasible_repairs":valid,"counterfactual_records":records,"table_setup_cpu":setup,"counterfactual_total_cpu":time.process_time()-start,"shared_table":shared,"linear_eliminations_in_table":table.eliminations if table else 0}
