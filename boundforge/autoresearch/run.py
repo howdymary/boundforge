@@ -105,7 +105,7 @@ def main(argv=None):
     state["verified_reference_improvements"].append({"step":step,"candidate_path":cp.name,"lower_bound":checked["lower_bound"],"candidate_sha256":checked["candidate_sha256"]})
     floor=F(registry["existing_project_result"]["lower_bound"])
     if F(checked["lower_bound"])<=floor:
-     label="BELOW_CAMPAIGN_GOAL";evidence={"verified_external_reference_improvement":True,"certified_bound":checked["lower_bound"],"continuation_goal":str(floor),"screen_diagnosis":label,"screen_evidence":evidence};event=trace.add("valid_improvement_below_continuation_goal",step=step,result=checked,evidence=evidence);accepted=None
+     screen_label=label;screen_evidence=evidence;label="BELOW_CAMPAIGN_GOAL";evidence={"verified_external_reference_improvement":True,"certified_bound":checked["lower_bound"],"continuation_goal":str(floor),"screen_diagnosis":screen_label,"screen_evidence":screen_evidence};event=trace.add("valid_improvement_below_continuation_goal",step=step,result=checked,evidence=evidence);accepted=None
     else:
      accepted=checked;atomic_json(args.out/"candidate.json",r["candidate"])
      trace.add("certified_improvement",step=step,result=accepted,comparison_scope=registry["reference_scope"],exceeds_existing_project_claim=True,fresh_discovery=False)
