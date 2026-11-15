@@ -41,6 +41,7 @@ def check(data):
  T=tail(K,N);threshold=(1/claim-T)**2
  if 1/claim<=T:raise ValueError("tail")
  q=coefficients(K,a,N);d=len(q)-1
+ if lower(sum(q,iv.mpf(0)))>=threshold:raise ValueError("endpoint refutes claim")
  bs=[upper(sum((q[j]*scalar(F(math.comb(k,j),math.comb(d,j)))for j in range(k+1)),iv.mpf(0)))for k in range(d+1)]
  stack=[(bs,0)];nodes=leaves=depthmax=0;maxbound=F(0)
  while stack:

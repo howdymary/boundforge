@@ -20,6 +20,8 @@ def verify(d):
  available=1/claim-tail
  if available<=0:raise ValueError("tail exceeds budget")
  target=available*available
+ re0=sum((cr for freq,cr,ci in cs),iv.mpf(0));im0=sum((ci for freq,cr,ci in cs),iv.mpf(0))
+ if bound(re0*re0+im0*im0)[0]>=target:raise ValueError("endpoint refutes target")
  stack=[(0,0)];nodes=leaves=deep=0;highest=R(0)
  while stack:
   index,depth=stack.pop();nodes+=1;mid=R(2*index+1,2**(depth+1));rad=R(1,2**(depth+1));t=iv.pi*rational(mid)/2
