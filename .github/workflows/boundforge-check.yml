@@ -26,6 +26,7 @@ jobs:
         run: |
           python boundforge/migration_check.py
           python -m compileall -q boundforge
-          python -m pytest -q -p no:cacheprovider boundforge/test_core.py
+          python -m pytest -q -p no:cacheprovider boundforge/test_core.py boundforge/research_v2/test_v2.py boundforge/c49/test_c49.py
           python boundforge/verify.py boundforge/results/best.json --baseline boundforge/certificates/incumbent.json
           python boundforge/verify_independent.py boundforge/results/best.json boundforge/certificates/incumbent.json
+
