@@ -5,7 +5,8 @@ from budget import Ledger
 from exact import bounds,rate_interval,improves
 from tasks import isvalid_c49
 def main():
- shutil.copyfile(HERE/"evaluation/budget.sqlite",OUT/"budget.sqlite");ledger=Ledger(OUT)
+ latest=HERE/"model_study/budget.sqlite"
+ shutil.copyfile(latest if latest.exists() else HERE/"evaluation/budget.sqlite",OUT/"budget.sqlite");ledger=Ledger(OUT)
  import modal
  image=modal.Image.debian_slim(python_version="3.11").pip_install("ortools==9.15.6755")
  for name in ["cp_search.py","tasks.py"]:image=image.add_local_file(str(HERE/name),"/root/c49/"+name)

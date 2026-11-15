@@ -6,6 +6,10 @@ on:
         description: Completed frozen evaluation ledger
         required: true
         type: string
+      model_run:
+        description: Optional model study accounting ledger
+        required: false
+        type: string
 permissions:
   contents: read
   actions: read
@@ -30,6 +34,13 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           name: c49-evaluation
           path: boundforge/c49/evaluation
+      - uses: actions/download-artifact@v4
+        if: inputs.model_run != ''
+        with:
+          run-id: ${{ inputs.model_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-model-study
+          path: boundforge/c49/model_study
       - run: python -m pip install modal
       - name: Run preregistered new-family CP-SAT pilots
         env:

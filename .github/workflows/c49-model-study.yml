@@ -1,0 +1,60 @@
+name: C49 bounded model component study
+on:
+  workflow_dispatch:
+    inputs:
+      evaluation_run:
+        description: Completed frozen evaluation ledger
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Wait for completed accounting ledger
+        env:
+          RUN: ${{ inputs.evaluation_run }}
+        run: gh run watch "$RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 10
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.evaluation_run }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-evaluation
+          path: boundforge/c49/evaluation
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43679935507'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-freeze
+          path: boundforge/c49/freeze
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43679514101'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-pilot
+          path: boundforge/c49/pilot
+      - run: python -m pip install tinker transformers jinja2
+      - name: Test model-generated rankings on development only
+        env:
+          TINKER_API_KEY: ${{ secrets.TINKER_API_KEY }}
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          PAST_API_KEY: ${{ secrets.PAST_API_KEY }}
+        run: python -u boundforge/c49/model_study.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-model-study
+          path: boundforge/c49/model_study/
+          retention-days: 30
