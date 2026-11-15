@@ -10,7 +10,7 @@ def main():
  from boundforge.precision import proposals
  options,nu=proposals(base);top=options[0]
  image=modal.Image.debian_slim(python_version="3.11").pip_install("mpmath==1.3.0")
- for name in ["__init__.py","precision.py"]:image=image.add_local_file(str(root/name),"/root/boundforge/"+name,copy=True)
+ for name in ["precision.py"]:image=image.add_local_file(str(root/name),"/root/boundforge/"+name,copy=True)
  app=modal.App("boundforge-v4-conventional-counterfactual")
  @app.function(image=image,cpu=1,memory=2048,timeout=140,max_containers=2,retries=0,serialized=True)
  def solve(c,addition):
