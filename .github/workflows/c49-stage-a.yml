@@ -1,0 +1,31 @@
+name: C49 frontier reproduction and research
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce primary and independent exact checks; discover prior art
+        env:
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+        run: python -u boundforge/c49/stage_a.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-stage-a
+          path: boundforge/c49/artifacts/
+          retention-days: 30
