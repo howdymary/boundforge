@@ -1,0 +1,175 @@
+{
+  "model": "Qwen/Qwen3.5-397B-A17B",
+  "input_tokens": 4242,
+  "output_tokens": 9837,
+  "token_price_estimate_usd": 0.0807768,
+  "unresolved_tinker_hold": 0.5,
+  "reservation": "be368987f6714eb29af9c997c8b970ed",
+  "final_output": "{\n\"mathematical_errors\": [\n  \"Completeness failure on dependent constraints: The enumeration loop skips subsets where matrix_rank < subset_size (line: 'if len(rank[1])!=d-r: continue'). If an attainable mask requires satisfying linearly dependent equations (e.g., l3=l1+l2, all old), the full subset is skipped. The independent subset is processed but forces the dependent projection to be 'new', causing generic() to fail (AssertionError) when the dependency forces an old value. Thus, attainable masks with redundant 'old' constraints are missed or crash.\"\n],\n\"novelty_objections\": [\n  \"The 'complete geometric pricing reduction' is standard affine flat enumeration combined with polynomial avoidance (Schwartz-Zippel lemma application), not a new method.\",\n  \"Exponential complexity in m (number of projections) and |S| (support size) is admitted ('not a scalable solution'), limiting utility to small d/m.\",\n  \"Leading-order cone analysis (epsilon log epsilon) is explicitly attributed to existing Jaswal code; the wrapper adds rational verification but no new optimization theory.\"\n],\n\"defensible_current_claim\": \"Exact rational verification of leading-order entropy bounds provides a rigorous diagnostic for logarithmic ascent potential, superior to floating-point heuristics for small-scale witness validation.\",\n\"strongest_baseline\": \"Randomized rational sampling on hyperplane arrangement cells with exact consistency checks; simpler to implement, handles dependencies naturally, and scales better for existence testing.\",\n\"extension\": {\n  \"mechanism\": \"K-Atom Mask Realization: For each active mask in the cone support, synthesize K distinct rational representatives optimizing pairwise projection separation, rather than a single generic point.\",\n  \"precise_difference\": \"Current oracle restricts to 1 atom per mask, capping batch diversity. This extension exploits the valid region volume of each mask to increase entropy via mass splitting within the same novelty pattern.\",\n  \"prediction\": \"For small epsilon, entropy gain G_K approx G_1 + epsilon * log(K) until projection saturation, verifiable by exact rational arithmetic.\",\n  \"rejection_test\": \"d=1, S={0}, Mask x!=0. Compare K=1 (x=1) vs K=2 (x=1,2) with equal weights. Reject if Delta_H_2 - Delta_H_1 != epsilon * log(2) within rational tolerance.\",\n  \"scope_limit\": \"Returns diminish when new atoms collide with existing support S or exhaust available rational points in bounded variants; does not improve leading-order logarithmic coefficient.\"\n}\n}",
+  "parsed": {
+    "mathematical_errors": [
+      "Completeness failure on dependent constraints: The enumeration loop skips subsets where matrix_rank < subset_size (line: 'if len(rank[1])!=d-r: continue'). If an attainable mask requires satisfying linearly dependent equations (e.g., l3=l1+l2, all old), the full subset is skipped. The independent subset is processed but forces the dependent projection to be 'new', causing generic() to fail (AssertionError) when the dependency forces an old value. Thus, attainable masks with redundant 'old' constraints are missed or crash."
+    ],
+    "novelty_objections": [
+      "The 'complete geometric pricing reduction' is standard affine flat enumeration combined with polynomial avoidance (Schwartz-Zippel lemma application), not a new method.",
+      "Exponential complexity in m (number of projections) and |S| (support size) is admitted ('not a scalable solution'), limiting utility to small d/m.",
+      "Leading-order cone analysis (epsilon log epsilon) is explicitly attributed to existing Jaswal code; the wrapper adds rational verification but no new optimization theory."
+    ],
+    "defensible_current_claim": "Exact rational verification of leading-order entropy bounds provides a rigorous diagnostic for logarithmic ascent potential, superior to floating-point heuristics for small-scale witness validation.",
+    "strongest_baseline": "Randomized rational sampling on hyperplane arrangement cells with exact consistency checks; simpler to implement, handles dependencies naturally, and scales better for existence testing.",
+    "extension": {
+      "mechanism": "K-Atom Mask Realization: For each active mask in the cone support, synthesize K distinct rational representatives optimizing pairwise projection separation, rather than a single generic point.",
+      "precise_difference": "Current oracle restricts to 1 atom per mask, capping batch diversity. This extension exploits the valid region volume of each mask to increase entropy via mass splitting within the same novelty pattern.",
+      "prediction": "For small epsilon, entropy gain G_K approx G_1 + epsilon * log(K) until projection saturation, verifiable by exact rational arithmetic.",
+      "rejection_test": "d=1, S={0}, Mask x!=0. Compare K=1 (x=1) vs K=2 (x=1,2) with equal weights. Reject if Delta_H_2 - Delta_H_1 != epsilon * log(2) within rational tolerance.",
+      "scope_limit": "Returns diminish when new atoms collide with existing support S or exhaust available rational points in bounded variants; does not improve leading-order logarithmic coefficient."
+    }
+  },
+  "private_reasoning_not_published": true,
+  "full_output_sha256": "4af1f3b4eb64baa150e3d099c54b22a933f211b63eb5a2fc6b662f2b706a5b84",
+  "past_recall_sha256": "24bf2eaa63505c3045325918eac63b6f2cae435416ea2d516dc291e5d31282fd",
+  "memory_hits": [
+    {
+      "content": "BoundForge methods-v3 found no robust advantage for scalar same-state probing over fixed/UCB/shuffled controls in the measured development episodes (outcome).",
+      "sources": [
+        {
+          "sourceId": "boundforge-methods-v3-validated-failures-43749410835",
+          "occurredAt": "2026-11-15T18:54:57.455661Z",
+          "metadata": {
+            "project": "boundforge",
+            "campaign": "methods-v3",
+            "record_type": "measured scoped negative finding"
+          },
+          "label": "BoundForge measured failed methods and next hypothesis",
+          "excerpts": [
+            "BoundForge methods-v3 measured findings. Scalar same-state probing: 324 verified development episodes, no robust advantage over fixed/UCB/shuffled controls; stop scaling this direction. Paired-order pilot: 180 development and140 validation episodes."
+          ]
+        }
+      ]
+    },
+    {
+      "content": "BoundForge methods-v3 measured findings. Scalar same-state probing: 324 verified development episodes, no robust advantage over fixed/UCB/shuffled controls; stop scaling this direction. Paired-order pilot: 180 development and140 validation episodes. Signed-contrast credit equals paired absolute reward difference algebraically, so it is not a novel rule. At validation, paired order underperforms stronger controls on graphs and cap sets; useful order predictions did not establish search benefit. Do not re-run or promote these as new methods. Next hypothesis: exact obstruction-guided changes of a projection-collision basis. Circuit/linear algebra components are standard; novelty and usefulness remain unestablished. Source reports: GitHub runs43747190963 and43747638494.",
+      "sources": [
+        {
+          "sourceId": "boundforge-methods-v3-validated-failures-43749410835",
+          "occurredAt": "2026-11-15T18:54:57.455661Z",
+          "metadata": {
+            "project": "boundforge",
+            "campaign": "methods-v3",
+            "record_type": "measured scoped negative finding"
+          },
+          "label": "BoundForge measured failed methods and next hypothesis",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "content": "BoundForge C3c failed attempted operator family: new-law (some).",
+      "sources": [
+        {
+          "sourceId": "boundforge-43670325538-proposer-failed-neighborhoods",
+          "occurredAt": "2026-11-15T03:01:14.652416Z",
+          "metadata": {
+            "role": "proposer",
+            "seed": 20261115,
+            "project": "boundforge"
+          },
+          "label": "BoundForge failed-neighborhoods",
+          "excerpts": [
+            "BoundForge C3c bounded batch: 9 completed trials. Failed attempted operator families: ['augment', 'augment', 'exchange', 'new-law', 'weights', 'new-law', 'exchange', 'weights', 'new-law']. This is bounded numerical evidence, NOT a proof these neighborhoods"
+          ]
+        }
+      ]
+    },
+    {
+      "content": "BoundForge C3c bounded batch: 9 completed trials. Failed attempted operator families: ['augment', 'augment', 'exchange', 'new-law', 'weights', 'new-law', 'exchange', 'weights', 'new-law']. This is bounded numerical evidence, NOT a proof these neighborhoods are exhausted. Next test should change support or add an independent law.",
+      "sources": [
+        {
+          "sourceId": "boundforge-43670325538-proposer-failed-neighborhoods",
+          "occurredAt": "2026-11-15T03:01:14.652416Z",
+          "metadata": {
+            "role": "proposer",
+            "seed": 20261115,
+            "project": "boundforge"
+          },
+          "label": "BoundForge failed-neighborhoods",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "content": "BoundForge C3c failed attempted operator family: exchange (some).",
+      "sources": [
+        {
+          "sourceId": "boundforge-43670325538-proposer-failed-neighborhoods",
+          "occurredAt": "2026-11-15T03:01:14.652416Z",
+          "metadata": {
+            "role": "proposer",
+            "seed": 20261115,
+            "project": "boundforge"
+          },
+          "label": "BoundForge failed-neighborhoods",
+          "excerpts": [
+            "BoundForge C3c bounded batch: 9 completed trials. Failed attempted operator families: ['augment', 'augment', 'exchange', 'new-law', 'weights', 'new-law', 'exchange', 'weights', 'new-law']. This is bounded numerical evidence, NOT a proof these neighborhoods"
+          ]
+        }
+      ]
+    },
+    {
+      "content": "BoundForge C3c failed attempted operator family: augment (some).",
+      "sources": [
+        {
+          "sourceId": "boundforge-43670325538-proposer-failed-neighborhoods",
+          "occurredAt": "2026-11-15T03:01:14.652416Z",
+          "metadata": {
+            "role": "proposer",
+            "seed": 20261115,
+            "project": "boundforge"
+          },
+          "label": "BoundForge failed-neighborhoods",
+          "excerpts": [
+            "BoundForge C3c bounded batch: 9 completed trials. Failed attempted operator families: ['augment', 'augment', 'exchange', 'new-law', 'weights', 'new-law', 'exchange', 'weights', 'new-law']. This is bounded numerical evidence, NOT a proof these neighborhoods"
+          ]
+        }
+      ]
+    },
+    {
+      "content": "BoundForge C3c failed attempted operator family: weights (some).",
+      "sources": [
+        {
+          "sourceId": "boundforge-43670325538-proposer-failed-neighborhoods",
+          "occurredAt": "2026-11-15T03:01:14.652416Z",
+          "metadata": {
+            "role": "proposer",
+            "seed": 20261115,
+            "project": "boundforge"
+          },
+          "label": "BoundForge failed-neighborhoods",
+          "excerpts": [
+            "BoundForge C3c bounded batch: 9 completed trials. Failed attempted operator families: ['augment', 'augment', 'exchange', 'new-law', 'weights', 'new-law', 'exchange', 'weights', 'new-law']. This is bounded numerical evidence, NOT a proof these neighborhoods"
+          ]
+        }
+      ]
+    },
+    {
+      "content": "scalar same-state probing verified development episodes: 324 verified development episodes (exactly).",
+      "sources": [
+        {
+          "sourceId": "boundforge-methods-v3-validated-failures-43749410835",
+          "occurredAt": "2026-11-15T18:54:57.455661Z",
+          "metadata": {
+            "project": "boundforge",
+            "campaign": "methods-v3",
+            "record_type": "measured scoped negative finding"
+          },
+          "label": "BoundForge measured failed methods and next hypothesis",
+          "excerpts": [
+            "BoundForge methods-v3 measured findings. Scalar same-state probing: 324 verified development episodes, no robust advantage over fixed/UCB/shuffled controls; stop scaling this direction. Paired-order pilot: 180 development and140 validation episodes."
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha": "1ecb08551abd3981b561cb2b92dad3f051d093de",
+  "status": "unverified critique; no endorsement"
+}
