@@ -1,0 +1,85 @@
+{
+  "status": "provider_gate_unavailable",
+  "run_id": "43690288564",
+  "source_sha": "c8b88d0a54c5d6a93cb9c2f085d64b939ff3979a",
+  "config_sha256": "d903b222b188cda1dac2129c19b9db86f171ff63e81cdebac4e6312753b0769e",
+  "policy": "diagnostic",
+  "experiments": [
+    {
+      "step": 0,
+      "operator": "float_local",
+      "diagnosis": "BELOW_CAMPAIGN_GOAL",
+      "evidence": {
+        "verified_external_reference_improvement": true,
+        "certified_bound": "36567426229657099/62500000000000000",
+        "continuation_goal": "58507881967451359/100000000000000000",
+        "screen_diagnosis": "PRECISION_FLOOR",
+        "screen_evidence": {
+          "gain": "1.1102230246251565e-16",
+          "ulp": "1.1102230246251565e-16",
+          "gain_in_ulps": 1.0,
+          "criterion": "gain <=8 ulps; no exact improvement inferred"
+        }
+      },
+      "event_id": "46a15494b3205dbbae04c6ecaba663abe3583bb04e9664a7a72345cc2a34f1be",
+      "request_sha256": "c408a84d15f4aa5a7ffdbbcf5f86f3cbec983c6d11a0c1296748d2f66b347245",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    }
+  ],
+  "verified_reference_improvements": [
+    {
+      "step": 0,
+      "candidate_path": "candidate-0.json",
+      "lower_bound": "36567426229657099/62500000000000000",
+      "candidate_sha256": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827"
+    }
+  ],
+  "accepted": null,
+  "elapsed_seconds": 20.048415330000005,
+  "artifact_hashes": {
+    "baseline.json": "e2852f7e83133c31f6189156c258b4159d5aeb04c1f00fcf593966d391f75454",
+    "candidate-0.json": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827",
+    "c51_taylor.py.json": "e31dd1ae5794658924ed1e00422b4ac9c23b3d6713e8ce672eeaad5c5e57904f",
+    "provider-budget.sqlite": "0e89156b4d611443d1f70a40b07adf2ff3bdb172a57c4b41b3173f33eaab163f",
+    "decisions.jsonl": "b7f6381b937f8923b95983c5fd3740df59fb54f426ed875c809581a11ed8291c",
+    "result-0.json": "dd4d1bba711e685ead29c357d5f752a41d954fd1dd4787766ac811b9727af55b",
+    "c51_bernstein.py.json": "9bd74608ab99ed266c5b507babbcf87a7474afa80b41da7171d34596454f0e54",
+    "request-0.json": "01f8652dacc1498529334823aab2c4ca930f1fcb899a60e4147561f4c3eab751"
+  },
+  "provider_usage": {
+    "exa": {
+      "reserved_or_actual": 0.005,
+      "campaign_cap": 0.25,
+      "old_hold": 2.46,
+      "enabled": true
+    },
+    "tinker": {
+      "reserved_or_actual": 0.05,
+      "campaign_cap": 0.25,
+      "old_hold": 3.2,
+      "enabled": true
+    },
+    "modal": {
+      "reserved_or_actual": 0,
+      "campaign_cap": 0,
+      "old_hold": 115.58,
+      "enabled": false
+    },
+    "past": {
+      "reserved_or_actual": 0,
+      "campaign_cap": 0,
+      "old_hold": 90,
+      "enabled": false
+    }
+  },
+  "comparison_scope": "historical external pre-project frontier; not the live record after BoundForge's own result",
+  "existing_project_result": {
+    "lower_bound": "0.58507881967451359",
+    "K": "3.56818544223368269553925743732750636848",
+    "alpha": "3.96154311181022808045648786109191322475",
+    "source": "https://github.com/howdymary/boundforge/blob/main/boundforge/portfolio/RESULT.md"
+  },
+  "fresh_discovery": false,
+  "scope": "Autonomous execution/reproduction from an earlier external frontier. Controller/optimizers engineered after agent-directed discovery. No hidden-result, new-method or fresh-world-record claim."
+}

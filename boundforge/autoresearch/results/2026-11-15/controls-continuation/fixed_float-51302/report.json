@@ -1,0 +1,121 @@
+{
+  "status": "no_certified_improvement",
+  "run_id": "43690200827",
+  "source_sha": "834a126d43bb9cfbcce73238a4b4bd8fc08075fe",
+  "config_sha256": "417cc06f1549bb669f76c05cc096261e93847035acec95c22b6556c3188c7bfd",
+  "policy": "fixed_float",
+  "experiments": [
+    {
+      "step": 0,
+      "operator": "float_local",
+      "diagnosis": "BELOW_CAMPAIGN_GOAL",
+      "evidence": {
+        "verified_external_reference_improvement": true,
+        "certified_bound": "36567426229657099/62500000000000000",
+        "continuation_goal": "58507881967451359/100000000000000000",
+        "screen_diagnosis": "BELOW_CAMPAIGN_GOAL",
+        "screen_evidence": {
+          "gain": "1.1102230246251565e-16",
+          "ulp": "1.1102230246251565e-16",
+          "gain_in_ulps": 1.0,
+          "criterion": "gain <=8 ulps; no exact improvement inferred"
+        }
+      },
+      "event_id": "810d6e094383f63e8d8b175afe04c697fc6ec119d8dc6d880ec43991a7f8513a",
+      "request_sha256": "ad77ce692c8ba6ef81712bfbd4fced3ebaa47cbf12824885dcc520e2a82568e7",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    },
+    {
+      "step": 1,
+      "operator": "float_local",
+      "diagnosis": "BELOW_CAMPAIGN_GOAL",
+      "evidence": {
+        "verified_external_reference_improvement": true,
+        "certified_bound": "36567426229657099/62500000000000000",
+        "continuation_goal": "58507881967451359/100000000000000000",
+        "screen_diagnosis": "BELOW_CAMPAIGN_GOAL",
+        "screen_evidence": {
+          "gain": "1.1102230246251565e-16",
+          "ulp": "1.1102230246251565e-16",
+          "gain_in_ulps": 1.0,
+          "criterion": "gain <=8 ulps; no exact improvement inferred"
+        }
+      },
+      "event_id": "33620b6d1cac72f0ca31000a668938b4d8ba9f5ed8217cccfa286038281b1104",
+      "request_sha256": "4affc7235011e0f74edf173069d61ac528bbc7f5828c98e54a65973c1d57933c",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    },
+    {
+      "step": 2,
+      "operator": "float_local",
+      "diagnosis": "BELOW_CAMPAIGN_GOAL",
+      "evidence": {
+        "verified_external_reference_improvement": true,
+        "certified_bound": "36567426229657099/62500000000000000",
+        "continuation_goal": "58507881967451359/100000000000000000",
+        "screen_diagnosis": "BELOW_CAMPAIGN_GOAL",
+        "screen_evidence": {
+          "gain": "1.1102230246251565e-16",
+          "ulp": "1.1102230246251565e-16",
+          "gain_in_ulps": 1.0,
+          "criterion": "gain <=8 ulps; no exact improvement inferred"
+        }
+      },
+      "event_id": "11150c3f8fc0fac7ef3c6e072eb652f4087be4e7d530ab16c5012738841f85cd",
+      "request_sha256": "a104d565300f2b45a1963cd469ac3cf9655d41a1c000ea07a6f3be779b91a070",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    }
+  ],
+  "verified_reference_improvements": [
+    {
+      "step": 0,
+      "candidate_path": "candidate-0.json",
+      "lower_bound": "36567426229657099/62500000000000000",
+      "candidate_sha256": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827"
+    },
+    {
+      "step": 1,
+      "candidate_path": "candidate-1.json",
+      "lower_bound": "36567426229657099/62500000000000000",
+      "candidate_sha256": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827"
+    },
+    {
+      "step": 2,
+      "candidate_path": "candidate-2.json",
+      "lower_bound": "36567426229657099/62500000000000000",
+      "candidate_sha256": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827"
+    }
+  ],
+  "accepted": null,
+  "elapsed_seconds": 4.328206885,
+  "artifact_hashes": {
+    "baseline.json": "e2852f7e83133c31f6189156c258b4159d5aeb04c1f00fcf593966d391f75454",
+    "candidate-0.json": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827",
+    "result-2.json": "54a63b65c5832139680ef4f5f524ef864e4e4eb9cf81944a913996026bddae7a",
+    "c51_taylor.py.json": "e31dd1ae5794658924ed1e00422b4ac9c23b3d6713e8ce672eeaad5c5e57904f",
+    "result-1.json": "e6e4b079fe4e74910ff6037570f70b46add6688644a096dfec9560cb3953fff1",
+    "candidate-1.json": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827",
+    "request-1.json": "a2cd0b4c1a6d305b1881ee85f36588cdc8ca03ed7d19d1933ebb3b1377315619",
+    "request-2.json": "ba425f519a761269c259951881b38546e0f59ed817768df13731f4a6bb7f1e1c",
+    "candidate-2.json": "7eb3a965ba014306ea63b8bd672664cecaa6f3a77c2f34a9ab07308752f55827",
+    "decisions.jsonl": "35e421963bee859120803bef09d754534202b192db882c44cfa18b6a9fe80df4",
+    "result-0.json": "4a8296869f071352954bbd8d38a042204b52f96af792c7725bd9e9f2c827a519",
+    "c51_bernstein.py.json": "9bd74608ab99ed266c5b507babbcf87a7474afa80b41da7171d34596454f0e54",
+    "request-0.json": "fb31689df5e25cc37c934ead8045a8ab0193131ab809b086311524c65a3e4035"
+  },
+  "provider_usage": {
+    "enabled": false
+  },
+  "comparison_scope": "historical external pre-project frontier; not the live record after BoundForge's own result",
+  "existing_project_result": {
+    "lower_bound": "0.58507881967451359",
+    "K": "3.56818544223368269553925743732750636848",
+    "alpha": "3.96154311181022808045648786109191322475",
+    "source": "https://github.com/howdymary/boundforge/blob/main/boundforge/portfolio/RESULT.md"
+  },
+  "fresh_discovery": false,
+  "scope": "Autonomous execution/reproduction from an earlier external frontier. Controller/optimizers engineered after agent-directed discovery. No hidden-result, new-method or fresh-world-record claim."
+}

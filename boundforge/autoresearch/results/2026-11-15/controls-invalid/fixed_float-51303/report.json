@@ -1,0 +1,78 @@
+{
+  "status": "no_certified_improvement",
+  "run_id": "43689877970",
+  "source_sha": "ee4458650f4d5ce2ade40f218a34f76974276505",
+  "config_sha256": "2fcb39be0702721dbaa95778e74953489b0ad0f8407d50250b0b5e75db7d8774",
+  "policy": "fixed_float",
+  "experiments": [
+    {
+      "step": 0,
+      "operator": "float_local",
+      "diagnosis": "PRECISION_FLOOR",
+      "evidence": {
+        "gain": "1.1102230246251565e-16",
+        "ulp": "1.1102230246251565e-16",
+        "gain_in_ulps": 1.0,
+        "criterion": "gain <=8 ulps; no exact improvement inferred"
+      },
+      "event_id": "4380707a489abe2e5c5924c262f43e6fe699c96f05445c2511642503d3a3b59a",
+      "request_sha256": "4affc7235011e0f74edf173069d61ac528bbc7f5828c98e54a65973c1d57933c",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    },
+    {
+      "step": 1,
+      "operator": "float_local",
+      "diagnosis": "PRECISION_FLOOR",
+      "evidence": {
+        "gain": "1.1102230246251565e-16",
+        "ulp": "1.1102230246251565e-16",
+        "gain_in_ulps": 1.0,
+        "criterion": "gain <=8 ulps; no exact improvement inferred"
+      },
+      "event_id": "6aa632ca66d9ab29611f69a57844137677276bce76de346a487003fa680d4348",
+      "request_sha256": "a104d565300f2b45a1963cd469ac3cf9655d41a1c000ea07a6f3be779b91a070",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    },
+    {
+      "step": 2,
+      "operator": "float_local",
+      "diagnosis": "PRECISION_FLOOR",
+      "evidence": {
+        "gain": "1.1102230246251565e-16",
+        "ulp": "1.1102230246251565e-16",
+        "gain_in_ulps": 1.0,
+        "criterion": "gain <=8 ulps; no exact improvement inferred"
+      },
+      "event_id": "06d371495f8bddb1b627259359eb0debf1e33895013b574cda7b5dadd7fae252",
+      "request_sha256": "62caf97e33a4ec25100960d166388aafed2a86e72323edaed476ce7dfc235bea",
+      "target": "C51a",
+      "context_sha256": "4717b1b734ef546d6cd2b2039d29a8f8de64896b250a6efda30247aef8872ea9"
+    }
+  ],
+  "accepted": null,
+  "elapsed_seconds": 1.9403488879999884,
+  "artifact_hashes": {
+    "baseline.json": "e2852f7e83133c31f6189156c258b4159d5aeb04c1f00fcf593966d391f75454",
+    "result-2.json": "fbbacdfde316c0607f0dc10675cde419180644333486c0924b669904e9d14eea",
+    "result-1.json": "15fc58c791627cf49e5b3439e37372bc9870612662bd7b66260acc3e787ea913",
+    "request-1.json": "ba425f519a761269c259951881b38546e0f59ed817768df13731f4a6bb7f1e1c",
+    "request-2.json": "5364cd047e65f24ef781e4da7deb77dc08862b07b8bb9083ae6590be54cc9f5a",
+    "decisions.jsonl": "434d44983be379e7fa93076a32d27f8093132604a7b2b1ad1050ff2e4e9352f6",
+    "result-0.json": "aa92b205b7cefe0ba7050924d7d2ad37d31ad0419925afecd2abd58cb071d246",
+    "request-0.json": "a2cd0b4c1a6d305b1881ee85f36588cdc8ca03ed7d19d1933ebb3b1377315619"
+  },
+  "provider_usage": {
+    "enabled": false
+  },
+  "comparison_scope": "historical external pre-project frontier; not the live record after BoundForge's own result",
+  "existing_project_result": {
+    "lower_bound": "0.58507881967451359",
+    "K": "3.56818544223368269553925743732750636848",
+    "alpha": "3.96154311181022808045648786109191322475",
+    "source": "https://github.com/howdymary/boundforge/blob/main/boundforge/portfolio/RESULT.md"
+  },
+  "fresh_discovery": false,
+  "scope": "Autonomous execution/reproduction from an earlier external frontier. Controller/optimizers engineered after agent-directed discovery. No hidden-result, new-method or fresh-world-record claim."
+}
