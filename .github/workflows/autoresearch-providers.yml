@@ -25,7 +25,11 @@ jobs:
       - name: Verify math, controller, budget, and checkpoint controls
         run: python -m pytest -q -p no:cacheprovider boundforge/portfolio/test_portfolio.py boundforge/portfolio/test_c1b.py boundforge/portfolio/test_c1d.py boundforge/portfolio/test_translation.py boundforge/portfolio/test_active.py boundforge/portfolio/test_c51.py boundforge/autoresearch/test_autoresearch.py
       - name: Install bounded provider client
-        run: python -m pip install tinker==0.39.0
+        run: python -m pip install -r boundforge/autoresearch/requirements-providers.txt
+      - name: Nonbillable tokenizer and template preflight
+        env:
+          HF_HOME: boundforge/autoresearch/provider-cache
+        run: python -c 'from transformers import AutoTokenizer; t=AutoTokenizer.from_pretrained("Qwen/Qwen3.5-397B-A17B"); x=t.apply_chat_template([{"role":"user","content":"Return JSON with an action."}],tokenize=True,add_generation_prompt=True,enable_thinking=False); assert len(x)>0'
       - name: Build credential-free proposal image
         run: docker build -t boundforge-research-worker boundforge/autoresearch
       - name: Source-gated model-assisted research loop
