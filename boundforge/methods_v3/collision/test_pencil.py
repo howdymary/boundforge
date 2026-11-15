@@ -6,7 +6,7 @@ from .certify import actual_groups
 def test_all_event_products_equal_independent_coordinate_aggregation():
  rng=random.Random(511)
  for m in [4,6,8]:
-  p=[(i-i//2,-i//2)for i in range(m)];v=[(0,0)]+[(rng.randint(-3,3),rng.randint(-3,3))for _ in range(1,m)];controls=[(1,0),(0,1),(1,1),(1,2)]
+  p=[(i-i//2,-(i//2))for i in range(m)];v=[(0,0)]+[(rng.randint(-3,3),rng.randint(-3,3))for _ in range(1,m)];controls=[(1,0),(0,1),(1,1),(1,2)]
   scan=event_scan(p,v,controls);assert scan["complete_slice"]
   for record in scan["records"]:
    if record["valid"]:
