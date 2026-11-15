@@ -6,7 +6,8 @@ uses k_+. Positional encoding remains carry-free in the original digit labels.
 import hashlib,json,math,os,pathlib,random,time
 import numpy as np
 from scipy.optimize import minimize
-from masked_search import semigroup
+try:from .masked_search import semigroup
+except ImportError:from masked_search import semigroup
 HERE=pathlib.Path(__file__).resolve().parent
 class Problem:
  def __init__(self,mask):

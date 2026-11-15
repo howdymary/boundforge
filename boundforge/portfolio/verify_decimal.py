@@ -29,7 +29,7 @@ def fact(n):
  # Robbins with a common log(2pi)/2 constant omitted: it cancels below except
  # (1-number_of_types) times the constant. Enclose log(2pi)/2 in [0.9189,0.9190].
  main=sub(mul(add(interval(n),div(interval(1),interval(2))),ln(interval(n))),interval(n))
- return add(add(main,(D("0.9189"),D("0.9190"))),div(interval(1),(D(12*n+1),D(12*n))))
+ return add(add(main,(D("0.9189"),D("0.9190"))),div(interval(1),(D(12*n),D(12*n+1))))
 def check(cert):
  mask=cert["mask"]
  if not isinstance(mask,list) or mask!=sorted(set(mask)) or len(mask)<2 or mask[0]!=0 or any(type(a)is not int or not 0<=a<=2000 for a in mask):raise ValueError("alphabet")
