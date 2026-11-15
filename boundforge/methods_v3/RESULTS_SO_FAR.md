@@ -66,3 +66,15 @@ The shared kernel produced exactly the same complete counterfactual records and 
 Equal-CPU discovery comparison: shared best repair tied random circuit repair on two task means and lost on four. It beat naive best repair, which is insufficient against the stronger fixed procedure. Do not claim a new discovery method or scale this policy unchanged.
 
 Next: exact event scans over rational kernel trajectories, with independently checkable two-dimensional projective-family maxima. Existing arrangement enumeration, parametric optimization and subproblem caching constrain novelty; test usefulness first, and do not manufacture novelty if the mechanism reduces to prior art.
+
+
+## Exact-event search and complete-family memory
+Development run43753751752 completed216 episodes,434.35 worker CPU seconds,225.66 wall seconds, all witnesses checked by two arithmetic backends. Kernel-event search beat random circuit search on five task means and tied on one, but coordinate-only event scans beat kernel-event search on four of six task means. Thus useful event enumeration does not establish superiority of the proposed kernel controller.
+
+The independent verification run43754239201 passed the new tests and reverified every witness. It checked6084 retained complete two-dimensional family certificates using fresh rational rank and direct coordinate aggregation, without the search's modular or event-union code. It validated6785 memory hits, including218 across distinct full states.
+
+Memory_event produced3478 hits,3473 observed downstream interventions and22 next-step global-best gains; state_memory_event produced3307 hits,3301 interventions and19 next-step gains. These are dependent, adaptively selected events, not independent causal comparisons. End-to-end results do not establish a memory advantage. The transported-memory policy was sometimes better and sometimes worse than state-specific caching; scheduled changes or fixed event scans were often stronger. Functioning proof transport is not a new-method advantage.
+
+The new test workflow initially stopped before paid work because a fixture used -i//2 instead of -(i//2), creating duplicate initial points. Corrected once; preserve that failed run43753623468. No billable search was launched by that failure.
+
+Next bounded production campaign uses the simpler event primitive on the archived weighted C3c incumbent. It is explicitly separate from methodological evaluation. No new research mechanism or general-method contribution has been established.
