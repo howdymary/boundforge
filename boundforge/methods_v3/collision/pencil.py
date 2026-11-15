@@ -60,7 +60,7 @@ def direction_for(problem,points,state,rng,release):
  return direction,{"nullity":len(kernel),"released_basis_rows":list(release),"retained_flat_key":sub.key(),"retained_basis_ids":kept,"projective_family_complete_if_slice_complete":len(kernel)==2}
 def episode(spec,policy,seed,cpu=2,certify=True):
  from .search import propose
- m,controls=spec;start=time.process_time();problem=Problem(m,controls);rng=random.Random(seed);state=problem.initial;points=problem.initial_points;current=objective(points,controls);best=current;beststate=state;bestpoints=list(points);trace=[];cache={};turn=0;force_large=False
+ m,controls=spec;start=time.process_time();problem=Problem(m,controls);rng=random.Random(seed);state=problem.initial;points=problem.initial_points;current=objective(points,controls);best=current;beststate=state;bestpoints=list(points);trace=[];cache={};turn=0;force_large=False;pending_record=None
  while time.process_time()-start<cpu:
   begin=time.process_time()
   if policy in ["circuit","batch_repair"]:
@@ -95,15 +95,18 @@ def episode(spec,policy,seed,cpu=2,certify=True):
    cache_key=info.get("retained_flat_key")if info.get("nullity")==2 else None
    if policy=="state_memory_event"and cache_key:cache_key=state.key()+":"+cache_key
    if policy in ["memory_event","state_memory_event"]and cache_key in cache and tuple(cache[cache_key]["best_key"])<=current:
-    force_large=True
-    event={"diagnosis":"certified_projective_family_covered","record_retrieved":cache_key,"record_origin_turn":cache[cache_key]["origin_turn"],"decision_changed":"skip event reevaluation; require a two-row release on the next action","scope":"Exact same retained row space, uniform masses, controls and target within this episode","family_best_key":cache[cache_key]["best_key"],**info}
+    force_large=True;pending_record=cache_key
+    # Validate equality of retained rational row spaces via the determinant-safe field.
+    union=problem.rebuild(info["retained_basis_ids"]+cache[cache_key]["retained_basis_ids"]);assert problem.d-len(union.ids)==2
+    event={"cross_state_reuse":cache[cache_key]["source_state"]!=state.key(),"diagnosis":"certified_projective_family_covered","record_retrieved":cache_key,"record_origin_turn":cache[cache_key]["origin_turn"],"decision_changed":"skip event reevaluation; require a two-row release on the next action","scope":"Exact same retained row space, uniform masses, controls and target within this episode","family_best_key":cache[cache_key]["best_key"],**info}
    else:
     scan=event_scan(points,direction,controls,deadline=start+cpu);valid=[r for r in scan["records"]if r["valid"]];key=max(tuple(r["key"])for r in valid)
     options=[r for r in valid if tuple(r["key"])==key]if key>current else valid
     chosen=rng.choice(options);candidate=realize(points,direction,chosen);actual=objective(candidate,controls);assert actual==tuple(chosen["key"])
-    event={"diagnosis":"complete_event_scan"if scan["complete_slice"]else"event_scan_budget_exhausted","basis_before":list(state.ids),"direction":[list(p)for p in direction],"point_before":[list(p)for p in points],"scan":scan,"chosen_parameter":chosen["parameter"],**info}
+    event={"triggered_by_record":pending_record,"diagnosis":"complete_event_scan"if scan["complete_slice"]else"event_scan_budget_exhausted","basis_before":list(state.ids),"direction":[list(p)for p in direction],"point_before":[list(p)for p in points],"scan":scan,"chosen_parameter":chosen["parameter"],**info}
     if policy in ["memory_event","state_memory_event"]and cache_key and scan["complete_slice"]:
-     cache[cache_key]={"best_key":list(scan["best_key"]),"origin_turn":turn};event["record_written"]=cache_key
+     cache[cache_key]={"best_key":list(scan["best_key"]),"origin_turn":turn,"source_state":state.key(),"retained_basis_ids":info["retained_basis_ids"]};event["record_written"]=cache_key
+    pending_record=None
     if policy=="scheduled_event"and actual<=current:force_large=True
     if actual>current or rng.random()<.025:
      points=candidate;current=actual;state=problem.from_points(points)
