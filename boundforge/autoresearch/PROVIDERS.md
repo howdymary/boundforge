@@ -1,0 +1,9 @@
+# Optional provider path
+
+Exa is called inside the measured-failure branch of the research loop. Search plus, if needed, contents must confirm the exact registered working-report witness before higher-precision search is allowed. Source URLs, text hashes, extracted decimal facts, request IDs, cost receipts and the resulting gate decision are logged. Source text is data, not instructions; it cannot execute code. No full third-party documents are republished.
+
+Tinker reads the measured diagnosis and sourced facts and returns only one bounded operator ID. It cannot write or execute Python or change acceptance logic. The deterministic controller remains a disclosed fallback. No fine-tuning or new model/memory-benefit claim. SDK sampling retries disabled; errors preserve full reservations and stop new paid calls.
+
+Current pricing checked in official [model table](https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/): Qwen3.5-397B-A17B inputUSD1.65/outputUSD7.50 per million tokens. Prompt<=3000tokens/output<=300; reserveUSD0.05 before the single call, retain this hold until receipt reconciliation. Exa LiteUSD0.004/search plusUSD0.001/content page,5results maximum; reserveUSD0.05 per HTTP call and settle costDollars.total when exposed. Old campaign holds preserved. Fresh UI-credit snapshot required by provider-budget.json before paid execution. No purchases, new grants, auto-reloads or plan changes.
+
+Default runner needs neither API keys nor paid services. This optional path is only sponsor evidence when an actual successful API-backed run is present; source hooks alone do not satisfy the Exa challenge. No new past.dev or Modal calls in this submission phase.

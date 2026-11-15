@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "observed_ui_utc": "2026-11-15T07:12:00Z",
+  "valid_for_minutes": 30,
+  "providers": {
+    "exa": {
+      "enabled": true,
+      "initial_cap": 119.14,
+      "unit": "USD",
+      "campaign_cap": 0.25,
+      "old_unresolved_hold": 2.46,
+      "external_pending_guard": 20,
+      "billing_boundary": "No payment method; prepaid/free credits, purchases/top-ups disabled.",
+      "expiration": "Expiring-credit notice did not expose dates; no reliance on future grants.",
+      "pricing": {
+        "lite_search": 0.004,
+        "content_page": 0.001,
+        "auto_search": 0.007
+      },
+      "price_source": "https://dashboard.exa.ai/billing"
+    },
+    "tinker": {
+      "enabled": true,
+      "initial_cap": 277.94,
+      "unit": "USD",
+      "campaign_cap": 0.25,
+      "old_unresolved_hold": 3.2,
+      "external_pending_guard": 100,
+      "billing_boundary": "Auto-reload disabled, unpaid usage0, free storage plan. No training/checkpoints created.",
+      "expiration": "No expiration exposed on balance page; short bounded batch only.",
+      "pricing": {
+        "input_per_million": 1.65,
+        "output_per_million": 7.5
+      },
+      "price_source": "https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/"
+    },
+    "modal": {
+      "enabled": false,
+      "campaign_cap": 0,
+      "old_unresolved_hold": 115.58,
+      "unit": "USD",
+      "reason": "No new Modal work needed for submission verification; earlier search retained."
+    },
+    "past": {
+      "enabled": false,
+      "campaign_cap": 0,
+      "old_unresolved_hold": 90,
+      "unit": "credits",
+      "reason": "No multi-agent benefit established; no new memory API calls."
+    }
+  },
+  "notes": "All prior holds retained. New credits never increase these caps. This small submission phase is separate from the earlier record-search ledger. Refresh dashboard snapshot before paid run if older than30minutes; live account-wide Tinker usage read before inference."
+}
