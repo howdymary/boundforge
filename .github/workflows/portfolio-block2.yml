@@ -1,0 +1,29 @@
+name: BoundForge coupled two-coordinate alphabet pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  block2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.3.5 scipy==1.16.3
+      - name: Exact histograms and bounded new construction search
+        run: python -u boundforge/portfolio/block2_search.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-block2-pilot
+          path: boundforge/portfolio/block2/
+          retention-days: 30
