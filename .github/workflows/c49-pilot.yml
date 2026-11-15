@@ -18,9 +18,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install modal
+      - run: python -m pip install modal pytest
       - name: Check C++ source on free runner
-        run: g++ -O3 -std=c++17 boundforge/c49/search.cpp -o /tmp/c49-search
+        run: python -m pytest -q -p no:cacheprovider boundforge/c49/test_c49.py
       - name: Inspect previous image failure
         continue-on-error: true
         env:

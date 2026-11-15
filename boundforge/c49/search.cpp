@@ -2,19 +2,19 @@
 #include <bits/stdc++.h>
 using namespace std;using U=uint64_t;
 int kind,n,param,action,budgetms,N;uint64_t seedv;mt19937_64 rng;
-vector<vector<bool>>adj;vector<vector<int>>third;U tried=0,rejected=0,attempts=0,mismatch=0;
+vector<vector<bool>>adj;vector<vector<int>>third;U tried=0,rejected=0,attempts=0,rateMismatch=0,pairRejected=0,tripleRejected=0;vector<int>lastConflict;
 clock_t beginCPU;
 bool expired(){return 1000.0*(clock()-beginCPU)/CLOCKS_PER_SEC>=budgetms;}
 bool legal(int x,vector<int>const&s){
  tried++;
  if(kind==0){
-  for(int a:s)if((a&x)==a||(a&x)==x){rejected++;return false;}
-  for(size_t i=0;i<s.size();i++)for(size_t j=0;j<i;j++)if((s[i]&s[j])==(s[i]&x)&&(s[i]&s[j])==(s[j]&x)){rejected++;return false;}
+  for(int a:s)if((a&x)==a||(a&x)==x){rejected++;pairRejected++;lastConflict={x,a};return false;}
+  for(size_t i=0;i<s.size();i++)for(size_t j=0;j<i;j++)if((s[i]&s[j])==(s[i]&x)&&(s[i]&s[j])==(s[j]&x)){rejected++;tripleRejected++;lastConflict={x,s[i],s[j]};return false;}
  }else if(kind==1){
-  for(int a:s)if(adj[x][a]){rejected++;return false;}
+  for(int a:s)if(adj[x][a]){rejected++;pairRejected++;lastConflict={x,a};return false;}
  }else{
   vector<bool>has(N);for(int a:s)has[a]=true;
-  for(int a:s)if(has[third[x][a]]){rejected++;return false;}
+  for(int a:s)if(has[third[x][a]]){rejected++;tripleRejected++;lastConflict={x,a,third[x][a]};return false;}
  }
  return true;
 }
@@ -70,11 +70,11 @@ int main(){try{
  Score initial=score(s),best=initial,cur=initial;vector<int>bs=s;
  while(!expired()){
   auto proposal=repair(ruin(s));auto sc=score(proposal);attempts++;
-  if(proposal.size()>s.size()&&sc.v+1e-14<cur.v)mismatch++;
+  if(proposal.size()>s.size()&&sc.v+1e-14<cur.v)rateMismatch++;
   if(sc.v>best.v+1e-14){best=sc;bs=proposal;}
   if(sc.v>=cur.v-1e-14||(rng()%20==0)){s=proposal;cur=sc;}
  }
  auto printvec=[](vector<int>v){sort(v.begin(),v.end());cout<<"[";for(size_t i=0;i<v.size();i++){if(i)cout<<",";cout<<v[i];}cout<<"]";};
- cout<<setprecision(17)<<"{\"score\":"<<cur.v<<",\"best_score\":"<<best.v<<",\"initial_score\":"<<initial.v<<",\"ports\":["<<cur.p<<","<<cur.q<<"],\"best_ports\":["<<best.p<<","<<best.q<<"],\"tested\":"<<tried<<",\"rejected\":"<<rejected<<",\"trials\":"<<attempts<<",\"cardinality_rate_mismatches\":"<<mismatch<<",\"cpu_seconds\":"<<double(clock()-beginCPU)/CLOCKS_PER_SEC<<",\"state\":";
- printvec(s);cout<<",\"best_family\":";printvec(bs);cout<<"}\n";return 0;
+ cout<<setprecision(17)<<"{\"score\":"<<cur.v<<",\"best_score\":"<<best.v<<",\"initial_score\":"<<initial.v<<",\"ports\":["<<cur.p<<","<<cur.q<<"],\"best_ports\":["<<best.p<<","<<best.q<<"],\"tested\":"<<tried<<",\"rejected\":"<<rejected<<",\"trials\":"<<attempts<<",\"cardinality_rate_mismatches\":"<<rateMismatch<<",\"cpu_seconds\":"<<double(clock()-beginCPU)/CLOCKS_PER_SEC<<",\"state\":";
+ printvec(s);cout<<",\"best_family\":";printvec(bs);cout<<",\"pair_rejected\":"<<pairRejected<<",\"triple_rejected\":"<<tripleRejected<<",\"last_conflict\":";printvec(lastConflict);cout<<"}\n";return 0;
  }catch(exception const&e){cerr<<e.what()<<"\n";return 2;}}
