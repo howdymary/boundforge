@@ -93,7 +93,7 @@ def frame(i,title,rows,foot):
   d.text((72,y),line,font=font(42,bold=True),fill="#102d2c");y+=54
  y=max(y+20,208)
  for text,kind in rows:
-  size=40 if kind=="big"else26 if kind=="mono"else23 if kind=="small"else28
+  size=40 if kind=="big"else 26 if kind=="mono"else 23 if kind=="small"else 28
   fo=font(size,bold=kind=="big",mono=kind=="mono");color="#147a58"if kind=="big"else"#ad5a18"if kind=="warning"else"#233c37"
   for line in wrap(d,text,fo,1120):
    d.text((72,y),line,font=fo,fill=color);y+=size+11
