@@ -1,0 +1,4 @@
+# Development control artifact loss
+Run43751582408 completed 270 episodes; the job log reports all checked valid, 406.88 worker CPU seconds and 168.01 wall seconds. Its producer wrote output/collision-controls, but upload-artifact still pointed at output/collision. No raw group files were retained. This is an engineering failure, not a scientific result to conceal.
+
+The log summary survives, but those particular witnesses/traces cannot be independently replayed from retained artifacts. Do not present the run as a complete reproducible result. Preserve its summary as log-only evidence. Fix the path, make missing output a workflow error, and repeat the small development comparison once to retain complete data. The repeat is still development, not independent confirmatory evidence selected after a negative result. Both summaries must be reported.
