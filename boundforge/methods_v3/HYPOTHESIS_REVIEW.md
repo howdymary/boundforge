@@ -36,3 +36,17 @@ Substantive rejection:
 - Some named references in the model answer lack supplied source URLs; treat them as unverified leads, not citations.
 
 The useful next question comes from direct mathematical analysis of repeated elimination, not accepting these proposals: can shared residual/coordinate tables evaluate all repairs exactly at lower cost? See collision/BATCH_REPAIR_PROTOCOL.md. The Distinct Vectors and dynamic/batch linear-algebra literature substantially limits any novelty claim.
+
+
+## Reasoning-enabled alternative (run43755100303)
+A separate reasoning-enabled Tinker request returned a schema-valid proposal to derive feasibility-preserving operators from “certificate stabilizers.” This is not accepted as a new method.
+
+Decisive issues:
+- Computing symmetry/stabilizer moves and using constraint-preserving mutations are existing ideas. The model's assertion that none of the closest work does this is unsupported; its20–50% prediction has no evidence.
+- Its displayed “stabilizer” definition does not require bijections or preservation of the family, so it does not define a group as written.
+- Symmetries of the whole optimization problem preserve the objective and can generate arbitrarily many duplicate valid constructions without discovery. Point permutations provide an exact counterexample to the proposed valid-constructions-per-second metric.
+- If a complete family F already has certified maximum M, every operator mapping F to F has objective at most M. Stabilizing that family cannot escape its certified ceiling.
+- Operators preserving only feasibility may change objective, but then this reduces to conventional feasible mutations unless a materially different derivation and benefit are specified.
+- Prior work here already used certificates to select/escalate interventions; calling all earlier certificates passive misstates the actual experiment.
+
+Reject the proposed1000-CPU-second experiment as written. A mathematical counterexample and prior-art overlap are enough to reject its metric and novelty premise; consuming credits would not repair those defects. A future revised hypothesis would need nontrivial cross-family moves, canonical duplicate control, a verified-objective outcome, and a distinction from standard feasibility-preserving search.
