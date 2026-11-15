@@ -17,8 +17,10 @@ def main():
   for e in r["trace"]:
    if "record_written"in e:
     key=e["record_written"]
-    if key not in checked:
-     result=check_family(task["m"],task["controls"],e);checked[key]=result
+    if True:
+     result=check_family(task["m"],task["controls"],e)
+     if key in checked:assert result["best_key"]==checked[key]["best_key"]
+     checked[key]=result
      families.append({"task":task,"policy":r["policy"],"seed":r["seed"],"turn":e["turn"],"record":key,"event_sha256":hashlib.sha256(json.dumps(e,sort_keys=True).encode()).hexdigest(),"check":result})
    if e.get("diagnosis")=="certified_projective_family_covered":
     hits+=1;cross+=bool(e.get("cross_state_reuse"));source=byturn[e["record_origin_turn"]];key=source["record_written"];assert key==e["record_retrieved"]and key in checked

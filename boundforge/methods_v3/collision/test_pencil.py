@@ -41,3 +41,16 @@ def test_independent_complete_family_checker():
    assert check_family(problem.m,problem.controls,event)["valid"]
    return
  raise AssertionError("missing test family")
+
+def test_incomplete_slice_cannot_be_a_complete_family_certificate():
+ import time,pytest
+ from .verify_family import check_family
+ problem=Problem(5,[(1,0),(0,1),(1,1),(1,2)]);p=problem.initial_points;rng=random.Random(2)
+ for row in problem.initial.ids:
+  direction,info=direction_for(problem,p,problem.initial,rng,[row])
+  if direction is not None and info["nullity"]==2:
+   scan=event_scan(p,direction,problem.controls,deadline=time.process_time()-1);assert not scan["complete_slice"]
+   event={"point_before":[list(x)for x in p],"direction":[list(x)for x in direction],"scan":scan,**info}
+   with pytest.raises(AssertionError):check_family(problem.m,problem.controls,event)
+   return
+ raise AssertionError("missing fixture")
