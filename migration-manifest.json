@@ -1,0 +1,951 @@
+{
+  "source_repository": "howdymary/compute-forecasting",
+  "source_branch": "compute-observatory",
+  "source_commit": "99fd43a3fab468e82e84463a2d069b34aae8baca",
+  "destination_repository": "howdymary/boundforge",
+  "destination_branch": "main",
+  "created_at": "2026-11-15T04:40:56.536596+00:00",
+  "history_policy": "Standalone snapshot; original history and Actions receipts remain at immutable source links. No history rewrite or old-run deletion.",
+  "files": [
+    {
+      "path": ".github/workflows/boundforge-check.yml",
+      "source_sha256": "07f9421a14dc5aa2a509ae15b867c5266da0f26ec6ce0cecceedbb9dd005a60c",
+      "source_git_blob_sha": "a85968b361b7c2201521f3da5558cde706d7170b",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-literature.yml",
+      "source_sha256": "d51c47311e5918f9ce313ce01e3a5c371c96f42760ae936e7b916e0385388f67",
+      "source_git_blob_sha": "3cf46ba69b7e86393ebff8d620d485e589f0a5d2",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-method-replay.yml",
+      "source_sha256": "8ced8969e3d6eb0ee30941903e85de15ef6a5fc3eaf0cddbda24bdf73fefc6fa",
+      "source_git_blob_sha": "59028f4fde669e84d7699085c7b86b69dac777ca",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-nondegenerate.yml",
+      "source_sha256": "c73660965e1580251dcdc7091e44cbba47e9ff03e50324109e953ea023e45d4d",
+      "source_git_blob_sha": "ae6d927f40021b542ff9be117d1c6c507ebc33d6",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-precision.yml",
+      "source_sha256": "b1804bc0744300f67fa0a588ce1d7d946c39556452a40a0c87673a02de5b54c9",
+      "source_git_blob_sha": "ce18d783da8491c5e3432336f3b0e4e17c75c285",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-preflight.yml",
+      "source_sha256": "a98bddad0bd1abac940855442b84843cd56cc160c1daca2eed658ea75314bd1b",
+      "source_git_blob_sha": "a5edadbe7afe44b7ab0e6f25f0664ab30fbbc918",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-publish.yml",
+      "source_sha256": "d138351604767160e4334a96b8ac47674ac0eb233e6678e8cef129729d888d04",
+      "source_git_blob_sha": "e24862c003a1c804fe5cc1a148f892b70aaa14a1",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-structural-v2.yml",
+      "source_sha256": "237096677d5ecae50f477088c32d81e2d8d943b6cd2d3dabb40f54d30bf06c14",
+      "source_git_blob_sha": "7c355edba1bc1b171bc08fc05e9b3d2a17e98579",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-tinker.yml",
+      "source_sha256": "511fbada79ebf11457e3363eaaf11bc8fa581fb7d5e48558e235f211df2e6220",
+      "source_git_blob_sha": "6b38798b2c12bf9e60357ba3994460065e89a986",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/boundforge-v2-check.yml",
+      "source_sha256": "61eaa8435aaf296eea912b7df32e1377d7952eef25149977d98a3537ff6cf7d3",
+      "source_git_blob_sha": "949bb0813b65922304b78a7a6ad33f5d42ce7b3e",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge-v2-publish.yml",
+      "source_sha256": "3a0e7d6456e900e1ede41345c72f7e7b44395908fb308f004765421369fe017a",
+      "source_git_blob_sha": "aaef8452802fc7f834a50ba425edaf19dd1d4581",
+      "unchanged": false
+    },
+    {
+      "path": ".github/workflows/boundforge.yml",
+      "source_sha256": "ac128f70ad98986e09051972f581221fdab172debed10cd6d9bdb1c321f34b16",
+      "source_git_blob_sha": "7f4655868287e5a86767e5306bcbe616adf79485",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/.gitignore",
+      "source_sha256": "5acfb0aa731e1fb2e7cfe701c59f5e71be0d78a08205f125cf32bab2bd7cd4be",
+      "source_git_blob_sha": "65216895db67b1e2aae485c741503fcbfd0ce4f3",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/POLICY_REVIEW.md",
+      "source_sha256": "7e9b58e0f0de375e247aa4f843c4a6b836a95a5afb795c65305e1d12739813cb",
+      "source_git_blob_sha": "c3d2e0d6866fdb73b7af4524c68b0c98c6b263cf",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/README.md",
+      "source_sha256": "98059b3577aadfc3931660b58c1308a4d731c17185a34d3f37c3bff5bd9712a1",
+      "source_git_blob_sha": "48631589456a1742fda1c989295d0a1b717bec4c",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/budget-snapshot.json",
+      "source_sha256": "b767b28b0ff875ffc30b129758f7840da8957caf1ef13a694a285d3f9daae2f7",
+      "source_git_blob_sha": "71ee26ad7f74f315e39b00a832778f8da3d25008",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/certificates/incumbent.json",
+      "source_sha256": "8b6612ef91342b900733f87b00a8bc0ceebf88727eeceb2e5b390e2ccbfb97a4",
+      "source_git_blob_sha": "cd0a9e19090dacf488748314f2055ceaa4427e3a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/demo.py",
+      "source_sha256": "fe0f45e1b7b43c5057708278d5511239245c4f2bdde3c9be96a999ee39615a2c",
+      "source_git_blob_sha": "829001fbf0aa362f1290f7863fb4986737f5ac54",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/demo_qa.py",
+      "source_sha256": "84d92906304f905a5437f65283ff2828af3ad880ec11ba987f0d059e198f58a6",
+      "source_git_blob_sha": "29e4e6567f6a5be80144ac0aada1a5ec3957ae2f",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/finalize.py",
+      "source_sha256": "cabb63f78eeb177ac755744164307813002c0e26e297eefe2306f24d823fec7f",
+      "source_git_blob_sha": "587a4ed5a482aff1d786bfc9e19c5404b860ee04",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/historical-usage.json",
+      "source_sha256": "edbea4bcfb3729221c43c3d7ce96e55bc7c774af2ed75dab9a5ed0b355cad795",
+      "source_git_blob_sha": "703180df92d5159b42e2ba07cbca8e04f3834b86",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/modal_worker.py",
+      "source_sha256": "a0d9cd9ca7db7a527d8cc00c06a9fd4a03b0c3c959b07462f5e175b3ab23f375",
+      "source_git_blob_sha": "5cc7d2ecffbed7cf815d108defceab4b3271eee4",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/precision.py",
+      "source_sha256": "294d6a9eef8688b8c46959946f9b5f0276ac3435857be68a018d1bf680a30b46",
+      "source_git_blob_sha": "ca33cd4c07239b5d9c31f039868451ffbf5d7954",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/precision_run.py",
+      "source_sha256": "68934cb0334257c16e5f32ccf553e375f14159e3bebd072f307940ead176eeb0",
+      "source_git_blob_sha": "8a7621da4ff35aaee0ef403cf0550b198600df8e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/preflight.py",
+      "source_sha256": "eaaeeb0e12a759f81ef10e8ee30f72349ffa98bf45f67ef1f1898edafe0a9a35",
+      "source_git_blob_sha": "055338fc8672a40f2e17217d1a057fce6b7a7c96",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/providers.py",
+      "source_sha256": "3dccc36b60485427da4bfa3f7002edbac95011f84feb98b78c1968f972137970",
+      "source_git_blob_sha": "d6e2dad8520b7c2b5214577a379cfca5186dae92",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/requirements.txt",
+      "source_sha256": "b77f8b9cd780abc905250fbdfa2b90ba4e5f1a3acb6a90390ae4488f7caa6239",
+      "source_git_blob_sha": "e9a3e0c41002443b0f68f0d478b1f63511804f65",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/COMPARATIVE_REVIEW.md",
+      "source_sha256": "a7f16733b9d3afb7689c58b037f8c8f35a184ea5ba88d1a7ad10f973ceff2330",
+      "source_git_blob_sha": "d1d09f106dfd92d754b82c4908c2a87ca0d15836",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/DIRECTION_AND_PREREGISTRATION.md",
+      "source_sha256": "29e21acbbe9c625d98bf8b70c40ba9b79336dc1ecf46bbb94b0d871e11b26df5",
+      "source_git_blob_sha": "ded9aebeff93e4b849d75a4e40cef38eb488f86e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/MATHEMATICAL_SCOPE.md",
+      "source_sha256": "6ea39dbfea99c45b6ebb2c706c6a4a91986c22b2f8554b069b0b19bb5b41d3bf",
+      "source_git_blob_sha": "712eed9808f112b3fc207428c015c3852048f39a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/NONDEGENERATE_FOLLOWUP.md",
+      "source_sha256": "289141c003f1fd925d097f69ba1fbbd85f735d0c998ec1f6fe02b084cf6b77c5",
+      "source_git_blob_sha": "0fb008002f5c2584962012bb48dd79707bc94b1f",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/campaign-budget.json",
+      "source_sha256": "66b72c14bd36b359ddcea58c2b5939c4f8fa4d9df33e24562da8128a7f279881",
+      "source_git_blob_sha": "ca25d58b9839a6d6df88eec5ded26c78be09f782",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/campaign.py",
+      "source_sha256": "fc03e9604154dd7931c9e9b59a960cc872ce8f943732a6ca5ad7a1b2e801238e",
+      "source_git_blob_sha": "03be4a303a7f0b7a343d97bbc0fe7d0c7512765b",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/common.py",
+      "source_sha256": "7fd11b14bce5776a7b161b7d84cab0361faee06086b4c0d964b768b0c5f61460",
+      "source_git_blob_sha": "c67138b3627330c13d299b6d2c0c1eba4e4dcb64",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/constructions.py",
+      "source_sha256": "ba3dbb26ba3b2cc2f0fbbfa0356b148fee3a348c9b9fb5e75c54930b0bfdc919",
+      "source_git_blob_sha": "a863caaf1c277b50fd3cf71bec3e1b45f7c721b0",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/discover.py",
+      "source_sha256": "0ced295c485c9b7dd271f9639eeca0b5f0f311d9bfa2d3d6a3f28f5bdee05612",
+      "source_git_blob_sha": "196e553e39b611db48400fc46613a78936cd07c5",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/evidence/discovery.json",
+      "source_sha256": "7ccc2918093f5d865b6503c4b95a5cd03c86f9eefcd45e52e3098e1d2708d9b8",
+      "source_git_blob_sha": "071d7b10963c08f14f2a2589c3fb0fc842aac8fa",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/evidence/funsearch-replay.json",
+      "source_sha256": "92419d825b9c69580ba4ec8bba7b334f99dffa561086acf6ffdb1347804885af",
+      "source_git_blob_sha": "b04891f713c845ce142cab1bc7d877978ace04b6",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup.py",
+      "source_sha256": "93be99e71693ba13347b23d55d6a34b6d6a4d69282f2d25b0e54c6b599f96adb",
+      "source_git_blob_sha": "17d1ca824a7c1ea20c953e24ea3e4e60ab6314a0",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/research_v2/followup/FINAL_RESEARCH_NOTE.md",
+      "source_sha256": "5f998542b192e9a77479995565c380c4890e8532404472637e3c4ba0ead104d7",
+      "source_git_blob_sha": "b4828675f2170c1854873f5c58fda2cd05d34866",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/best.json",
+      "source_sha256": "dbc930d75d6a7ffe0fb96278bffcf13eb2d94ace5db05478665e4101362e1238",
+      "source_git_blob_sha": "d93c5b2c89406807ba954056dea2ec215e6c2310",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/cases.jsonl",
+      "source_sha256": "dba2face70a045fa71d236e6d4122dc863e2bead93ff10854c180fa8a437e0f0",
+      "source_git_blob_sha": "4adc4a8859d6669fbe7cbc2fa8bf1f045f7dc750",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/law-bank.json",
+      "source_sha256": "cd253de23dc081e2a4c812ff594aded5f384904a5c1895ba2e9ee8efce542a22",
+      "source_git_blob_sha": "3a363dfe34f1bdba4abb63217cc68230ece01e13",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/paired-scores.svg",
+      "source_sha256": "61c81575c6197c2357f8abbd191a97d03d21be89759d0225d791368c39ad56aa",
+      "source_git_blob_sha": "b7f248ececc64bb523c4e33fe8a60da1184ef7ed",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/provenance.json",
+      "source_sha256": "5e90fbc707d3d702e44c22e7b74f3789ac4a9bf33646c81b7afacbeec1dc48fc",
+      "source_git_blob_sha": "5b22fa0414a330396136f85a7e1713a4c5595d84",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/report.json",
+      "source_sha256": "518e49644ff9b45844aaa55a94a12afeadc8d8527394bc8032c9e0fa4682ab62",
+      "source_git_blob_sha": "c5ddf7a845ed93e83255d333fa63e5f3400be997",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/reservations.json",
+      "source_sha256": "c223dd5cfa0d84f191be901eed4800c6d0295485427eb26d3ba5554d77cd1f43",
+      "source_git_blob_sha": "12f53aabab288e1c1073d8903b2a7d2f595bb69c",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/trace.jsonl",
+      "source_sha256": "97ece69eea2b4a2f1c35e2cef7850e84022e814442e8b751a0d3c50f6cd7f567",
+      "source_git_blob_sha": "9265e18e6e823aa38196ae2a8ebdf4942d53ea24",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/followup/usage.json",
+      "source_sha256": "d9ef0c5bf5543db8f8dbf993f2c24de85dd702c4e2c1186fef020a8f673d4f97",
+      "source_git_blob_sha": "a642f7c3f90a8d3994f1c7c8a80b27bf21261ed0",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/model.py",
+      "source_sha256": "4ad47fcc97bb01cf34f354255787effbf86ac5fb5380ceb4d8ed90a61e87bcd9",
+      "source_git_blob_sha": "b67a27d0ecad70708b3e1a054a59deb02c29d711",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/nondegenerate.py",
+      "source_sha256": "6a8922b28e476faad175f4dd457e7022459a624069d8a1716fdf91b8d8c91285",
+      "source_git_blob_sha": "ee9b82635927cbdf698ba6568eb6baadeb97d076",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/RESEARCH_NOTE.md",
+      "source_sha256": "3cf989c0a2b66de20282c743648d4a857665f9a60d3f33fd210c663d05ee78c8",
+      "source_git_blob_sha": "75af4128096b2a46ecc98714a102541f7c9005b3",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/best.json",
+      "source_sha256": "dbc930d75d6a7ffe0fb96278bffcf13eb2d94ace5db05478665e4101362e1238",
+      "source_git_blob_sha": "d93c5b2c89406807ba954056dea2ec215e6c2310",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/cases.jsonl",
+      "source_sha256": "a75e1f5d32ac7dd2a70aab19e296da310a9f31aaee0ccc4ca57a8967670791d8",
+      "source_git_blob_sha": "2e9a267727ce1ed3bacb9344d3d4c14b244de615",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/demo.html",
+      "source_sha256": "05efa90a8eab79c1d5b51472ecec1acefc150cd92d02e14680b92e3df57032e6",
+      "source_git_blob_sha": "0a7deda014e106d51e121ba4d08c71b67b5f0a9a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/law-bank.json",
+      "source_sha256": "7b9c4a5ea546b5cf3db9e30dc4cdfeb39b5cc1b077a339bd9d6bb6a818d35a34",
+      "source_git_blob_sha": "3076f813bdd1ce63ae0dabea8c38729b214f5d33",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/oracle-scores.svg",
+      "source_sha256": "3b4b8153dc4558a1da3b9be7cb79707d8fbe614fe007be183934303e3682eb24",
+      "source_git_blob_sha": "4a91d0e7bd9575c53abebede3a23b1d1c258bd97",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/program-freeze.json",
+      "source_sha256": "3874bb0da47fc9c5ca688df7fb8b1f0687903133ad64389c0165d8b00728fb50",
+      "source_git_blob_sha": "4a316a215bfadcb609892096e9b51cb3773ac264",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/provenance.json",
+      "source_sha256": "18cc56197afcaac31cdbe73fe63aee7655a4b5da1ad3f635763a7985d3573845",
+      "source_git_blob_sha": "a71cff4ffc2a1a5d4d3b3fac86838d75fa786b33",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/report.json",
+      "source_sha256": "3b2ddf70f11db2587df446cfcade427d0af174ce8f462f4dcd3f55b1f9f0be59",
+      "source_git_blob_sha": "b172507df164b9f76b3681963a505b89cb99f83e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/reservations.json",
+      "source_sha256": "ec979844be2cf5851f9a6f49081e63f649fa5f7f79d2100a9c046a4bdeaf63b3",
+      "source_git_blob_sha": "aca4270ea626f20e175b3a9ffaac37a3a5d19966",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/sources.json",
+      "source_sha256": "b4881ff7dc65c1f48481f339768848a1942eb85438458db95319b0c41fdb2be8",
+      "source_git_blob_sha": "cf5bf0dc10ab7a18f6d6ec29740512fb51ccf3dc",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/trace.jsonl",
+      "source_sha256": "28eb4392a675ce1ebd4568c3b46e887d583d078fb864ddd3f414ec2daa06df54",
+      "source_git_blob_sha": "0cb53d7ce3ca1f61ba35d020f736ae48deca2819",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/output/usage.json",
+      "source_sha256": "4f84c598aa310eb8d575f28e85ee60d5b43a6d12d21b94999eb8938da2228802",
+      "source_git_blob_sha": "c723e8b3775be80be8e058a77776f39bf650ee2d",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/publish.py",
+      "source_sha256": "1d19da4ca1247b4631d959ad9cf4b06783c4f1343cb2d8147d880339490ea03d",
+      "source_git_blob_sha": "c0e9b301d2b9588ff5cb25e83ff855bb4dd824fc",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/research_v2/publish_followup.py",
+      "source_sha256": "44c345cd9c7c4f233e9b92c1b16ae296f07f584e15c2c56f0e131810218d2a20",
+      "source_git_blob_sha": "ec47f38bcc24929e819c8831de7c263477ea30d0",
+      "unchanged": false
+    },
+    {
+      "path": "boundforge/research_v2/reproduce.py",
+      "source_sha256": "7e347e2fc58fe1f75716ef5f8825921fe8ff94a6eec60fc4305b6713fa3f65ec",
+      "source_git_blob_sha": "941a62ee121b50641dcd34d86afaefbeca559160",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/test_v2.py",
+      "source_sha256": "f1eee94b8796fdd387948bacba6d8a55473cee192d4d8180727adbf53b99133d",
+      "source_git_blob_sha": "45b8318f1616ee33fd1d3371a5c6949089507516",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/research_v2/worker.py",
+      "source_sha256": "05e9f87801d8b656a30790d5597583bac39c00e0ceb4429bffddb60c32534e96",
+      "source_git_blob_sha": "2d3d072647826d605df47f0498febeea73a631f6",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/.gitkeep",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/REPORT.md",
+      "source_sha256": "0fc6cf94ca789f71c45b89316f1fa4fc574052d8a29639ca371f4f6df3ad8b41",
+      "source_git_blob_sha": "668b1586f088ffb95d8e33f2490a98cd5dbc94aa",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/best.json",
+      "source_sha256": "dbc930d75d6a7ffe0fb96278bffcf13eb2d94ace5db05478665e4101362e1238",
+      "source_git_blob_sha": "d93c5b2c89406807ba954056dea2ec215e6c2310",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/demo.html",
+      "source_sha256": "b54b1499e6a8a844caa10edc7638ce7e5b0208cb804e9fb2486b0d323349d644",
+      "source_git_blob_sha": "fbce64afb281d3e71ba5d67612047b67ef4c1385",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/provider-receipts.json",
+      "source_sha256": "d1385e3c72f67937b8ab83e633f4dc6b2b83c8feacc32fc77af916b8c9dd264e",
+      "source_git_blob_sha": "f23135b3950e6a7dfc2ee67362658fb4336b0ff7",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/report.json",
+      "source_sha256": "8ad8b05c9f2a7f008f58dbfde9bb3dfc0de984149ca90c7a948af1c0c2dc1a06",
+      "source_git_blob_sha": "a3323bacca6269304a84f3bb5394ed0d2c3eec1e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/best.json",
+      "source_sha256": "263aec6bc13cff607ffe89b34c090547af493cd7be5666bc30a8c8001c99d1fa",
+      "source_git_blob_sha": "a056972632b0641a330f95fd8b6c9fc6b2fbf651",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-000.json",
+      "source_sha256": "f245432d03d5eb4055ecc13f456c6421ff6b3a35c7bb9ea7517a03e8e11c6f5c",
+      "source_git_blob_sha": "812d181175d2bdf86ea1817c84b129aa11c18b71",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-001.json",
+      "source_sha256": "e72c615c96df4777f3cf87db5f59998ad43b3f7ec2d46a3d1b7c8a843c807193",
+      "source_git_blob_sha": "8912752b41284471fc66f6e645ce9a843506b3ba",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-002.json",
+      "source_sha256": "1232899c42339a6f0473cbc19c6b51db8e168fbd6e8001a595a66ddfe89ff99f",
+      "source_git_blob_sha": "7d3dab2481e6e6e8e07f08a249614ecae53abd07",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-003.json",
+      "source_sha256": "501430795969a02a64481a00770d71c6293b339f5b78db7de83b445689ef15c1",
+      "source_git_blob_sha": "b5b5cfad801c107588f467ff9b4c483c3a20ff95",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-004.json",
+      "source_sha256": "018052222f04f9a1b87d205156c3a5132c7f0a7217da7a14046d2ddae9953304",
+      "source_git_blob_sha": "d1027837f9d56021e38eaaeceb0acb223b386f51",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-005.json",
+      "source_sha256": "22cb144e783171980d442b0bb41d23fa0e29bbb61e3834549bfbd8f1020cb321",
+      "source_git_blob_sha": "3cc639182da841f7150a002a95da2af3b2a98b6e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-006.json",
+      "source_sha256": "4e7638d23f5f69282707819e1ddb19de6483bae16ea9867f2b8d0456b1bb9665",
+      "source_git_blob_sha": "03142e2b7a0702427bbdbb72a87d8723737f56f7",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-007.json",
+      "source_sha256": "e07f41027f79f410f96200b65887b6a9efc0f09b0e8137c3dd17ba0f6af3fa16",
+      "source_git_blob_sha": "05f7a5dd09e7c2b732288e7f1c08c2039199633d",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-008.json",
+      "source_sha256": "6807ae8b60e43635daa5e7d04800888bbdbd9f5dd7f37418bf0c9c35f10b07af",
+      "source_git_blob_sha": "9cc916af8bb5375b1d0be7d6f3ae116ee958a143",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-009.json",
+      "source_sha256": "906c800d30930c252b3f22916352fc2bbf2c3aeda7371d1b0eaa2d234544e105",
+      "source_git_blob_sha": "04f07e43463a0c700e9b49c876232495bb6affb2",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-010.json",
+      "source_sha256": "6f740790513d2eb86f52d54359d4c204c248f8744bb2ab85f35167cb50758fda",
+      "source_git_blob_sha": "5c2fcd9e93d8f77f604f56c5b91d8f3f510b7fdb",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-011.json",
+      "source_sha256": "d0094e4302e513d74bbf4a02f6d6d6bbe4fd0190886c4db2ec27e6a46d2b3969",
+      "source_git_blob_sha": "cc7e2a2493d6fcf2a1255cf6ebb9e45160e4ae99",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-012.json",
+      "source_sha256": "d0094e4302e513d74bbf4a02f6d6d6bbe4fd0190886c4db2ec27e6a46d2b3969",
+      "source_git_blob_sha": "cc7e2a2493d6fcf2a1255cf6ebb9e45160e4ae99",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-013.json",
+      "source_sha256": "57af1818c7959538423e880f372baf2b1ea66503deb732e1debac679250ec08e",
+      "source_git_blob_sha": "8a98f46fafbac54e2a0b9091ffd10b92f1c27dc0",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-014.json",
+      "source_sha256": "724d8e2cc7be55976418c1d326e4066da2d03e4eb3fc9c8070cd6c9c351e97b8",
+      "source_git_blob_sha": "edcdbfbc3561a8454403f3bf041a776c3a6238b8",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/candidate-015.json",
+      "source_sha256": "07c2cba74ea0b9588a176674d2f63d180de9a83f06a14d122a6a84f91695c48d",
+      "source_git_blob_sha": "925373de1f6fde86f623ade90314b97b570bb638",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/checkpoint.json",
+      "source_sha256": "e0f1b07916858731c2fb87d3479290521a6c5814be6b8e29f9d75691a5c6108e",
+      "source_git_blob_sha": "17051b135804176297fcce6481e55d68d3c1a349",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/environment.txt",
+      "source_sha256": "5c404aa8fe8ce34ef2aa1b51e9106aefc853d70749b7513ee81587dec580b69d",
+      "source_git_blob_sha": "1f79d176799c102d64fddc5175c9ac34d77099be",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/provenance.json",
+      "source_sha256": "6c703611b3cefd20674e9dd79763f1e64dfe21f8b3ef100f3274970492544b38",
+      "source_git_blob_sha": "310a578f77e7a480e1afcba91a0f96ab4945c17a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/report.json",
+      "source_sha256": "eb34910d8917edeb958c2767919e35524d78656afbaa4002cdb25590bf4b7f1e",
+      "source_git_blob_sha": "4aae5bdee335b3535d6d33159c6341cabe03488e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/reservations.json",
+      "source_sha256": "c9f14d19e95db600051638b73f51f459f5ce483890e7f3037bb4089eae6c4915",
+      "source_git_blob_sha": "7ab3a695a91d7ad94fc4d13c386c935fa3555f65",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/sources.json",
+      "source_sha256": "58d65b870f945d128146c4048ffb50a84667a1be180395a22a3500ff99aac39f",
+      "source_git_blob_sha": "c46b55110056f822c650cfc00c3775576ba51186",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670325538/trace.jsonl",
+      "source_sha256": "eef808f2a34a46668c01f86ec7420f5fcb1fa93fd09d681303fc63d2836dbed9",
+      "source_git_blob_sha": "2d1e84700e48f58486a8b01913b98a767d5030d6",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/best.json",
+      "source_sha256": "c1b2b8ef361bc360c9010ce677fe466a22bc2213c6de44690972062806064eca",
+      "source_git_blob_sha": "6054a68f6c50919b021d256cb06413ba894b8d8e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/environment.txt",
+      "source_sha256": "645a37590595c64858620825536701659f16f2450f6425bb16d57182337411ef",
+      "source_git_blob_sha": "6e3588c97cd22977220d378c3c8e74b73a8e79ef",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-01.json",
+      "source_sha256": "484a7adefdf066e3f01dcacbf1971461fc53026e4daa52fa5f044c565f4f2b9f",
+      "source_git_blob_sha": "0d1f98ff0d8ba03d0e841f3e2c638cfb8a2bc057",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-02.json",
+      "source_sha256": "d39d99d5d06f03b1f0078fc72809b84ad92558b538f7630a915c5887c5fb7935",
+      "source_git_blob_sha": "8ed7e8a33ec413e9454550b941488309be532097",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-03.json",
+      "source_sha256": "d43846b09513d5315dc43b88257da5ecce156b4bd62d920cc14a078503f7b811",
+      "source_git_blob_sha": "6ed6a813fa22e0efc04274f5c298e98894d83d07",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-04.json",
+      "source_sha256": "98f296e28709bfd35e12cafe77e817b967708228ef115e11e59de7db101f024a",
+      "source_git_blob_sha": "e5ba1ccfcdee09396f9bdb4ef03ac4b58fde3792",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-05.json",
+      "source_sha256": "6a9105350241401787faffc1965682959982a73f18cdeffcce46608e145fa3dc",
+      "source_git_blob_sha": "44375ce87ad0b5fdb3c492eca5cdc5aa447ef19a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-06.json",
+      "source_sha256": "707b39dd4cf3eda605eb3e97c57b8727f94a20b5de2222b2abe99f21830ca3c7",
+      "source_git_blob_sha": "defa10be8ce324a207defcf5cef45e9d1d16f40e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-07.json",
+      "source_sha256": "dd1e2ebe685dc001b36d8362e1a1b62503762dff9c342952552141b0a008d9f3",
+      "source_git_blob_sha": "bdd24a80c04c45eeab68610cb00bb7f089c62799",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-candidate-08.json",
+      "source_sha256": "8880dd991788d1c1c380cdba8cabb51f8133df3aea95c7d92c963e2641f7b949",
+      "source_git_blob_sha": "d5495310a29dbc5bf9c4f5fa58519329dece6044",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/precision-checkpoint.json",
+      "source_sha256": "43768380e98fbde744b7f5c44a2ee902ef48a7c7b743dff8865b7fddf5624853",
+      "source_git_blob_sha": "bc1065e7cf796b1fd3f9550c8c476fda00f6d989",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/provenance.json",
+      "source_sha256": "a2fb27603c9f1af09df6d0cdcc553cda8fd5ef6a7118373a5515b7e6183df8ae",
+      "source_git_blob_sha": "c35658d3d000e6504beb2a2855591082973d13d6",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/report.json",
+      "source_sha256": "5501b1dc30c458139515f0a204192a8e60af812a2c1cf99386a77db5af87e209",
+      "source_git_blob_sha": "ab30c5b337f8a9ce5609d1378a017f3c1dedd312",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/reservations.json",
+      "source_sha256": "519093ccd62d4d40cf9bf0447ba18c1fe07b9e3a6909600bff1b4f5588fe7de9",
+      "source_git_blob_sha": "d70dd56605d67f4bfb1e4564becc9d2ce306c5de",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/sources.json",
+      "source_sha256": "558e4bbc229e115321bf9adea7692e6df5be2c383235d6ba3939969268d99e5d",
+      "source_git_blob_sha": "eca9b4e4fdb82596ab95a78e6fd2f0872d889b28",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43670827227/trace.jsonl",
+      "source_sha256": "e2c33ef76aef471a3367826f05e816f520ea68b5a5761b23c9784db136aa3c39",
+      "source_git_blob_sha": "419791e620c7f1d06f6179a3213684013a59e968",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/best.json",
+      "source_sha256": "dbc930d75d6a7ffe0fb96278bffcf13eb2d94ace5db05478665e4101362e1238",
+      "source_git_blob_sha": "d93c5b2c89406807ba954056dea2ec215e6c2310",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/environment.txt",
+      "source_sha256": "d4a1dd84e698db715679e7d58a95c0d2b97df0e5ae69d01f4c5f5b7392a5646b",
+      "source_git_blob_sha": "1798a07c92aeac8f2924cf1f8eec3ea7b7275fae",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-01.json",
+      "source_sha256": "c3f16a22e6cd14d9ca721d65a0b40c2ef3212cae75510b3ffb7e819b3efcdbc2",
+      "source_git_blob_sha": "d1d807369ae8bc2b953178bc5d12dc489eb9378a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-02.json",
+      "source_sha256": "b47f2b33e5822284ea0f0b4cdd2545ff2db7071de67a4a5265fd14f08f9b1b41",
+      "source_git_blob_sha": "544bb864a782f3e6ee110ddc6659bdd105750628",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-03.json",
+      "source_sha256": "17af7e1fe9c08bd1391570750cb3da9dd446f3859caec7475f5dedaa4ab75074",
+      "source_git_blob_sha": "4c50fbe739237784dd8246298ceac93b99659bd8",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-04.json",
+      "source_sha256": "500ceb43a779591072cfe21a4021f3260a37a2051ecdb2b00ed317c68b970c89",
+      "source_git_blob_sha": "f1ac83428f29c9043456850816addc98630ed299",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-05.json",
+      "source_sha256": "466f79f0ae8c05e5acfa8b62e0f05d986d876f9e63fb55b26ba77e64447e4a48",
+      "source_git_blob_sha": "32de6f94b1046b9d55f0f8042f311d94e30b554a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-candidate-06.json",
+      "source_sha256": "ff0cd52ea13ea5dd14a5f83a9d60007294a5c21f92a8d646383c24684e5ccfc4",
+      "source_git_blob_sha": "1fb137955b789ba08e8b4f99f1117cd95776475e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/precision-checkpoint.json",
+      "source_sha256": "cb6031099b60e9301050555699c893cc2fab9f8033ce0ad1ae6054e2d828f9d7",
+      "source_git_blob_sha": "b21965880838b74b0b4836f0cb28c68458c63207",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/provenance.json",
+      "source_sha256": "6182aef6a6da2db1eb83f9e6e838967d1494328e0092c376c3443964970af946",
+      "source_git_blob_sha": "7bb194020e72c16d33c67bb7bda9374b68507bbc",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/report.json",
+      "source_sha256": "104718aadc8cae94652e47a8375b2d9ff6ccb908f0bba4be18a3a31a6df07f26",
+      "source_git_blob_sha": "ea12b31b3dfa3641496293813bd3879f09b54135",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/reservations.json",
+      "source_sha256": "0302b6cf1cad45b71fded6a3bd0175ad8d116a1381db41d2b82c1886c9bedac1",
+      "source_git_blob_sha": "5d877271178311bf9e7433f45114bfcabf6ee15f",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/sources.json",
+      "source_sha256": "b741842ef5b9df2e1b0b40213b3ad8820900262fde5ad4fddbdc67d9b2e6e04e",
+      "source_git_blob_sha": "007f4b8ff06238f27ca3c60f6d2e13ce39507574",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671271112/trace.jsonl",
+      "source_sha256": "2b6060d7119fbad71306d617d05fce6c7c3621c7afcffdf5e60e03afb1743bd6",
+      "source_git_blob_sha": "54de87a2d6df85187f1dabcd878e4f4cf148b562",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/best.json",
+      "source_sha256": "f28f020f2aa87fc4d3d5dec481dbced7a139b3b4dadad73bc350e339e131ea3c",
+      "source_git_blob_sha": "d7c9796ec0eff4abe2f5d159a8ad4709126a569f",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/environment.txt",
+      "source_sha256": "d4a1dd84e698db715679e7d58a95c0d2b97df0e5ae69d01f4c5f5b7392a5646b",
+      "source_git_blob_sha": "1798a07c92aeac8f2924cf1f8eec3ea7b7275fae",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-01.json",
+      "source_sha256": "c3f16a22e6cd14d9ca721d65a0b40c2ef3212cae75510b3ffb7e819b3efcdbc2",
+      "source_git_blob_sha": "d1d807369ae8bc2b953178bc5d12dc489eb9378a",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-02.json",
+      "source_sha256": "b47f2b33e5822284ea0f0b4cdd2545ff2db7071de67a4a5265fd14f08f9b1b41",
+      "source_git_blob_sha": "544bb864a782f3e6ee110ddc6659bdd105750628",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-03.json",
+      "source_sha256": "b5e175ccb2abb72033f82a274a304e42bb36a4b826e7e165a868be3bcf300af4",
+      "source_git_blob_sha": "ba72462a31d6a02a027e23dd24e9c6db4961c672",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-04.json",
+      "source_sha256": "1a392d873ea9d004df566c1f5c39909d780c9167b35e308e750b534b15810b38",
+      "source_git_blob_sha": "5e7d1a1deb7c6fb93b13edf18047b1eb5b307e1d",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-05.json",
+      "source_sha256": "4d3f3dd8e9f7c2d6a50e291466ac4d5f86ea9f449321cdcc588ae09dde26383a",
+      "source_git_blob_sha": "1707f2805ff6aa4ca2061d4c0b47f9415197b636",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-candidate-06.json",
+      "source_sha256": "ab795cc72015e835ab6a4d0534ea5b81b86b3c9e65d86baa7c4eb443a5887676",
+      "source_git_blob_sha": "b5f2eb7d3f25020ba6675d536b2895133af900f7",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/precision-checkpoint.json",
+      "source_sha256": "792a26cde49e86bd7a84777dd9c4c9de9ae2a35e8783ea8184df61e945f8f943",
+      "source_git_blob_sha": "5c2ea6d8d9d64340e12fa295c45c53391bd66ad1",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/provenance.json",
+      "source_sha256": "22ca1fce1b1fe55916cfe2f59b8170f4a97548f3ffd2b052ff74b1daa46a554c",
+      "source_git_blob_sha": "00cbfbff0cc00c48cef41ff692e2fe28a83f5375",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/report.json",
+      "source_sha256": "bc730a1938d95ae982399ace25a10d1be343c0026fb5404fa0264d0af6832eb0",
+      "source_git_blob_sha": "539daf97cf486b246fcd98294a7c6f9d1a34b27f",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/reservations.json",
+      "source_sha256": "d6e1ceb5615899f0fcf9346bb6e850ff861d68823e3d21a5424797500b5c5063",
+      "source_git_blob_sha": "9cd14b1678d8472f8118cda9ce13427ad3c9185b",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/sources.json",
+      "source_sha256": "b846be6402dc383a26544134bfd53ce4cb80a0f9acf147df16ee88b2e3fdbc49",
+      "source_git_blob_sha": "f97403317338c1f9a518ba3682c06c44825dd89e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/runs/43671753698/trace.jsonl",
+      "source_sha256": "bd79fd0bf5df2edbe3568ad019010b145a397a2dec5d36e771904860a90ba7a6",
+      "source_git_blob_sha": "1e9731798fc995433b06ae318b8696905f3ff826",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/sources.json",
+      "source_sha256": "9de867d280551aca1e52419a11e313ea73eb775135eed82fb645bbf6ca5a52c5",
+      "source_git_blob_sha": "3858dc49e53d69df6d3261d692b1f23a34b23620",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/results/trace.jsonl",
+      "source_sha256": "5771ca05f5894ab63d76b1d39120834b2b2bbe8dc111bb90e126a3eaf0509e39",
+      "source_git_blob_sha": "ae3ddf10bade441b3aca5f21782564c886927b07",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/run.py",
+      "source_sha256": "1e77504d99861f7beb59422a435c440fed4204a7749f5e626929995d9a5ecdd2",
+      "source_git_blob_sha": "be297eee659b255e4c693256a0abeed0d273baae",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/search.py",
+      "source_sha256": "70da9f8d52a81e43a7db90c9c60b3201de4d7481f847fc268353bd42316fba97",
+      "source_git_blob_sha": "184d0dbbd96e9486d2ea198037f85571bbd8aadf",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/sources/incumbent-README.md",
+      "source_sha256": "201a1612543f5a322b6e96713264e0da18b50c8896cdc08c593251535bbf8314",
+      "source_git_blob_sha": "a070be59aa97a2b54ecd9c40338faa662938914c",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/sources/verify_published.py",
+      "source_sha256": "debf07f2bb3aa6c589a73f6f413ed8222a13eb9002dbe26ac358a4767465dba6",
+      "source_git_blob_sha": "bb0dafc95618cb2947f22e64cda7424c14bca6ab",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/test_core.py",
+      "source_sha256": "01d75c530d712967f32860e053e90d9d4028c8e47805862b061d7b7d0182179a",
+      "source_git_blob_sha": "91b7680d703d29ad2e3c0531dfd5a822e2601487",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/tinker_policy.py",
+      "source_sha256": "da138785fb50fd54f5f0660c63a8babfaadcec7220d001148de3cecd4d07ac95",
+      "source_git_blob_sha": "65373539d91babb29bd6306f16a2e26ececbda6e",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/verify.py",
+      "source_sha256": "3c5cd73bf3d50eea098d3253e46e9e5ea9812ec3c2fa2711ea16b349f586ef30",
+      "source_git_blob_sha": "57dbc7ca919fea10dd488c2ad4067a028e753d95",
+      "unchanged": true
+    },
+    {
+      "path": "boundforge/verify_independent.py",
+      "source_sha256": "49e1cbbc9d287a227d8f790b2f7a678972a88f53d3c2e88592f6c1424dda0774",
+      "source_git_blob_sha": "b465a13fda108a8b8c0f9bdce5ad3d024c9f5c42",
+      "unchanged": true
+    }
+  ],
+  "protected_sha256": {
+    "boundforge/verify.py": "3c5cd73bf3d50eea098d3253e46e9e5ea9812ec3c2fa2711ea16b349f586ef30",
+    "boundforge/verify_independent.py": "49e1cbbc9d287a227d8f790b2f7a678972a88f53d3c2e88592f6c1424dda0774"
+  },
+  "modified_for_standalone": [
+    ".github/workflows/boundforge-check.yml",
+    ".github/workflows/boundforge-literature.yml",
+    ".github/workflows/boundforge-method-replay.yml",
+    ".github/workflows/boundforge-nondegenerate.yml",
+    ".github/workflows/boundforge-precision.yml",
+    ".github/workflows/boundforge-preflight.yml",
+    ".github/workflows/boundforge-publish.yml",
+    ".github/workflows/boundforge-structural-v2.yml",
+    ".github/workflows/boundforge-v2-check.yml",
+    ".github/workflows/boundforge-v2-publish.yml",
+    ".github/workflows/boundforge.yml",
+    "boundforge/README.md",
+    "boundforge/finalize.py",
+    "boundforge/research_v2/followup.py",
+    "boundforge/research_v2/publish.py",
+    "boundforge/research_v2/publish_followup.py"
+  ]
+}
