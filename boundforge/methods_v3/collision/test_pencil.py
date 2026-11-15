@@ -30,3 +30,14 @@ def test_uniform_integer_objective_matches_entropy_order():
 def test_pencil_policies_generate_verified_points():
  for policy in ["coordinate_event","random_event","kernel_event","memory_event","circuit","batch_repair","coordinate"]:
   r=episode([6,[(1,0),(0,1),(1,1),(1,2)]],policy,22,.1);assert r["check"]["valid"]and r["second_check"]["valid"]
+
+def test_independent_complete_family_checker():
+ from .verify_family import check_family
+ problem=Problem(5,[(1,0),(0,1),(1,1),(1,2)]);p=problem.initial_points;rng=random.Random(23)
+ for row in problem.initial.ids:
+  direction,info=direction_for(problem,p,problem.initial,rng,[row])
+  if direction is not None and info["nullity"]==2:
+   event={"point_before":[list(x)for x in p],"direction":[list(x)for x in direction],"scan":event_scan(p,direction,problem.controls),**info}
+   assert check_family(problem.m,problem.controls,event)["valid"]
+   return
+ raise AssertionError("missing test family")
