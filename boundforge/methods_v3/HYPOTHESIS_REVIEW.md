@@ -24,3 +24,15 @@ Corrected unsupported claims before implementation:
 The tested distinction is a narrow online crossover estimator versus observational sequence credit, absolute pair rewards and shuffled contrast signs. Whether it helps, transfers, or is materially new remains unresolved before results. The frozen protocol is [ORDER_PROTOCOL.md](ORDER_PROTOCOL.md).
 
 The code is implemented by the research agent from this corrected specification; model-generated Python is not executed. No description in this file licenses a novelty or performance claim.
+
+
+## Further source-informed proposal call (run43751783535)
+The response is not an executable or accepted mechanism. Parsing failed due to trailing special-token text; the raw JSON also repeats an id key and combines two proposed hypotheses in one object. Preserve the raw output rather than silently repairing it into a valid proposal.
+
+Substantive rejection:
+- H1 proposes a minimum hitting-set repair that the existing exact circuit baseline already performs within size two. Minimal repairs are not necessarily unique, and deleting multiple rows is not a single pivot.
+- H2 confuses increasing a projection's entropy with our objective, which minimizes maximum control entropy. Neutral basis rewrites preserve every collision partition, so their intermediate objective cannot differ. The stated equal-operation comparison ignores scoring overhead.
+- H3 proposes ordinary incremental linear algebra. Exact finite-field computation has no floating-point numerical instability; any rank mismatch would indicate a software/proof error. No new general method is established.
+- Some named references in the model answer lack supplied source URLs; treat them as unverified leads, not citations.
+
+The useful next question comes from direct mathematical analysis of repeated elimination, not accepting these proposals: can shared residual/coordinate tables evaluate all repairs exactly at lower cost? See collision/BATCH_REPAIR_PROTOCOL.md. The Distinct Vectors and dynamic/batch linear-algebra literature substantially limits any novelty claim.

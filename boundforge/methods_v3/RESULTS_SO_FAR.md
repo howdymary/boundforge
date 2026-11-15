@@ -44,3 +44,15 @@ The mathematical ingredients are established. The testable potential distinction
 The user subsequently instructed no further credit-availability checks. New operations use the last recorded provider caps and retain reservations without calling balance/usage endpoints. No purchases or billing changes occur. Single-agent hosted memory use is not a multi-agent sponsor claim.
 
 No external submission, researcher contact or leaderboard update was made.
+
+
+## Collision-flat development (2026-11-15)
+Initial run43749707802:162 outputs checked by two independent arithmetic backends;195.62 worker CPU seconds. Guided pivots never exceeded direct circuit per-task means. Do not mistake an enabled one-row repair for useful search improvement.
+
+Stronger controls: run43751582408 produced270 checked outputs but lost raw artifacts due to a workflow path error; only its log summary survives. See collision/ARTIFACT_INCIDENT.md. The corrected repeat43752081276 retained all270 outputs/traces and passed both checkers,407.02 worker CPU seconds and182.04 wall seconds. Guided pivots lost to circuit repair on four of six task means and tied on two. They were never the best procedure. The exact representation often outperformed this coordinate baseline, but that observation does not establish a new general method or superiority over all coordinate search.
+
+Shared-library UCB and random controllers had access to the proposed guided operator. No controller advantage emerged. Stop scaling unchanged guided pivots. No confirmatory held-out evaluation is justified by these results.
+
+past.dev completed ingestion and recalled our own source record. Its extraction also converted a scoped negative recommendation into a standing “forbidden” rule. Treat this as evidence to interpret with original scope, not authoritative instructions or a mathematical impossibility. Memory functionality is established; causal memory advantage and multi-agent sponsor compliance are not.
+
+Next development hypothesis: share exact algebra across a whole repair family, compare every counterfactual with naive rebuilding, and separately test end-to-end benefit. Current mathematical/new-method claims remain unchanged: no new method established by this campaign.
