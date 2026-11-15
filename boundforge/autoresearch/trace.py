@@ -16,5 +16,7 @@ class Trace:
   with self.path.open("a")as p:p.write(canonical(e)+"\n");p.flush();os.fsync(p.fileno())
   self.events.append(e);return e["hash"]
  def save(self,state):
+  state["trace_head"]=self.events[-1]["hash"] if self.events else "0"*64
+  state.pop("state_sha256",None);state["state_sha256"]=digest(state)
   p=self.out/"checkpoint.tmp";p.write_text(canonical(state)+"\n");os.replace(p,self.out/"checkpoint.json")
 def validate_trace(path):return Trace(pathlib.Path(path).parent).events

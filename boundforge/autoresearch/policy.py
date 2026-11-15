@@ -8,7 +8,8 @@ def diagnose(result):
   if gain<=8*ulp:return "PRECISION_FLOOR",{"gain":result["gain"],"ulp":result["ulp"],"gain_in_ulps":gain/ulp,"criterion":"gain <=8 ulps; no exact improvement inferred"}
  if result.get("status")=="tail_budget_failure":return "TAIL_BUDGET_FAILURE",{"slack":result["slack"]}
  return "SAMPLED_STAGNATION",{"status":result.get("status"),"gain":result.get("gain"),"scope":"finite attempted procedure, not a proof of exhaustion"}
-def choose(history,policy="diagnostic"):
+def choose(history,policy="diagnostic",context=None):
+ if context is not None:history=[h for h in history if all(h.get(k)==v for k,v in context.items())]
  if policy=="fixed_float":return "float_local",{"reason":"fixed-float control","retrieved":[]}
  if policy=="fixed_precision":return "precision_equioscillation",{"reason":"strong fixed high-precision control","retrieved":[]}
  if not history:return "float_local",{"reason":"cheap local probe before paying higher-precision cost","retrieved":[]}

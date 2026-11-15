@@ -51,6 +51,7 @@ def main(argv=None):
  if statepath.exists():
   if not args.resume:raise ValueError("output already has checkpoint; use --resume")
   state=json.loads(statepath.read_text())
+  if state.get("state_sha256")!=digest({k:v for k,v in state.items()if k!="state_sha256"}) or state.get("trace_head")!=(trace.events[-1]["hash"]if trace.events else"0"*64):raise ValueError("checkpoint/trace integrity mismatch; no unsafe automatic recovery")
   if state["config_sha256"]!=confhash:raise ValueError("resume input/source/config changed")
   if state["status"]!="running":
    report=json.loads((args.out/"report.json").read_text())
@@ -82,7 +83,7 @@ def main(argv=None):
   if provider_error:break
   elapsed=elapsed_start+time.monotonic()-start
   if elapsed>=args.wall_seconds-10:trace.add("stop",reason="wall allowance reached",elapsed=elapsed);break
-  action,why=choose(state["history"],args.policy)
+  action,why=choose(state["history"],args.policy,context={"target":"C51a","context_sha256":digest(registry["incumbent"])})
   if providers and state["history"]:
    try:advisory=providers.research_and_choose(state["history"][-1],action,registry)
    except Exception as e:
