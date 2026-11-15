@@ -2,10 +2,11 @@
 
 An autonomous research loop with sourced frontiers, isolated experiments, scoped memory and mathematical acceptance outside the search worker.
 
-**C51a > 0.585078819674513593.** Three checker implementations certify this very small He–Tang-family parameter refinement, including the whole circle and infinite tail. It beats an upper bound on the strongest external prior function located by more than1.58×10^-17. This is not a substantial mathematical advance or a new general algorithm.
+**C51a > 0.585078819674513593.** Three checker implementations certify this very small He–Tang-family parameter refinement, including the whole circle and infinite tail. It beats an upper bound on the strongest external prior function located by more than 1.58×10^-17. This is not a substantial mathematical advance or a new general algorithm.
 
 The Codex research agent found the initial refinement during development. The portable runner was built afterward; its recorded executions are autonomous historical replay/continuation, not a blind held-out discovery. It does choose, run, inspect and change experiments without human experiment-by-experiment control. A strong fixed high-precision method is faster, so no controller-advantage claim is made.
 
+- [Readiness, verification and final form checklist](boundforge/submission/READINESS.md)
 - [Submission draft and short description](boundforge/submission/SUBMISSION.md)
 - [Track1 requirement-to-evidence map](boundforge/submission/TRACK1_FIT.md)
 - [Mathematics, strict comparison and trust boundary](boundforge/submission/MATH_VERIFICATION.md)
@@ -38,12 +39,12 @@ Fresh credit snapshots and immutable per-provider caps are required before paid 
 
 ## Verification and history
 
-[Autonomous execution contract](boundforge/autoresearch/CONTRACT.md) · [Comparison contract and corrections](boundforge/autoresearch/EVALUATION.md) · [All120 constants ranked](boundforge/portfolio/TARGET_RANKING.md) · [Original portfolio result](boundforge/portfolio/RESULT.md) · [Attribution](boundforge/submission/THIRD_PARTY_NOTICES.md)
+[Autonomous execution contract](boundforge/autoresearch/CONTRACT.md) · [Comparison contract and corrections](boundforge/autoresearch/EVALUATION.md) · [All 120 constants ranked](boundforge/portfolio/TARGET_RANKING.md) · [Original portfolio result](boundforge/portfolio/RESULT.md) · [Attribution](boundforge/submission/THIRD_PARTY_NOTICES.md)
 
 The existing C3c and C49a archives remain intact:
 
 - [C49a guide](boundforge/c49/README.md) and [final assessment](boundforge/c49/FINAL_RESEARCH_REPORT.md): strongest relevant witness reproduced, no new C49a bound or controller advantage.
-- [C3c guide](boundforge/README.md) and [final assessment](boundforge/research_v2/followup/FINAL_RESEARCH_NOTE.md): roughly2.21×10^-22 conventional refinement; later174cases no further gain.
+- [C3c guide](boundforge/README.md) and [final assessment](boundforge/research_v2/followup/FINAL_RESEARCH_NOTE.md): roughly 2.21×10^-22 conventional refinement; later 174 cases no further gain.
 - [Standalone migration provenance](MIGRATION.md) and [earlier root guide](boundforge/submission/README-before-submission.md).
 
 Work on main through GitHub and remote execution. Protected verifiers retain their original hashes. No paper, researcher contact or leaderboard submission has been made.

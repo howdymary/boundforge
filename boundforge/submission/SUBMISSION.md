@@ -1,16 +1,18 @@
 # BoundForge — submission draft
 
-Track:1, Build Your Own Autoresearch Framework
-Repository:https://github.com/howdymary/boundforge
-Project name:BoundForge
+Track: 1, Build Your Own Autoresearch Framework
+Repository: https://github.com/howdymary/boundforge
+Project name: BoundForge
 Team name / members: awaiting user-provided details
-Two-minute video: boundforge/submission/demo/boundforge-2min.mp4; add final YouTube/Drive/Loom URL before entering the form
+Two-minute video: [prepared MP4](demo/boundforge-2min.mp4); add final YouTube/Drive/Loom URL before entering the form
+Project screenshot: [prepared 16:9 PNG](demo/submission-screenshot.png)
+Readiness and remaining fields: [READINESS.md](READINESS.md)
 
 ## Short description
 
 BoundForge runs a mathematical research loop with an explicit separation between numerical promise, verified progress and achievement of the actual goal. It chooses a bounded experiment, runs a credential-free worker, diagnoses the result, retrieves scoped memory and chooses the next intervention. Exa confirms the full-precision external witness inside the loop; Tinker can propose a bounded next action. Three independent checker implementations cover the whole mathematical domain and infinite tail before a result is accepted.
 
-For Tao's C51a, the Erdős maximum-term constant, the project certifies C51a >0.585078819674513593, more than1.58×10^-17 beyond an upper bound on the strongest external prior function located. This is a very small conventional parameter refinement. Decisions, exact witnesses, failures, budgets and reproduction commands are public.
+For Tao's C51a, the Erdős maximum-term constant, the project certifies C51a > 0.585078819674513593, more than 1.58×10^-17 beyond an upper bound on the strongest external prior function located. This is a very small conventional parameter refinement. Decisions, exact witnesses, failures, budgets and reproduction commands are public.
 
 The initial finding came from agent-directed research; the standalone runner demonstrates autonomous historical replay/continuation, not a blind held-out discovery. Strong fixed high precision is faster, so we do not claim a new general research method or controller advantage.
 

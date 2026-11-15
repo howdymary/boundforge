@@ -1,6 +1,6 @@
 # Track1 requirement-to-evidence map
 
-[Event brief](https://iterate.inc/ai-research?welcome=true&tab=resources), read2026-11-15. No competition form or leaderboard has been submitted.
+[Event brief](https://iterate.inc/ai-research?welcome=true&tab=resources), read 2026-11-15. No competition form or leaderboard has been submitted.
 
 | Requirement / criterion | Evidence | Scope |
 |---|---|---|
@@ -14,6 +14,7 @@
 | How far beyond record | >1.58×10^-17 above an upper bound on the strongest external prior function found | Extremely small, a weakness under record-size judging |
 | How new the loop is | Distinctive source/proof/budget integration and separation of partial progress from goal acceptance | No new general algorithm, no demonstrated advantage over strongest fixed method |
 | Baselines | Same input,3paired seeds, common caps; fixed float and fixed high precision included | Fixed high precision is faster; seeds are not independent tasks or held-out generalization |
+| Required project screenshot | [Prepared 16:9 PNG](demo/submission-screenshot.png), copied from the actual-artifact video | Upload field required by the live form; no form was filled |
 | Submission materials | Public repo, exact replay commands, trace viewer, captioned120-second video, short description and script | User still supplies team details and a final hosted video URL if required by the form |
 
 ## Autonomy chronology
