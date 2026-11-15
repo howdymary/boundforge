@@ -2,12 +2,12 @@
   "schema": 1,
   "campaign": "methods-v3-2026-11-15",
   "observed_ui_utc": "2026-11-15T18:22:12Z",
-  "valid_for_minutes": 30,
+  "valid_for_minutes": null,
   "providers": {
     "exa": {
       "initial_balance": 119.08,
       "unit": "USD",
-      "campaign_cap": 1,
+      "campaign_cap": 8,
       "old_unresolved_hold": 2.475,
       "external_guard": 20,
       "enabled": true,
@@ -17,7 +17,7 @@
     "tinker": {
       "initial_balance": 276.32,
       "unit": "USD",
-      "campaign_cap": 5,
+      "campaign_cap": 20,
       "old_unresolved_hold": 3.35,
       "external_guard": 100,
       "enabled": true,
@@ -27,20 +27,22 @@
     "modal": {
       "initial_balance": 247.53,
       "unit": "USD",
-      "campaign_cap": 20,
+      "campaign_cap": 40,
       "old_unresolved_hold": 115.58,
       "external_guard": 60,
-      "enabled": false,
-      "terms": "Hackathon credit grant; billing boundary not fully checked; disabled for now.",
+      "enabled": true,
+      "terms": "Starter prepaid grant, archived boundary no payment method and usage cap251USD; no fresh checks per user. Bounded CPU jobs only, no GPUs or persistent services.",
       "expiration": "2027-11-30"
     },
     "past": {
-      "initial_balance": null,
+      "initial_balance": 699289,
       "unit": "credits",
-      "campaign_cap": 0,
+      "campaign_cap": 200,
       "old_unresolved_hold": 90,
-      "enabled": false,
-      "terms": "No new use justified; current balance not checked"
+      "enabled": true,
+      "terms": "Historical 2026-11-15T04:56Z prepaid snapshot; no current balance check per new user instruction. Use at most200credits, retain unknown holds; prepaid API refuses exhausted credits. No new grants or purchases.",
+      "external_guard": 1000
     }
-  }
+  },
+  "user_override": "2026-11-15: User explicitly instructed use Exa, Modal, Tinker and past.dev where useful and no further credit-availability checks. Do not query billing/usage/balance endpoints or dashboards. Continue reservation accounting under last recorded balances and conservative guards; no purchases or billing changes. Historical past snapshot is not a current-balance claim."
 }
