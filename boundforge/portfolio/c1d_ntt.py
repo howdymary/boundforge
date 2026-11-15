@@ -5,6 +5,7 @@ HERE=pathlib.Path(__file__).resolve().parent
 def check(cert):
  v=cert["v_int"]
  if len(v)<2 or any(type(a)is not int for a in v) or sum(v)==0:raise ValueError("vector/integral")
+ if cert.get("constant")=="C_1a" and any(a<0 for a in v):raise ValueError("nonnegative variant")
  n=len(v);bound=n*max(abs(a) for a in v)**2
  with tempfile.TemporaryDirectory() as td:
   exe=pathlib.Path(td)/"ntt";subprocess.run(["g++","-O3","-std=c++17",str(HERE/"ntt.cpp"),"-o",str(exe)],check=True)

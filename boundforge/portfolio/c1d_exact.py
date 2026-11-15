@@ -4,6 +4,7 @@ from fractions import Fraction
 def score(cert):
  v=cert["v_int"]
  if not isinstance(v,list) or len(v)<2 or any(type(x)is not int for x in v) or not sum(v):raise ValueError("signed vector")
+ if cert.get("constant")=="C_1a" and any(x<0 for x in v):raise ValueError("nonnegative variant")
  n=len(v);height=max(map(abs,v));width=((n*height*height).bit_length()+7)//8
  pos=[max(x,0) for x in v];neg=[max(-x,0) for x in v]
  def pack(s):return int.from_bytes(b"".join(x.to_bytes(width,"little") for x in s),"little")

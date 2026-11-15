@@ -12,8 +12,11 @@ def fg(x,p,L):
  gradient=2*irfft(rfft(gc,L)*np.conj(X),L)[:len(x)]-2/S
  return val,gradient
 def run(cert,spec):
- start=time.monotonic();end=start+spec["seconds"];rng=np.random.default_rng(spec["seed"]);x=np.repeat(np.array(cert["v_int"],dtype=float),spec["refine"]);n=len(x);x=x/x.sum()*(2*n);L=next_fast_len(2*n-1,real=True);initial=float(evaluate(x));best=x.copy();bv=initial;trace=[];calls=0
- if spec["kick"]:x=x+rng.normal(0,spec["kick"],n);x=x/x.sum()*(2*n)
+ start=time.monotonic();end=start+spec["seconds"];rng=np.random.default_rng(spec["seed"]);nonnegative=cert.get("constant")=="C_1a";x=np.repeat(np.array(cert["v_int"],dtype=float),spec["refine"]);n=len(x);x=x/x.sum()*(2*n);L=next_fast_len(2*n-1,real=True);initial=float(evaluate(x));best=x.copy();bv=initial;trace=[];calls=0
+ if spec["kick"]:
+  x=x+rng.normal(0,spec["kick"],n)
+  if nonnegative:x=np.maximum(x,0)
+  x=x/x.sum()*(2*n)
  p=spec["p0"];status="complete"
  def keep(a):
   nonlocal best,bv
@@ -28,8 +31,8 @@ def run(cert,spec):
  try:
   for stage in range(30):
    if p>3e12 or time.monotonic()>end:break
-   r=minimize(fun,x,jac=True,method="L-BFGS-B",options={"maxiter":2500,"maxcor":20,"ftol":1e-17,"gtol":1e-300,"maxls":25})
+   r=minimize(fun,x,jac=True,method="L-BFGS-B",bounds=[(0,None)]*n if nonnegative else None,options={"maxiter":2500,"maxcor":20,"ftol":1e-17,"gtol":1e-300,"maxls":25})
    x=r.x/r.x.sum()*(2*n);keep(x);trace.append({"stage":stage,"p":p,"score":float(evaluate(x)),"best":bv,"calls":calls,"elapsed":time.monotonic()-start,"status":str(r.message)});p*=2
  except TimeoutError as e:status=str(e)
- scale=2.0**56/np.abs(best).max();ints=[int(v) for v in np.rint(best*scale)]
- return {"spec":spec,"initial_float":initial,"best_float":bv,"calls":calls,"trace":trace,"candidate":{"constant":"C_1d","v_int":ints},"status":status,"elapsed_seconds":time.monotonic()-start,"scope":"Numerical proposal only, conventional p-norm continuation, no new method claim."}
+ scale=2.0**56/np.abs(best).max();ints=[max(0,int(v)) if nonnegative else int(v) for v in np.rint(best*scale)]
+ return {"spec":spec,"initial_float":initial,"best_float":bv,"calls":calls,"trace":trace,"candidate":{"constant":cert.get("constant","C_1d"),"v_int":ints},"status":status,"elapsed_seconds":time.monotonic()-start,"scope":"Numerical proposal only, conventional p-norm continuation, no new method claim."}
