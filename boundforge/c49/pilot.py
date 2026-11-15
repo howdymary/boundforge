@@ -26,7 +26,7 @@ def main():
    state=task["state"] if k==0 else task["state"][k*2:]
    for seed in [101,202,303]:specs.append((task,state,k,seed))
  rows=[]
- with app.run():
+ with modal.enable_output(),app.run():
   for start in range(0,len(specs),8):
    batch=[]
    for task,state,k,seed in specs[start:start+8]:

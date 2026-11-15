@@ -19,6 +19,14 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install modal
+      - name: Check C++ source on free runner
+        run: g++ -O3 -std=c++17 boundforge/c49/search.cpp -o /tmp/c49-search
+      - name: Inspect previous image failure
+        continue-on-error: true
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: modal image logs im-tDBaR5taUHny8iQX3MXwpd
       - name: Run bounded development pilot
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
