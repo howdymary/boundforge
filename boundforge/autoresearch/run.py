@@ -7,20 +7,25 @@ HERE=pathlib.Path(__file__).resolve().parent;PORT=HERE.parent/"portfolio"
 def filehash(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def atomic_json(p,v):
  temp=p.with_suffix(".tmp");temp.write_text(json.dumps(v,indent=2)+"\n");os.replace(temp,p)
-def sandbox(req,args):
+def sandbox(req,args,deadline=None):
+ import uuid
+ container="boundforge-"+uuid.uuid4().hex[:18]
  if args.sandbox=="docker":
-  cmd=["docker","run","--rm","-i","--network","none","--read-only","--cpus","1","--memory","1g","--pids-limit","64","--cap-drop","ALL","--security-opt","no-new-privileges","--tmpfs","/tmp:rw,noexec,nosuid,size=64m",args.image]
+  cmd=["docker","run","--name",container,"--rm","-i","--ulimit","cpu=25:25","--network","none","--read-only","--cpus","1","--memory","1g","--pids-limit","64","--cap-drop","ALL","--security-opt","no-new-privileges","--tmpfs","/tmp:rw,noexec,nosuid,size=64m",args.image]
  else:cmd=[sys.executable,"-I",str(HERE/"worker.py")]
- p=subprocess.run(cmd,input=canonical(req),capture_output=True,text=True,timeout=req["seconds"]+15,env={"PATH":os.environ["PATH"]})
+ try:p=subprocess.run(cmd,input=canonical(req),capture_output=True,text=True,timeout=min(req["seconds"]+15,max(.1,deadline-time.monotonic()))if deadline else req["seconds"]+15,env={"PATH":os.environ["PATH"]})
+ except subprocess.TimeoutExpired:
+  if args.sandbox=="docker":subprocess.run(["docker","rm","-f",container],capture_output=True,timeout=10)
+  raise
  if p.returncode:return {"status":"optimizer_failure","error_type":"worker_exit","detail":p.stderr[-300:]}
  try:r=json.loads(p.stdout)
  except Exception:return {"status":"optimizer_failure","error_type":"invalid_worker_json","detail":p.stdout[-200:]}
  if r.get("request_sha256")!=digest(req):raise ValueError("worker request hash mismatch")
  return r
-def certificate(path,out,incumbent,theta,upstream=False):
+def certificate(path,out,incumbent,theta,upstream=False,deadline=None):
  reports={}
  for name in ["c51_bernstein.py","c51_taylor.py"]:
-  p=subprocess.run([sys.executable,"-I",str(PORT/name),str(path)],capture_output=True,text=True,timeout=60,env={"PATH":os.environ["PATH"]})
+  p=subprocess.run([sys.executable,"-I",str(PORT/name),str(path)],capture_output=True,text=True,timeout=min(60,max(.1,deadline-time.monotonic()))if deadline else 60,env={"PATH":os.environ["PATH"]})
   if p.returncode:raise ValueError(name+" refused: "+p.stderr[-400:])
   r=json.loads(p.stdout)
   if not r.get("valid"):raise ValueError("invalid check result")
@@ -33,7 +38,7 @@ def certificate(path,out,incumbent,theta,upstream=False):
  external=None
  if upstream:
   from .upstream_verify import verify
-  external=verify(path,out/"published-checker")
+  external=verify(path,out/"published-checker",deadline=deadline)
   if not external["valid"]:raise ValueError("separately authored checker refuses")
  return {"candidate_sha256":filehash(path),"lower_bound":str(claim),"previous_actual_beta_upper":str(old_upper),"strict_gain_lower":str(claim-old_upper),"checkers":reports,"published_checker":external}
 def main(argv=None):
@@ -41,7 +46,7 @@ def main(argv=None):
  if args.max_steps<1 or not 1<=args.wall_seconds<=600:raise ValueError("bounded limits required")
  args.out.mkdir(parents=True,exist_ok=True);trace=Trace(args.out);registry=json.loads(args.registry.read_text())
  if registry.get("unresolved_claims"):raise ValueError("unresolved frontier claim requires review")
- sources={q:filehash(HERE/q)for q in ["run.py","worker.py","policy.py","trace.py","Dockerfile","requirements-worker.txt"]};sources.update({q:filehash(PORT/q)for q in ["c51_bernstein.py","c51_taylor.py"]})
+ sources={q.name:filehash(q)for q in sorted(HERE.glob("*.py"))};sources.update({q:filehash(HERE/q)for q in ["Dockerfile","requirements-worker.txt"]});sources.update({q:filehash(PORT/q)for q in ["c51_bernstein.py","c51_taylor.py"]})
  config={"registry":registry,"source_hashes":sources,"policy":args.policy,"seed":args.seed,"max_steps":args.max_steps,"wall_seconds":args.wall_seconds,"sandbox":args.sandbox,"image":args.image,"providers":args.providers,"upstream":args.upstream};confhash=digest(config);statepath=args.out/"checkpoint.json"
  if statepath.exists():
   if not args.resume:raise ValueError("output already has checkpoint; use --resume")
@@ -66,14 +71,14 @@ def main(argv=None):
    trace.add("worker_isolation",image_id=meta["Id"],network="none",filesystem="read-only",mounted_repository=False,credentials_passed=False,source_inventory=["worker.py","pinned numerical dependencies"],limits={"CPU":1,"memory":"1g","pids":64})
   else:trace.add("worker_isolation",scope="trusted-process testing only; not a filesystem sandbox")
   trace.save(state)
- start=time.monotonic();providers=None
+ start=time.monotonic();elapsed_start=state["elapsed_seconds"];deadline=start+args.wall_seconds-elapsed_start;providers=None
  if args.providers:
   from .services import Services
   providers=Services(args.out,trace)
  accepted=None
  for step in range(state["step"],args.max_steps):
-  elapsed=state["elapsed_seconds"]+time.monotonic()-start
-  if elapsed>=args.wall_seconds:trace.add("stop",reason="wall allowance reached",elapsed=elapsed);break
+  elapsed=elapsed_start+time.monotonic()-start
+  if elapsed>=args.wall_seconds-10:trace.add("stop",reason="wall allowance reached",elapsed=elapsed);break
   action,why=choose(state["history"],args.policy)
   if providers and state["history"]:
    advisory=providers.research_and_choose(state["history"][-1],action,registry)
@@ -82,7 +87,7 @@ def main(argv=None):
   trace.add("decision",step=step,action=action,why=why,remaining_wall_seconds=args.wall_seconds-elapsed)
   request={"operator":"float_local"if action=="float_local"else"precision_equioscillation","restart":action=="precision_restart","incumbent":registry["incumbent"],"seed":args.seed+step,"seconds":min(15,max(1,int(args.wall_seconds-elapsed-10))),"precision":100+20*sum(h["diagnosis"]=="CERTIFICATION_FAILURE"for h in state["history"])}
   reqpath=args.out/("request-"+str(step)+".json");atomic_json(reqpath,request);trace.add("experiment_started",step=step,request_sha256=digest(request),request_path=reqpath.name,operator=action)
-  try:r=sandbox(request,args)
+  try:r=sandbox(request,args,deadline)
   except subprocess.TimeoutExpired:r={"status":"optimizer_failure","error_type":"worker_timeout","detail":"bounded worker deadline"}
   rawpath=args.out/("result-"+str(step)+".json");atomic_json(rawpath,r);label,evidence=diagnose(r)
   event=trace.add("experiment_result",step=step,operator=action,diagnosis=label,evidence=evidence,result_path=rawpath.name,result_sha256=filehash(rawpath),measured_elapsed=r.get("elapsed_seconds"))
@@ -90,15 +95,15 @@ def main(argv=None):
    cp=args.out/("candidate-"+str(step)+".json");atomic_json(cp,r["candidate"])
    trace.add("certification_requested",step=step,candidate_sha256=filehash(cp),candidate_path=cp.name,screen_only=True)
    try:
-    accepted=certificate(cp,args.out,registry["incumbent"],r["baseline_test_theta"],args.upstream);atomic_json(args.out/"candidate.json",r["candidate"])
+    accepted=certificate(cp,args.out,registry["incumbent"],r["baseline_test_theta"],args.upstream,deadline);atomic_json(args.out/"candidate.json",r["candidate"])
     trace.add("certified_improvement",step=step,result=accepted,comparison_scope=registry["reference_scope"],fresh_discovery=False)
     state["status"]="certified_historical_replay"
    except Exception as e:
     accepted=None;label="CERTIFICATION_FAILURE";evidence={"type":type(e).__name__,"detail":str(e)[:500],"scope":"specific proposal/cover, no mathematical impossibility conclusion"};event=trace.add("certification_refused",step=step,evidence=evidence)
   state["history"].append({"step":step,"operator":action,"diagnosis":label,"evidence":evidence,"event_id":event,"request_sha256":digest(request),"target":"C51a","context_sha256":digest(registry["incumbent"])})
-  state["step"]=step+1;trace.save(state)
+  state["step"]=step+1;state["elapsed_seconds"]=elapsed_start+time.monotonic()-start;trace.save(state)
   if accepted:break
- state["elapsed_seconds"]+=time.monotonic()-start
+ state["elapsed_seconds"]=elapsed_start+time.monotonic()-start
  if state["status"]=="running":state["status"]="no_certified_improvement"
  trace.add("campaign_finished",status=state["status"],experiments=state["step"],elapsed_seconds=state["elapsed_seconds"],claimed_fresh_world_record=False)
  files={p.name:filehash(p)for p in args.out.iterdir()if p.is_file()and p.name not in ["checkpoint.json","report.json"]}
