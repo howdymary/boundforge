@@ -1,0 +1,28 @@
+name: BoundForge methods v3 paired order pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pytest==8.3.5
+      - run: python -m pytest -q -p no:cacheprovider boundforge/methods_v3/test_methods.py
+      - run: python -m boundforge.methods_v3.order --out boundforge/methods_v3/output/order
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: methods-v3-order
+          path: boundforge/methods_v3/output/order/
+          retention-days: 30

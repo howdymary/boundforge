@@ -20,3 +20,14 @@ def test_bad_constructions_rejected():
   try:independent_check(task,e)
   except AssertionError:pass
   else:raise AssertionError("definition checker accepted forbidden edge")
+
+def test_crossover_reuses_exact_prefixes_and_counts_cost():
+ from .order import crossover,batch
+ task=make("graph",18,731,.2);s=greedy(task,0,random.Random(4),{"tested":0});seed=19;a,b=0,3
+ q=crossover(task,s,a,b,seed)
+ sa=batch(task,s,a,seed*1009+a);sb=batch(task,s,b,seed*1009+b)
+ ab=batch(task,sa["state"],b,seed*1009+b);ba=batch(task,sb["state"],a,seed*1009+a)
+ assert q["ab"]["state"]==ab["state"]and q["ba"]["state"]==ba["state"]
+ assert q["primitives"]==16
+ assert task.valid(q["best"])
+ assert q["contrast"]==max(sa["score"],ab["score"])-max(sb["score"],ba["score"])
