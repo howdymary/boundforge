@@ -8,7 +8,7 @@ from fractions import Fraction
 P=110;down=Context(prec=P,rounding=ROUND_FLOOR);up=Context(prec=P,rounding=ROUND_CEILING);near=Context(prec=P,rounding=ROUND_HALF_EVEN)
 def interval(x):return (D(x),D(x))
 def add(a,b):return down.add(a[0],b[0]),up.add(a[1],b[1])
-def neg(a):return -a[1],-a[0]
+def neg(a):return a[1].copy_negate(),a[0].copy_negate()
 def sub(a,b):return add(a,neg(b))
 def mul(a,b):
  vals=[(x,y) for x in a for y in b];return min(down.multiply(x,y) for x,y in vals),max(up.multiply(x,y) for x,y in vals)
