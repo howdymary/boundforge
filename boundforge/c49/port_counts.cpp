@@ -1,0 +1,2 @@
+#include <bits/stdc++.h>
+int main(int argc,char**argv){int n=std::stoi(argv[2]);std::ifstream f(argv[1]);std::vector<unsigned>v;unsigned x;while(f>>x)v.push_back(x);std::cout<<"[";bool first=true;for(int p=0;p<n;p++)for(int q=0;q<n;q++)if(p!=q){std::array<unsigned,4>c{};for(auto a:v)c[2*((a>>p)&1)+((a>>q)&1)]++;if(!*std::min_element(c.begin(),c.end()))continue;if(!first)std::cout<<",";first=false;std::cout<<"{\"ports\":["<<p<<","<<q<<"],\"counts\":["<<c[0]<<","<<c[1]<<","<<c[2]<<","<<c[3]<<"]}";}std::cout<<"]\n";}

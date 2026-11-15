@@ -1,0 +1,33 @@
+name: C49 exact periodic port diagnostic
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  ports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43678845982'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-stage-a
+          path: boundforge/c49/artifacts
+      - run: python -u boundforge/c49/port_composition.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-ports
+          path: boundforge/c49/ports/
+          retention-days: 30
