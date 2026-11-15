@@ -1,0 +1,34 @@
+name: Preserve BoundForge owned v4 experiment artifacts
+on:
+  workflow_dispatch:
+    inputs:
+      artifacts:
+        description: 'Space separated numeric artifactID:folder pairs'
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: boundforge-paid-providers
+  cancel-in-progress: false
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - name: Preserve only named owned artifacts
+        env:
+          ARTIFACTS: ${{ inputs.artifacts }}
+        run: |
+          python - <<'PY'
+          import os,subprocess
+          args=[]
+          for entry in os.environ["ARTIFACTS"].split():args+=["--artifact",entry]
+          subprocess.run(["python","-m","boundforge.methods_v4.archive_owned"]+args,check=True)
+          PY
