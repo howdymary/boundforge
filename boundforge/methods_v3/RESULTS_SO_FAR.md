@@ -56,3 +56,13 @@ Shared-library UCB and random controllers had access to the proposed guided oper
 past.dev completed ingestion and recalled our own source record. Its extraction also converted a scoped negative recommendation into a standing “forbidden” rule. Treat this as evidence to interpret with original scope, not authoritative instructions or a mathematical impossibility. Memory functionality is established; causal memory advantage and multi-agent sponsor compliance are not.
 
 Next development hypothesis: share exact algebra across a whole repair family, compare every counterfactual with naive rebuilding, and separately test end-to-end benefit. Current mathematical/new-method claims remain unchanged: no new method established by this campaign.
+
+
+## Shared exact repair
+Run43752478807 completed120 episodes and saved all witnesses/traces before report aggregation failed on division by a zero, sub-resolution CPU timing. No paid searches were repeated. Recovery run43753118600 passed13 tests and replayed all120 witnesses through both arithmetic backends; timing denominators below clock resolution are now reported as unavailable.
+
+The shared kernel produced exactly the same complete counterfactual records and selected flats as naive rebuilding on eight saved cases. For support18, recorded CPU times were0.04 vs0.93 seconds and0.05 vs1.62 seconds. These single, quantized observations are evidence of reduced repeated elimination, not precise speedup estimates.
+
+Equal-CPU discovery comparison: shared best repair tied random circuit repair on two task means and lost on four. It beat naive best repair, which is insufficient against the stronger fixed procedure. Do not claim a new discovery method or scale this policy unchanged.
+
+Next: exact event scans over rational kernel trajectories, with independently checkable two-dimensional projective-family maxima. Existing arrangement enumeration, parametric optimization and subproblem caching constrain novelty; test usefulness first, and do not manufacture novelty if the mechanism reduces to prior art.
