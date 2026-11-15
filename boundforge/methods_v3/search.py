@@ -69,7 +69,9 @@ def episode(task,policy,seed,budget=1.0):
   elif policy=="schedule":action=turn%6;evidence={}
   elif policy=="random":action=rng.randrange(6);evidence={}
   elif policy=="ucb":
-   action=next((a for a in range(6)if counts[a]==0),max(range(6),key=lambda a:sums[a]/max(1,counts[a])+math.sqrt(2*math.log(turn+2)/max(1,counts[a])));evidence={"counts":list(counts),"rewards":list(sums)}
+   untried=[a for a in range(6) if counts[a]==0]
+   action=untried[0] if untried else max(range(6),key=lambda a:sums[a]/counts[a]+math.sqrt(2*math.log(turn+2)/counts[a]))
+   evidence={"counts":list(counts),"rewards":list(sums)}
   elif policy=="alns":
    action=rng.choices(range(6),weights=weights)[0];evidence={"weights":list(weights)}
   else:raise ValueError(policy)
