@@ -1,0 +1,6 @@
+# Entropy-jet pilot
+Exploratory development only. Eleven finite-map cases: five rare independent tangent paths with quartic mutual-information growth, three singular births (two are global epsilon reparameterizations and are NOT independent transfer evidence), and three coordinated-support programs. The last family demonstrates why individually unfavorable multiobjective births can combine; this is ordinary conic descent unless a further difference is shown.
+
+Compare formal order4 analysis with first-order and second-order analysis, oracle-epsilon adaptive-precision finite evaluation, and a finite evaluator that starts only from the safe positive-probability radius. The oracle control receives the compiler's proposed epsilon for free; disclose that conservative advantage. All retained finite positive results need two independent arithmetic backends.
+
+The first workflow source pins the original small pilot. A correction adds explicit labeling of the oracle-epsilon control and a blind scale-grid control before any outcome is read. No result will be called confirmatory. A successful expansion routine alone is not a new research method. Require a later autonomous structural search, closest-prior-art distinction, fair cost comparisons and unseen-family evidence.
