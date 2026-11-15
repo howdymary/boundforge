@@ -10,6 +10,7 @@ An independent, auditable computational mathematics research project targeting C
 - [Exact retained certificate](boundforge/results/best.json)
 - [Actual-artifact replay](boundforge/research_v2/output/demo.html)
 - [Continuation prompt for Track 1](CONTINUE_RESEARCH.md)
+- [Alternative constants and current frontier audit](TARGET_SELECTION.md)
 - [Separation provenance and operational notes](MIGRATION.md)
 
 Work on **main**. All source code, pinned numerical dependencies, certificates, logs and research artifacts are in this repository. The boundforge/ source directory is retained to preserve artifact paths; no forecasting package, dataset, deployment or volume is required.
