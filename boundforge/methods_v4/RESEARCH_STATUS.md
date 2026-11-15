@@ -45,6 +45,11 @@ This is a useful exact reduction of an unbounded coordinate domain to finite can
 
 This is a targeted literature review, not an exhaustive novelty clearance. Exa searches returned many irrelevant leads; no mechanism is novel merely because a focused query failed to locate it.
 
+## Independent validation and a stronger control
+Run43760186238 resolved all Boolean masks on18 tasks, including both archived C3c laws, with complete agreement between the independent Z3 and geometry implementations. Exact witnesses were directly rechecked. Geometry CPU was .6791sec; SMT CPU was .3607sec. On the actual C3c laws geometry took .3206/.2302sec versus SMT .1361/.1078sec. Individual tiny d2 fixtures favor geometry, so the result is not uniform dominance. This is one timed pass, not a statistical superiority claim.
+
+Nevertheless it rejects a simple efficiency narrative for our custom oracle on the actual target: a standard symbolic solver is a strong, cheaper control here. The new code is useful verification/representation work, not evidence that we invented a better generic solver. [Raw report](results/mask-validation/report.json), [all inputs, statuses and timings](results/mask-validation/validation.json).
+
 ## The most promising remaining research question
 Can an autonomous system derive **certified, objective-sufficient search representations** from a target's verifier, and refine them only when a checkable counterexample shows they discard useful distinctions?
 
