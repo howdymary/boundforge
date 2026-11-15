@@ -65,7 +65,7 @@ def check_polynomials(polys):
   p=list(map(Q,poly));r=next((i for i,x in enumerate(p)if x),None)
   if r is None:continue
   assert p[r]>0,"negative leading mass"
-  remainder=sum(abs(x)for x in p[r+1:])
+  remainder=sum(-x for x in p[r+1:]if x<0)
   if remainder:radius=min(radius,p[r]/(2*remainder))
  return radius
 def compile(polys,maps,margins,K=4):
