@@ -1,0 +1,40 @@
+name: C49 freeze diagnostic policies before evaluation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43679514101'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: c49-pilot
+          path: boundforge/c49/pilot
+      - run: python -m pip install modal tinker transformers
+      - name: Freeze from development data only
+        env:
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          PAST_API_KEY: ${{ secrets.PAST_API_KEY }}
+          TINKER_API_KEY: ${{ secrets.TINKER_API_KEY }}
+        run: python -u boundforge/c49/freeze.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c49-freeze
+          path: boundforge/c49/freeze/
+          retention-days: 30

@@ -1,0 +1,13 @@
+# Held-out comparison contract
+
+Committed before evaluation. Pilot43679514101:144 paired interventions plus24 common probes. Reported action CPU36s plus6s probes=42s; the original report's cpu_seconds omitted the probes, corrected here explicitly. Every F10 intervention retained the published75-set family rate1.56642866225. Uniform8 showed varied gains; remove6 and conflict-guided ruin had the best mean gains. This does not justify blind scaling of F10 LNS.
+
+Seven starts per held-out task,24 decisions at250ms CPU plus one250ms common warm-up. This is a bounded descriptive comparison, not a powered universal superiority test. Families H11 and uniform9 are withheld from development. Two64-vertex seeded20%-density graphs and cap sets over F3^4 test out-of-domain transfer; no auxiliary record claim. Controller core and action IDs are reused; task adapters supply constraints/score and are substantial human/agent scaffolding.
+
+Seven common-library arms: development-selected fixed, round-robin, global numerical UCB, frozen diagnosis rules without persistent memory, full contextual memory, contextual numerical memory without model rank priors, shuffled-context memory. Same processCPU quanta and initial states; actual tested candidates and overhead vary and must be reported. All outputs, including bad outcomes, are retained.
+
+Primary outcome: per-task best objective after the fixed CPU budget; compare full against strongest fixed/UCB/numeric alternatives, not just a weak no-memory arm. Secondary: time/evaluations to best, action-selection changes, invalid/timeouts, and paired development prediction quality. No new significance threshold or held-out policy retuning after opening outcomes. Raw scores/paired differences and seed variation are reported; only two C49 held-out families and three auxiliary instances limit inference.
+
+The model's proposed ranking rules are selected on development only and frozen into freeze.json before held-out execution. Four proposal slots, invalid slots not replaced. Numerical contextual ablation tests whether model priors add value. Frozen rules/UCB/memory are established technique adaptations. No general novelty claim unless a precise difference and robust advantage emerge.
+
+A separate production study may change methods using development or evaluation findings, but is then labeled production/exploratory; it does not alter the frozen evaluation. Since small F10 LNS stalled, the justified production alternative is a CP-SAT constraint-separation search for a new small base family rather than more copies of the same ruin/repair run. CP-SAT and constraint learning are prior art, not invented methods.
