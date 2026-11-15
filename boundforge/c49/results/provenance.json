@@ -1,0 +1,108 @@
+{
+  "collected_at": "2026-11-15T05:37:02.658346+00:00",
+  "collection_source_sha": "e7578c6d899b0cded544c161c9d9fc769a4b6ec2",
+  "source_runs": {
+    "stage_a": {
+      "run": 43678845982,
+      "source_sha": "c7e44f2261c00be6a7c4e3a89233cb7fd4f71187",
+      "artifact": "c49-stage-a",
+      "artifact_id": 14147158491,
+      "zip_sha256": "f1e30e87b41ae4c39245756700f8945b8549b176d6583de86b6d450087005b92",
+      "started": "2026-11-15T04:55:35Z",
+      "updated": "2026-11-15T04:56:01Z"
+    },
+    "pilot": {
+      "run": 43679514101,
+      "source_sha": "58c1f28992ed4419692bd24f4dac159900dccdb5",
+      "artifact": "c49-pilot",
+      "artifact_id": 14147199899,
+      "zip_sha256": "5d80989c2755e7f56bd050f843f164f8571fc7fab2760f3a467e2e94ab14617d",
+      "started": "2026-11-15T05:04:56Z",
+      "updated": "2026-11-15T05:06:08Z"
+    },
+    "freeze": {
+      "run": 43679935507,
+      "source_sha": "53147a7a7742919fd7bf8891622f75d48de931fd",
+      "artifact": "c49-freeze",
+      "artifact_id": 14148455184,
+      "zip_sha256": "48dd5c251afcae66a6cde48f2a3b2e0224ad8b2b606070eb8256d2bfdeaec3ff",
+      "started": "2026-11-15T05:10:38Z",
+      "updated": "2026-11-15T05:11:47Z"
+    },
+    "evaluation": {
+      "run": 43680044118,
+      "source_sha": "53147a7a7742919fd7bf8891622f75d48de931fd",
+      "artifact": "c49-evaluation",
+      "artifact_id": 14148416374,
+      "zip_sha256": "c1ad6d8ffc5d77cb3d17f7ef0b099b08b8510d6e0abc9315df45e896f7ba350a",
+      "started": "2026-11-15T05:12:06Z",
+      "updated": "2026-11-15T05:18:48Z"
+    },
+    "model_study": {
+      "run": 43680369383,
+      "source_sha": "425787fecfbb650dccca2e78fa13c6be488e1e01",
+      "artifact": "c49-model-study",
+      "artifact_id": 14148670236,
+      "zip_sha256": "3931b8a53abd965d72a208df2300e7d1c465278ba8185dcaa524d0d9aa85552c",
+      "started": "2026-11-15T05:16:30Z",
+      "updated": "2026-11-15T05:19:58Z"
+    },
+    "production": {
+      "run": 43680657530,
+      "source_sha": "49b132d330d9dc55680885892d0d019d5467e647",
+      "artifact": "c49-production",
+      "artifact_id": 14148418125,
+      "zip_sha256": "86533738e88ee5024651d3c95a170930d78eb77fbfa99b0508724505c3a055c4",
+      "started": "2026-11-15T05:20:30Z",
+      "updated": "2026-11-15T05:31:13Z"
+    },
+    "transfer": {
+      "run": 43680750855,
+      "source_sha": "9e4fc32d6b488dc5d30d40883b19c9c6a2be24b0",
+      "artifact": "c49-transfer",
+      "artifact_id": 14148084679,
+      "zip_sha256": "fb1ff4449e95b4b8cf8efab3c28081ae9e136bcc15bcc1012ceb3850b6df8c6c",
+      "started": "2026-11-15T05:21:44Z",
+      "updated": "2026-11-15T05:36:07Z"
+    },
+    "ports": {
+      "run": 43681053247,
+      "source_sha": "5387516a39c8144cc1875bec77e8ca0fb432e2a3",
+      "artifact": "c49-ports",
+      "artifact_id": 14148750152,
+      "zip_sha256": "8c45fc2ebf8ea2880ff90ddee7a3c613ba9d1e047dfa3cefe1ef1462c90e8336",
+      "started": "2026-11-15T05:25:56Z",
+      "updated": "2026-11-15T05:26:59Z"
+    }
+  },
+  "protected_hashes": {
+    "boundforge/verify.py": "3c5cd73bf3d50eea098d3253e46e9e5ea9812ec3c2fa2711ea16b349f586ef30",
+    "boundforge/verify_independent.py": "49e1cbbc9d287a227d8f790b2f7a678972a88f53d3c2e88592f6c1424dda0774"
+  },
+  "failures": [
+    {
+      "run": 43679239618,
+      "reason": "Initial image C++ name collision; conservative image hold retained"
+    },
+    {
+      "run": 43679314789,
+      "reason": "Free runner caught same compiler error"
+    },
+    {
+      "run": 43679427482,
+      "reason": "Pytest relative import"
+    },
+    {
+      "run": 43679780777,
+      "reason": "Tokenizer Jinja dependency, memory polling; partial Exa/past usage recovered"
+    },
+    {
+      "run": 43679935507,
+      "reason": "Successful numerical fallback; Tinker billing datetime schema rejected calls before inference"
+    }
+  ],
+  "notes": [
+    "Full Exa source text and transient external checker code/binaries are not republished.",
+    "Each phase retains its executed source SHA; later engineering fixes do not retroactively change frozen evaluation."
+  ]
+}

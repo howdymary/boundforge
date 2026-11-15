@@ -1,0 +1,128 @@
+{
+  "source_sha": "c7e44f2261c00be6a7c4e3a89233cb7fd4f71187",
+  "run_id": "43678845982",
+  "witness_source_commit": "a50021b04687719f4a2ea27609029982c980573e",
+  "sources": {
+    "certificates/best_1.5678643845728069793620.json": {
+      "url": "https://github.com/rpinho/math-certificates/blob/a50021b04687719f4a2ea27609029982c980573e/c49/round1/certificates/best_1.5678643845728069793620.json",
+      "sha256": "53381b5f52264c43d56343ab27d698c598462d5abfd83c043365afbae9efb1e8",
+      "bytes": 2469144
+    },
+    "checker.py": {
+      "url": "https://github.com/rpinho/math-certificates/blob/a50021b04687719f4a2ea27609029982c980573e/c49/round1/checker.py",
+      "sha256": "ff18d40a5e0117fad6adf6aa412a69a6f04b714e7077192895e4d997d9eef7df",
+      "bytes": 6382
+    },
+    "referee/independent.cpp": {
+      "url": "https://github.com/rpinho/math-certificates/blob/a50021b04687719f4a2ea27609029982c980573e/c49/round1/referee/independent.cpp",
+      "sha256": "f7e94392270f0493c502262d8ee434814c94d39a45044b44b2f4dfaff02fbc54",
+      "bytes": 5354
+    }
+  },
+  "replay": {
+    "primary_box_checker": {
+      "output": {
+        "n": 28,
+        "members": 252303,
+        "boxes": 107,
+        "cross_box_triples_considered": 2415,
+        "port_counts": [
+          33980,
+          64728,
+          64728,
+          88867
+        ],
+        "transfer_matrix": [
+          [
+            64728,
+            88867
+          ],
+          [
+            33980,
+            64728
+          ]
+        ],
+        "trace": 129456,
+        "determinant": 1170013324,
+        "exponent": 26,
+        "distinct": true,
+        "Sperner": true,
+        "sunflower_free": true,
+        "rate_interval_rational": [
+          "165115391364874361371263925716494925559481232031166643993919619327/105312291668557186697918027683670432318895095400549111254310977536",
+          "1320923130918994890970111405731959404475849856249333151951356954617/842498333348457493583344221469363458551160763204392890034487820288"
+        ],
+        "rate_interval_decimal": [
+          "1.567864384572806979362033445047060687289228710864066381805835",
+          "1.567864384572806979362033445047060687289228710864066381805836"
+        ],
+        "bar_comparison": "above",
+        "margin_interval_decimal": [
+          "0.000004482148217093509118015914783074906769324255439225090732",
+          "0.000004482148217093509118015914783074906769324255439225090733"
+        ],
+        "verdict": "ACCEPT",
+        "wall_seconds": 0.23864060800000075,
+        "cpu_seconds": 0.263720783,
+        "peak_rss_bytes": 57716,
+        "checker_authorship": "separately written (same agent)"
+      },
+      "elapsed_seconds": 0.271573269000001
+    },
+    "primary_bdd_checker": {
+      "output": {
+        "members": 252303,
+        "nodes": 855,
+        "containment_states": 9407,
+        "sunflower_states": 45149,
+        "ordered_containment_pairs": 252303,
+        "ordered_sunflower_tuples": 252303,
+        "distinct_sunflowers": 0,
+        "ports": [
+          33980,
+          64728,
+          64728,
+          88867
+        ],
+        "valid": true,
+        "seconds": 0.0396283
+      },
+      "elapsed_seconds": 2.5161175040000003
+    },
+    "boundforge_bdd": {
+      "output": {
+        "valid": true,
+        "members": 252303,
+        "ordered_containments": 252303,
+        "ordered_equal_intersection_triples": 252303,
+        "nodes": 855,
+        "counts": [
+          33980,
+          64728,
+          64728,
+          88867
+        ]
+      },
+      "elapsed_seconds": 0.04526755099999846
+    },
+    "rate": {
+      "counts": [
+        33980,
+        64728,
+        64728,
+        88867
+      ],
+      "exponent": 26,
+      "lower": "2402745178040267803171648494266190763438953320017996069/1532495540865888858358347027150309183618739122183602176",
+      "upper": "1201372589020133901585824247133095381719476660008998035/766247770432944429179173513575154591809369561091801088",
+      "decimal": [
+        "1.567864384572806979362033445047060687289228710",
+        "1.567864384572806979362033445047060687289228711"
+      ]
+    }
+  },
+  "exa_cost_usd": 0.042,
+  "elapsed_seconds": 13.458498256999999,
+  "new_record": false,
+  "scope": "Reproduction of prior art, not a BoundForge discovery."
+}

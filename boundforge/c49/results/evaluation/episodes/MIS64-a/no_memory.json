@@ -1,0 +1,4461 @@
+[
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 410,
+    "initial_score": 0,
+    "warm_score": 16,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      12,
+      14,
+      18,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 2511259,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7696bbf50e0eff6d5735e794cb9a3faf19b756a95be93b0916b08e4e36ec2acc",
+        "after_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534040830000066,
+        "tested": 98592,
+        "rejected": 88765,
+        "pair_rejected": 88765,
+        "triple_rejected": 0,
+        "last_conflict": [
+          38,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "after_hash": "5f3b67ae5114a79e39dc5d8e23eeb46a8768e957d6d1326810d6907c5d707184",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25356013200000405,
+        "tested": 99086,
+        "rejected": 89130,
+        "pair_rejected": 89130,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          36
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "5f3b67ae5114a79e39dc5d8e23eeb46a8768e957d6d1326810d6907c5d707184",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25371190199999205,
+        "tested": 98278,
+        "rejected": 88445,
+        "pair_rejected": 88445,
+        "triple_rejected": 0,
+        "last_conflict": [
+          52,
+          59
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25329858300000296,
+        "tested": 100999,
+        "rejected": 90595,
+        "pair_rejected": 90595,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253282413000008,
+        "tested": 99562,
+        "rejected": 89271,
+        "pair_rejected": 89271,
+        "triple_rejected": 0,
+        "last_conflict": [
+          11,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "a205e60693416f537530d7c2fedf9dbdd0d57ba750f7eedaad9b4d44582b98f6",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25307841300001144,
+        "tested": 100790,
+        "rejected": 90408,
+        "pair_rejected": 90408,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          47
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "a205e60693416f537530d7c2fedf9dbdd0d57ba750f7eedaad9b4d44582b98f6",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2533017140000027,
+        "tested": 100947,
+        "rejected": 90540,
+        "pair_rejected": 90540,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534255650000006,
+        "tested": 101286,
+        "rejected": 90867,
+        "pair_rejected": 90867,
+        "triple_rejected": 0,
+        "last_conflict": [
+          16,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "after_hash": "d30d2d3399192d6ded5ed24338aee77baa0ce71b169fa344ac887c72f5d7a961",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25328466499999536,
+        "tested": 100712,
+        "rejected": 90267,
+        "pair_rejected": 90267,
+        "triple_rejected": 0,
+        "last_conflict": [
+          3,
+          50
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d30d2d3399192d6ded5ed24338aee77baa0ce71b169fa344ac887c72f5d7a961",
+        "after_hash": "7a85374dda76f1c7754f2cf8a87cd67be2f0af4f1c8d6e8cef8ef80e9b58af3c",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2531014650000003,
+        "tested": 100946,
+        "rejected": 90580,
+        "pair_rejected": 90580,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          32
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7a85374dda76f1c7754f2cf8a87cd67be2f0af4f1c8d6e8cef8ef80e9b58af3c",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25347301300000424,
+        "tested": 101074,
+        "rejected": 90608,
+        "pair_rejected": 90608,
+        "triple_rejected": 0,
+        "last_conflict": [
+          23,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "910e0affb3f3f0c58ffd1e6faf6392a3c8c1801109c75ca2fe4cec0a93214439",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2537898720000129,
+        "tested": 101146,
+        "rejected": 90554,
+        "pair_rejected": 90554,
+        "triple_rejected": 0,
+        "last_conflict": [
+          11,
+          28
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "910e0affb3f3f0c58ffd1e6faf6392a3c8c1801109c75ca2fe4cec0a93214439",
+        "after_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25314591299999734,
+        "tested": 101100,
+        "rejected": 90731,
+        "pair_rejected": 90731,
+        "triple_rejected": 0,
+        "last_conflict": [
+          48,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2536793919999951,
+        "tested": 101669,
+        "rejected": 91224,
+        "pair_rejected": 91224,
+        "triple_rejected": 0,
+        "last_conflict": [
+          11,
+          50
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "8abf7d3c482f3dceecb1416ddd4d688b3fe803dc8eb004d8679f3c1ace2eb615",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2533919520000012,
+        "tested": 101101,
+        "rejected": 90664,
+        "pair_rejected": 90664,
+        "triple_rejected": 0,
+        "last_conflict": [
+          31,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8abf7d3c482f3dceecb1416ddd4d688b3fe803dc8eb004d8679f3c1ace2eb615",
+        "after_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2532319099999967,
+        "tested": 101617,
+        "rejected": 91182,
+        "pair_rejected": 91182,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          58
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25339676999999483,
+        "tested": 101722,
+        "rejected": 91165,
+        "pair_rejected": 91165,
+        "triple_rejected": 0,
+        "last_conflict": [
+          16,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "repeat",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25364992000000086,
+        "tested": 101272,
+        "rejected": 90797,
+        "pair_rejected": 90797,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          27
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "repeat",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "7cbe22cf78e200fad7a6426f0b07164ebde8ef2b4d9052d81c8dac85956a9c06",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534980110000049,
+        "tested": 100122,
+        "rejected": 89797,
+        "pair_rejected": 89797,
+        "triple_rejected": 0,
+        "last_conflict": [
+          35,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7cbe22cf78e200fad7a6426f0b07164ebde8ef2b4d9052d81c8dac85956a9c06",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253328891999999,
+        "tested": 100106,
+        "rejected": 89740,
+        "pair_rejected": 89740,
+        "triple_rejected": 0,
+        "last_conflict": [
+          15,
+          31
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534597829999967,
+        "tested": 100138,
+        "rejected": 89928,
+        "pair_rejected": 89928,
+        "triple_rejected": 0,
+        "last_conflict": [
+          23,
+          28
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "8bf873dd88a955850f01a68dd1a7cb519d121b69f653dfe5cca2c417eca5936d",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25386187200000165,
+        "tested": 100091,
+        "rejected": 89807,
+        "pair_rejected": 89807,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          19
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8bf873dd88a955850f01a68dd1a7cb519d121b69f653dfe5cca2c417eca5936d",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25406587300000183,
+        "tested": 98771,
+        "rejected": 88566,
+        "pair_rejected": 88566,
+        "triple_rejected": 0,
+        "last_conflict": [
+          23,
+          48
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25355441600000006,
+        "tested": 99492,
+        "rejected": 89195,
+        "pair_rejected": 89195,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          40
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 420,
+    "initial_score": 0,
+    "warm_score": 15,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      12,
+      14,
+      18,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 2245371,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "31bd44ce4811bf308d51872e6f3779e5555dfbf9f395da8bfab644f24aae743d",
+        "after_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 1.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540554610000072,
+        "tested": 89075,
+        "rejected": 80088,
+        "pair_rejected": 80088,
+        "triple_rejected": 0,
+        "last_conflict": [
+          11,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538497209999946,
+        "tested": 88547,
+        "rejected": 79674,
+        "pair_rejected": 79674,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540183799999909,
+        "tested": 88816,
+        "rejected": 79946,
+        "pair_rejected": 79946,
+        "triple_rejected": 0,
+        "last_conflict": [
+          17,
+          34
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539921019999838,
+        "tested": 88242,
+        "rejected": 79376,
+        "pair_rejected": 79376,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          35
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2537964630000147,
+        "tested": 90829,
+        "rejected": 81484,
+        "pair_rejected": 81484,
+        "triple_rejected": 0,
+        "last_conflict": [
+          21,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "fc1dcb903828705a2b1f5b3af079d0c0dc183301d7295482ba6f15bd1b8b349c",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25402541399998313,
+        "tested": 90806,
+        "rejected": 81434,
+        "pair_rejected": 81434,
+        "triple_rejected": 0,
+        "last_conflict": [
+          36,
+          43
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "fc1dcb903828705a2b1f5b3af079d0c0dc183301d7295482ba6f15bd1b8b349c",
+        "after_hash": "7696bbf50e0eff6d5735e794cb9a3faf19b756a95be93b0916b08e4e36ec2acc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540843339999981,
+        "tested": 90724,
+        "rejected": 81355,
+        "pair_rejected": 81355,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          25
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7696bbf50e0eff6d5735e794cb9a3faf19b756a95be93b0916b08e4e36ec2acc",
+        "after_hash": "73c727d8dff87736d43bdb729514ada27af5b97cebff604feffa4d9acd1561e8",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25492901100000154,
+        "tested": 91332,
+        "rejected": 81946,
+        "pair_rejected": 81946,
+        "triple_rejected": 0,
+        "last_conflict": [
+          19,
+          43
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "73c727d8dff87736d43bdb729514ada27af5b97cebff604feffa4d9acd1561e8",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540602589999992,
+        "tested": 90943,
+        "rejected": 81631,
+        "pair_rejected": 81631,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          10
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25393836800000713,
+        "tested": 90705,
+        "rejected": 81295,
+        "pair_rejected": 81295,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          58
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "repeat",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.254133448999994,
+        "tested": 90671,
+        "rejected": 81259,
+        "pair_rejected": 81259,
+        "triple_rejected": 0,
+        "last_conflict": [
+          18,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "repeat",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541930189999846,
+        "tested": 90235,
+        "rejected": 80916,
+        "pair_rejected": 80916,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.254048030000007,
+        "tested": 91286,
+        "rejected": 81879,
+        "pair_rejected": 81879,
+        "triple_rejected": 0,
+        "last_conflict": [
+          26,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539026299999989,
+        "tested": 88428,
+        "rejected": 79421,
+        "pair_rejected": 79421,
+        "triple_rejected": 0,
+        "last_conflict": [
+          20,
+          32
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25465321000001495,
+        "tested": 90130,
+        "rejected": 80829,
+        "pair_rejected": 80829,
+        "triple_rejected": 0,
+        "last_conflict": [
+          32,
+          41
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "8abf7d3c482f3dceecb1416ddd4d688b3fe803dc8eb004d8679f3c1ace2eb615",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25463000999999963,
+        "tested": 88687,
+        "rejected": 79631,
+        "pair_rejected": 79631,
+        "triple_rejected": 0,
+        "last_conflict": [
+          31,
+          44
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8abf7d3c482f3dceecb1416ddd4d688b3fe803dc8eb004d8679f3c1ace2eb615",
+        "after_hash": "063c79f054267742ea7deb1a0ad5976331856354d407ff32db827d35ed87c617",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540453100000093,
+        "tested": 89245,
+        "rejected": 80017,
+        "pair_rejected": 80017,
+        "triple_rejected": 0,
+        "last_conflict": [
+          25,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "063c79f054267742ea7deb1a0ad5976331856354d407ff32db827d35ed87c617",
+        "after_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2545222499999795,
+        "tested": 86965,
+        "rejected": 78035,
+        "pair_rejected": 78035,
+        "triple_rejected": 0,
+        "last_conflict": [
+          18,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "after_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541391809999993,
+        "tested": 90514,
+        "rejected": 81142,
+        "pair_rejected": 81142,
+        "triple_rejected": 0,
+        "last_conflict": [
+          26,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "after_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25455124999999157,
+        "tested": 86883,
+        "rejected": 77869,
+        "pair_rejected": 77869,
+        "triple_rejected": 0,
+        "last_conflict": [
+          46,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "after_hash": "b82a09dad6099d6a9075b8bfc6f1accead18b2b5a589e7868cc38428eb7de95c",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25410772200001475,
+        "tested": 88869,
+        "rejected": 79754,
+        "pair_rejected": 79754,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          18
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b82a09dad6099d6a9075b8bfc6f1accead18b2b5a589e7868cc38428eb7de95c",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25466582100000323,
+        "tested": 90671,
+        "rejected": 81427,
+        "pair_rejected": 81427,
+        "triple_rejected": 0,
+        "last_conflict": [
+          31,
+          50
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "78a78ced37e8be59a148b5560aa9ee984e0ab1fa736acf598752d0a76b326c39",
+        "best_score": 16,
+        "current_score": 10,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542472009999983,
+        "tested": 91039,
+        "rejected": 81703,
+        "pair_rejected": 81703,
+        "triple_rejected": 0,
+        "last_conflict": [
+          3,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "78a78ced37e8be59a148b5560aa9ee984e0ab1fa736acf598752d0a76b326c39",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2553425309999966,
+        "tested": 90866,
+        "rejected": 81541,
+        "pair_rejected": 81541,
+        "triple_rejected": 0,
+        "last_conflict": [
+          52,
+          59
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 430,
+    "initial_score": 0,
+    "warm_score": 15,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      18,
+      20,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      57,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 2567766,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8ade139bc2481989677702d97ff075a34cab8d787ff87bab4f1331e6e4c567bd",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 1.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539321520000044,
+        "tested": 101322,
+        "rejected": 91151,
+        "pair_rejected": 91151,
+        "triple_rejected": 0,
+        "last_conflict": [
+          37,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25440783099998043,
+        "tested": 100763,
+        "rejected": 90649,
+        "pair_rejected": 90649,
+        "triple_rejected": 0,
+        "last_conflict": [
+          4,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25490249800000697,
+        "tested": 99952,
+        "rejected": 89945,
+        "pair_rejected": 89945,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          55
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "pair",
+        "next_diagnosis": "repeat",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542860529999871,
+        "tested": 101833,
+        "rejected": 91627,
+        "pair_rejected": 91627,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          26
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "repeat",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25510571500001333,
+        "tested": 102683,
+        "rejected": 92093,
+        "pair_rejected": 92093,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          27
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539035199999944,
+        "tested": 103990,
+        "rejected": 93298,
+        "pair_rejected": 93298,
+        "triple_rejected": 0,
+        "last_conflict": [
+          3,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2543014990000074,
+        "tested": 102456,
+        "rejected": 91855,
+        "pair_rejected": 91855,
+        "triple_rejected": 0,
+        "last_conflict": [
+          29,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "03e5cfc6ce693743c87023101ccbd52978e71add24a93295e48869d3d3cd2c53",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2533190629999922,
+        "tested": 103464,
+        "rejected": 92881,
+        "pair_rejected": 92881,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          26
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "03e5cfc6ce693743c87023101ccbd52978e71add24a93295e48869d3d3cd2c53",
+        "after_hash": "3e85728e4cbf2a273a2d32445936d6c403787742bb5da1f8240f644443223493",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253738731999988,
+        "tested": 102855,
+        "rejected": 92269,
+        "pair_rejected": 92269,
+        "triple_rejected": 0,
+        "last_conflict": [
+          39,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3e85728e4cbf2a273a2d32445936d6c403787742bb5da1f8240f644443223493",
+        "after_hash": "e1de102fed24977e8f2dadfce21850333ece89e9f4202abe9d98beae40f8f734",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25361432299999365,
+        "tested": 102704,
+        "rejected": 92213,
+        "pair_rejected": 92213,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e1de102fed24977e8f2dadfce21850333ece89e9f4202abe9d98beae40f8f734",
+        "after_hash": "e8624bbe73fac97923bb749010aa4efde25a985c2a5c32fea7ea75954745715f",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25349658399997566,
+        "tested": 102762,
+        "rejected": 92179,
+        "pair_rejected": 92179,
+        "triple_rejected": 0,
+        "last_conflict": [
+          46,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e8624bbe73fac97923bb749010aa4efde25a985c2a5c32fea7ea75954745715f",
+        "after_hash": "39309ec1980148817fa36b031fd9f7cbd65313dc330edc42b3fca9d4df596a5d",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2545531789999984,
+        "tested": 103288,
+        "rejected": 92642,
+        "pair_rejected": 92642,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          26
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "39309ec1980148817fa36b031fd9f7cbd65313dc330edc42b3fca9d4df596a5d",
+        "after_hash": "5115e65eed7acf09669e46d18558a1381327009d308c26817d0baacab45074c0",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25446658199999206,
+        "tested": 102386,
+        "rejected": 91948,
+        "pair_rejected": 91948,
+        "triple_rejected": 0,
+        "last_conflict": [
+          22,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "5115e65eed7acf09669e46d18558a1381327009d308c26817d0baacab45074c0",
+        "after_hash": "ece26285ddc124b54200e3b530b180037f617ae47865d3278727155e56ab50a9",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25339570899998876,
+        "tested": 102533,
+        "rejected": 91994,
+        "pair_rejected": 91994,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          40
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ece26285ddc124b54200e3b530b180037f617ae47865d3278727155e56ab50a9",
+        "after_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2535500040000045,
+        "tested": 102404,
+        "rejected": 91816,
+        "pair_rejected": 91816,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          55
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539407200000028,
+        "tested": 103175,
+        "rejected": 92504,
+        "pair_rejected": 92504,
+        "triple_rejected": 0,
+        "last_conflict": [
+          52,
+          61
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "b0b385dc21529a9602d69c36f07b24832ba2c7b62d3e6b780d2bf65035bf74db",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2544794300000035,
+        "tested": 103359,
+        "rejected": 92615,
+        "pair_rejected": 92615,
+        "triple_rejected": 0,
+        "last_conflict": [
+          43,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b0b385dc21529a9602d69c36f07b24832ba2c7b62d3e6b780d2bf65035bf74db",
+        "after_hash": "6ab462d9cdb8ba8e8ef92b4dc75f1214443be4b843f2dcb798d14de96051725f",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25345874399999957,
+        "tested": 102306,
+        "rejected": 91747,
+        "pair_rejected": 91747,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ab462d9cdb8ba8e8ef92b4dc75f1214443be4b843f2dcb798d14de96051725f",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539746310000055,
+        "tested": 103196,
+        "rejected": 92618,
+        "pair_rejected": 92618,
+        "triple_rejected": 0,
+        "last_conflict": [
+          41,
+          61
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2531939320000163,
+        "tested": 102914,
+        "rejected": 92268,
+        "pair_rejected": 92268,
+        "triple_rejected": 0,
+        "last_conflict": [
+          15,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "3d96d069ccce94f755e477528ff7863aab5b657f5269a09443fff37b8267e92b",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25365497199999254,
+        "tested": 102667,
+        "rejected": 91955,
+        "pair_rejected": 91955,
+        "triple_rejected": 0,
+        "last_conflict": [
+          44,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3d96d069ccce94f755e477528ff7863aab5b657f5269a09443fff37b8267e92b",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534574499999849,
+        "tested": 102860,
+        "rejected": 92240,
+        "pair_rejected": 92240,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25356278500001395,
+        "tested": 103252,
+        "rejected": 92547,
+        "pair_rejected": 92547,
+        "triple_rejected": 0,
+        "last_conflict": [
+          4,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540466510000101,
+        "tested": 104109,
+        "rejected": 93363,
+        "pair_rejected": 93363,
+        "triple_rejected": 0,
+        "last_conflict": [
+          47,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 440,
+    "initial_score": 0,
+    "warm_score": 16,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      10,
+      14,
+      21,
+      23,
+      30,
+      33,
+      34,
+      41,
+      45,
+      46,
+      49,
+      57,
+      59,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 8235774,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "8bf873dd88a955850f01a68dd1a7cb519d121b69f653dfe5cca2c417eca5936d",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253472276999986,
+        "tested": 289642,
+        "rejected": 260694,
+        "pair_rejected": 260694,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8bf873dd88a955850f01a68dd1a7cb519d121b69f653dfe5cca2c417eca5936d",
+        "after_hash": "cf8e00cff628d5e1a28d27278a07a3d2ba22f185de2d40ededebd313a4766ceb",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25380833999997776,
+        "tested": 289547,
+        "rejected": 260657,
+        "pair_rejected": 260657,
+        "triple_rejected": 0,
+        "last_conflict": [
+          21,
+          31
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "cf8e00cff628d5e1a28d27278a07a3d2ba22f185de2d40ededebd313a4766ceb",
+        "after_hash": "99fc84c8d9ea8173fd7c64fa503a51ab0152f453a35547d3362d37bb41592c9d",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25483320800000797,
+        "tested": 290043,
+        "rejected": 260934,
+        "pair_rejected": 260934,
+        "triple_rejected": 0,
+        "last_conflict": [
+          46,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "99fc84c8d9ea8173fd7c64fa503a51ab0152f453a35547d3362d37bb41592c9d",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25240238800000725,
+        "tested": 335216,
+        "rejected": 300487,
+        "pair_rejected": 300487,
+        "triple_rejected": 0,
+        "last_conflict": [
+          45,
+          51
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538225590000138,
+        "tested": 333154,
+        "rejected": 298657,
+        "pair_rejected": 298657,
+        "triple_rejected": 0,
+        "last_conflict": [
+          37,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538094020000017,
+        "tested": 330962,
+        "rejected": 296668,
+        "pair_rejected": 296668,
+        "triple_rejected": 0,
+        "last_conflict": [
+          15,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25407450699998435,
+        "tested": 338729,
+        "rejected": 303888,
+        "pair_rejected": 303888,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "606d5ca03752cce2ba161e27489986cf71f86dc1d4cec9a1c209552a2ce2f094",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25398839199999657,
+        "tested": 335458,
+        "rejected": 300882,
+        "pair_rejected": 300882,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "606d5ca03752cce2ba161e27489986cf71f86dc1d4cec9a1c209552a2ce2f094",
+        "after_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25431255999998825,
+        "tested": 335488,
+        "rejected": 300903,
+        "pair_rejected": 300903,
+        "triple_rejected": 0,
+        "last_conflict": [
+          13,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2544700900000123,
+        "tested": 331928,
+        "rejected": 297619,
+        "pair_rejected": 297619,
+        "triple_rejected": 0,
+        "last_conflict": [
+          45,
+          51
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "99677bbc6f2676984e496bd8c1dc4f2dd2008278010e635b48f40042395ddc99",
+        "best_score": 16,
+        "current_score": 13,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25322908799998345,
+        "tested": 330833,
+        "rejected": 296533,
+        "pair_rejected": 296533,
+        "triple_rejected": 0,
+        "last_conflict": [
+          51,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "99677bbc6f2676984e496bd8c1dc4f2dd2008278010e635b48f40042395ddc99",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25409436399999663,
+        "tested": 337754,
+        "rejected": 302789,
+        "pair_rejected": 302789,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540489550000018,
+        "tested": 331922,
+        "rejected": 297574,
+        "pair_rejected": 297574,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          58
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25385347200000297,
+        "tested": 334302,
+        "rejected": 299830,
+        "pair_rejected": 299830,
+        "triple_rejected": 0,
+        "last_conflict": [
+          41,
+          48
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "cecba214a3bb6bb4c1bf2baba7f10a5f2d61748b2895b3aa13540530a55b7748",
+        "best_score": 16,
+        "current_score": 13,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2543051950000006,
+        "tested": 332754,
+        "rejected": 298215,
+        "pair_rejected": 298215,
+        "triple_rejected": 0,
+        "last_conflict": [
+          12,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "cecba214a3bb6bb4c1bf2baba7f10a5f2d61748b2895b3aa13540530a55b7748",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25434393300000124,
+        "tested": 335611,
+        "rejected": 301027,
+        "pair_rejected": 301027,
+        "triple_rejected": 0,
+        "last_conflict": [
+          21,
+          29
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542584770000076,
+        "tested": 335133,
+        "rejected": 300412,
+        "pair_rejected": 300412,
+        "triple_rejected": 0,
+        "last_conflict": [
+          12,
+          15
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2537618899999927,
+        "tested": 333739,
+        "rejected": 299225,
+        "pair_rejected": 299225,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          19
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "after_hash": "b68446f3da9c6c06bc47ae07341ffe61dadd2db157d9e48614e986f0cf44e8f5",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539713539999866,
+        "tested": 334009,
+        "rejected": 299470,
+        "pair_rejected": 299470,
+        "triple_rejected": 0,
+        "last_conflict": [
+          24,
+          34
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b68446f3da9c6c06bc47ae07341ffe61dadd2db157d9e48614e986f0cf44e8f5",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25388300299999855,
+        "tested": 336157,
+        "rejected": 301576,
+        "pair_rejected": 301576,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25401151200000527,
+        "tested": 336692,
+        "rejected": 301995,
+        "pair_rejected": 301995,
+        "triple_rejected": 0,
+        "last_conflict": [
+          24,
+          47
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "7b35b6d3ea676813ed79914841a484c4bd20c9642dbaf6fa12bd55fd9b072c4a",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2543159600000138,
+        "tested": 337848,
+        "rejected": 302999,
+        "pair_rejected": 302999,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          19
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7b35b6d3ea676813ed79914841a484c4bd20c9642dbaf6fa12bd55fd9b072c4a",
+        "after_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2536242029999869,
+        "tested": 337068,
+        "rejected": 302203,
+        "pair_rejected": 302203,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          55
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25399788799998646,
+        "tested": 338060,
+        "rejected": 302972,
+        "pair_rejected": 302972,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          36
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 450,
+    "initial_score": 0,
+    "warm_score": 16,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      12,
+      14,
+      18,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 8163747,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542283500000053,
+        "tested": 288721,
+        "rejected": 259756,
+        "pair_rejected": 259756,
+        "triple_rejected": 0,
+        "last_conflict": [
+          12,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "6776cede55776acb9e848683999cc2c49df4d7bbec377e67f7d66d85a2127c21",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2544226049999736,
+        "tested": 286716,
+        "rejected": 258088,
+        "pair_rejected": 258088,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          25
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6776cede55776acb9e848683999cc2c49df4d7bbec377e67f7d66d85a2127c21",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25396360900001014,
+        "tested": 285193,
+        "rejected": 256589,
+        "pair_rejected": 256589,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          58
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534603240000024,
+        "tested": 332146,
+        "rejected": 297798,
+        "pair_rejected": 297798,
+        "triple_rejected": 0,
+        "last_conflict": [
+          38,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "after_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538334280000072,
+        "tested": 330035,
+        "rejected": 295925,
+        "pair_rejected": 295925,
+        "triple_rejected": 0,
+        "last_conflict": [
+          44,
+          52
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "after_hash": "70c342a5b58059ef030101274d66b1c773a79f9f26eeed6d49261e9affacf0fc",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25416162800001985,
+        "tested": 329956,
+        "rejected": 295740,
+        "pair_rejected": 295740,
+        "triple_rejected": 0,
+        "last_conflict": [
+          29,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "70c342a5b58059ef030101274d66b1c773a79f9f26eeed6d49261e9affacf0fc",
+        "after_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2544623869999896,
+        "tested": 332757,
+        "rejected": 298315,
+        "pair_rejected": 298315,
+        "triple_rejected": 0,
+        "last_conflict": [
+          7,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3570675efbac9d6b6e1ba6a21c8db8470cab2530571361fb71c94a99dfe0e935",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542985519999945,
+        "tested": 335056,
+        "rejected": 300399,
+        "pair_rejected": 300399,
+        "triple_rejected": 0,
+        "last_conflict": [
+          13,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25414074799999753,
+        "tested": 331004,
+        "rejected": 297117,
+        "pair_rejected": 297117,
+        "triple_rejected": 0,
+        "last_conflict": [
+          11,
+          46
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25422145999999657,
+        "tested": 331150,
+        "rejected": 296735,
+        "pair_rejected": 296735,
+        "triple_rejected": 0,
+        "last_conflict": [
+          46,
+          54
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25392241899999135,
+        "tested": 333304,
+        "rejected": 298977,
+        "pair_rejected": 298977,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          25
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "299c713b68f6cc4dc1e51e1d5f5e8c76b10bfec90322951fa9864f9fa946d6f8",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2532309469999916,
+        "tested": 331259,
+        "rejected": 297018,
+        "pair_rejected": 297018,
+        "triple_rejected": 0,
+        "last_conflict": [
+          13,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "299c713b68f6cc4dc1e51e1d5f5e8c76b10bfec90322951fa9864f9fa946d6f8",
+        "after_hash": "0620d67a389cd888cc4d00e833de371aee95ec3c411e00197bd3e99bc908f4e4",
+        "best_score": 16,
+        "current_score": 12,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25373486600000206,
+        "tested": 332878,
+        "rejected": 298526,
+        "pair_rejected": 298526,
+        "triple_rejected": 0,
+        "last_conflict": [
+          21,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "0620d67a389cd888cc4d00e833de371aee95ec3c411e00197bd3e99bc908f4e4",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2543218389999993,
+        "tested": 333690,
+        "rejected": 299141,
+        "pair_rejected": 299141,
+        "triple_rejected": 0,
+        "last_conflict": [
+          26,
+          59
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "c750b94f0ef2c90bc30c1f4e2c215ddb6a1971d8ab862192a927c48af7e8d7a1",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25467998400000624,
+        "tested": 334618,
+        "rejected": 300089,
+        "pair_rejected": 300089,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          36
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "c750b94f0ef2c90bc30c1f4e2c215ddb6a1971d8ab862192a927c48af7e8d7a1",
+        "after_hash": "d30d2d3399192d6ded5ed24338aee77baa0ce71b169fa344ac887c72f5d7a961",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2543734200000074,
+        "tested": 335024,
+        "rejected": 300667,
+        "pair_rejected": 300667,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d30d2d3399192d6ded5ed24338aee77baa0ce71b169fa344ac887c72f5d7a961",
+        "after_hash": "de52d9cddb876ab0afc5694e9c586d9068b1288f7ff9e89a189ee19b48aac5fd",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25458022000000824,
+        "tested": 334342,
+        "rejected": 299863,
+        "pair_rejected": 299863,
+        "triple_rejected": 0,
+        "last_conflict": [
+          26,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "de52d9cddb876ab0afc5694e9c586d9068b1288f7ff9e89a189ee19b48aac5fd",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25445271899999966,
+        "tested": 333752,
+        "rejected": 299453,
+        "pair_rejected": 299453,
+        "triple_rejected": 0,
+        "last_conflict": [
+          1,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "9cbf410cd3cb439722cabbe8a9abba69ab7a49151cf44fb6103ea1ab7db3a544",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25458958199999415,
+        "tested": 333528,
+        "rejected": 299142,
+        "pair_rejected": 299142,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          40
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "9cbf410cd3cb439722cabbe8a9abba69ab7a49151cf44fb6103ea1ab7db3a544",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534246790000054,
+        "tested": 329359,
+        "rejected": 295347,
+        "pair_rejected": 295347,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          19
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "ee9a7ef6000cfead7ab50ead33cf6faf691df28fce846bd0c5675e955316cac9",
+        "best_score": 16,
+        "current_score": 12,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25409157999999366,
+        "tested": 329293,
+        "rejected": 295212,
+        "pair_rejected": 295212,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ee9a7ef6000cfead7ab50ead33cf6faf691df28fce846bd0c5675e955316cac9",
+        "after_hash": "713b3278f0784c85ceeec96e6c6729bc8ea0ac80df6e6aa671f276e2d99a5f5a",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2530674250000118,
+        "tested": 328041,
+        "rejected": 294316,
+        "pair_rejected": 294316,
+        "triple_rejected": 0,
+        "last_conflict": [
+          12,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "713b3278f0784c85ceeec96e6c6729bc8ea0ac80df6e6aa671f276e2d99a5f5a",
+        "after_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540685719999942,
+        "tested": 328872,
+        "rejected": 294800,
+        "pair_rejected": 294800,
+        "triple_rejected": 0,
+        "last_conflict": [
+          20,
+          58
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "after_hash": "c76269841be52486a2802344489f43ef4f7f9b7187189d371c08b132763f2c42",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25403937299998347,
+        "tested": 330554,
+        "rejected": 296256,
+        "pair_rejected": 296256,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 460,
+    "initial_score": 0,
+    "warm_score": 16,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      14,
+      18,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      57,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 2259731,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540446129999907,
+        "tested": 89373,
+        "rejected": 80430,
+        "pair_rejected": 80430,
+        "triple_rejected": 0,
+        "last_conflict": [
+          3,
+          9
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25376186299999404,
+        "tested": 89594,
+        "rejected": 80606,
+        "pair_rejected": 80606,
+        "triple_rejected": 0,
+        "last_conflict": [
+          53,
+          59
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25418099300000563,
+        "tested": 89391,
+        "rejected": 80447,
+        "pair_rejected": 80447,
+        "triple_rejected": 0,
+        "last_conflict": [
+          46,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "5c4e48f95cb0a404e8978ab5b9596f704c226cfe08aaa5e4a3da9de2c1548dde",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25398023299999295,
+        "tested": 90780,
+        "rejected": 81458,
+        "pair_rejected": 81458,
+        "triple_rejected": 0,
+        "last_conflict": [
+          34,
+          63
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "5c4e48f95cb0a404e8978ab5b9596f704c226cfe08aaa5e4a3da9de2c1548dde",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541448540000033,
+        "tested": 87936,
+        "rejected": 78933,
+        "pair_rejected": 78933,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          26
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25440344300000106,
+        "tested": 90514,
+        "rejected": 81196,
+        "pair_rejected": 81196,
+        "triple_rejected": 0,
+        "last_conflict": [
+          23,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25451942300000496,
+        "tested": 90702,
+        "rejected": 81260,
+        "pair_rejected": 81260,
+        "triple_rejected": 0,
+        "last_conflict": [
+          25,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "repeat",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25433115999999245,
+        "tested": 90881,
+        "rejected": 81538,
+        "pair_rejected": 81538,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          56
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "repeat",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "17c405468c866ff07eb4d588c5d4dcc1fb738c95cec011795fe8f02a42b2f467",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542593489999945,
+        "tested": 90955,
+        "rejected": 81477,
+        "pair_rejected": 81477,
+        "triple_rejected": 0,
+        "last_conflict": [
+          29,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "17c405468c866ff07eb4d588c5d4dcc1fb738c95cec011795fe8f02a42b2f467",
+        "after_hash": "c773599665f6646eb9c13e9cb4567632fc06155eb69b71620c34ea41c8f9bc17",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542996599999867,
+        "tested": 90952,
+        "rejected": 81595,
+        "pair_rejected": 81595,
+        "triple_rejected": 0,
+        "last_conflict": [
+          62,
+          63
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "c773599665f6646eb9c13e9cb4567632fc06155eb69b71620c34ea41c8f9bc17",
+        "after_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25398496000002524,
+        "tested": 90709,
+        "rejected": 81311,
+        "pair_rejected": 81311,
+        "triple_rejected": 0,
+        "last_conflict": [
+          31,
+          50
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "29d89343bb40e321de4eafff64d5866091c469654df671293708fc8ea6e78e07",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542840240000146,
+        "tested": 90841,
+        "rejected": 81452,
+        "pair_rejected": 81452,
+        "triple_rejected": 0,
+        "last_conflict": [
+          3,
+          33
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541020830000207,
+        "tested": 90838,
+        "rejected": 81524,
+        "pair_rejected": 81524,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          25
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25384824400001094,
+        "tested": 90147,
+        "rejected": 80929,
+        "pair_rejected": 80929,
+        "triple_rejected": 0,
+        "last_conflict": [
+          41,
+          63
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25399154400000157,
+        "tested": 90361,
+        "rejected": 81023,
+        "pair_rejected": 81023,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "65ab23db80211dc311ce4280933d3a4673758cd52ea26e1427efa2afc4847a76",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253853706000001,
+        "tested": 90720,
+        "rejected": 81392,
+        "pair_rejected": 81392,
+        "triple_rejected": 0,
+        "last_conflict": [
+          45,
+          53
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "65ab23db80211dc311ce4280933d3a4673758cd52ea26e1427efa2afc4847a76",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25408688499999244,
+        "tested": 90948,
+        "rejected": 81561,
+        "pair_rejected": 81561,
+        "triple_rejected": 0,
+        "last_conflict": [
+          4,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541152649999958,
+        "tested": 90348,
+        "rejected": 80929,
+        "pair_rejected": 80929,
+        "triple_rejected": 0,
+        "last_conflict": [
+          8,
+          49
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2545032140000103,
+        "tested": 90948,
+        "rejected": 81486,
+        "pair_rejected": 81486,
+        "triple_rejected": 0,
+        "last_conflict": [
+          30,
+          53
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "afa54abcd47116a8c0cdf88cb6cab758f478528cad0a4bd4cf6feb88f5620ee1",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2539654329999905,
+        "tested": 90563,
+        "rejected": 81289,
+        "pair_rejected": 81289,
+        "triple_rejected": 0,
+        "last_conflict": [
+          37,
+          44
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "afa54abcd47116a8c0cdf88cb6cab758f478528cad0a4bd4cf6feb88f5620ee1",
+        "after_hash": "03d95723480efc5062c467dd6c891b86a17d0cc64d8833b358da4d674f12a2a3",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541210820000117,
+        "tested": 87250,
+        "rejected": 78317,
+        "pair_rejected": 78317,
+        "triple_rejected": 0,
+        "last_conflict": [
+          14,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "03d95723480efc5062c467dd6c891b86a17d0cc64d8833b358da4d674f12a2a3",
+        "after_hash": "4b4acfdbb2b2bc9ac6a37512f3a2c8bdbf5c3fc171af25b9358984590980f766",
+        "best_score": 16,
+        "current_score": 14,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25399006299997495,
+        "tested": 90849,
+        "rejected": 81400,
+        "pair_rejected": 81400,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          55
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "4b4acfdbb2b2bc9ac6a37512f3a2c8bdbf5c3fc171af25b9358984590980f766",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2536963119999882,
+        "tested": 91095,
+        "rejected": 81640,
+        "pair_rejected": 81640,
+        "triple_rejected": 0,
+        "last_conflict": [
+          21,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "e8bb3b8d4de9e2518c15c6c113cb07c49f5cd5c99fa98dc8b5631743e3b30aad",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25380768000002263,
+        "tested": 91481,
+        "rejected": 81950,
+        "pair_rejected": 81950,
+        "triple_rejected": 0,
+        "last_conflict": [
+          32,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  },
+  {
+    "task": "MIS64-a",
+    "kind": 1,
+    "n": 64,
+    "param": 3303,
+    "arm": "no_memory",
+    "seed": 470,
+    "initial_score": 0,
+    "warm_score": 15,
+    "best_score": 16,
+    "best_family": [
+      5,
+      9,
+      14,
+      18,
+      23,
+      30,
+      31,
+      33,
+      34,
+      41,
+      45,
+      49,
+      52,
+      56,
+      57,
+      62
+    ],
+    "ports": [
+      0,
+      1
+    ],
+    "cpu_seconds": 6.25,
+    "tested": 2549985,
+    "trace": [
+      {
+        "step": 0,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "3a3d4c24354a237d0aa0798bdc0c96834cd95c4f675f22846546a74b0294c697",
+        "after_hash": "7696bbf50e0eff6d5735e794cb9a3faf19b756a95be93b0916b08e4e36ec2acc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 1.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25404349400000115,
+        "tested": 99415,
+        "rejected": 89470,
+        "pair_rejected": 89470,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          34
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 1,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7696bbf50e0eff6d5735e794cb9a3faf19b756a95be93b0916b08e4e36ec2acc",
+        "after_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25338743700001487,
+        "tested": 99672,
+        "rejected": 89646,
+        "pair_rejected": 89646,
+        "triple_rejected": 0,
+        "last_conflict": [
+          35,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 2,
+        "diagnosis": "pair",
+        "next_diagnosis": "pair",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "d924c8427fb60bf38385c8d79d7b7436d0412c7e988c3496cb2762772864206d",
+        "after_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2546072499999923,
+        "tested": 101217,
+        "rejected": 91090,
+        "pair_rejected": 91090,
+        "triple_rejected": 0,
+        "last_conflict": [
+          12,
+          20
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 3,
+        "diagnosis": "pair",
+        "next_diagnosis": "stalled",
+        "action": 4,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ede095d4973351d7b969190c14b6385be86487cb59ace8a1b1d893afe4334182",
+        "after_hash": "e1e1325717f5402464650fdfa2fc9a68c5af3b0375c04c735a5b4c854106a979",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2546022559999983,
+        "tested": 101424,
+        "rejected": 91277,
+        "pair_rejected": 91277,
+        "triple_rejected": 0,
+        "last_conflict": [
+          41,
+          61
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 4,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e1e1325717f5402464650fdfa2fc9a68c5af3b0375c04c735a5b4c854106a979",
+        "after_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25486855399998376,
+        "tested": 102904,
+        "rejected": 92288,
+        "pair_rejected": 92288,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          15
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 5,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "8140b4f5bfad3d2e34dff8acfdfd39c1da1d7a561297683cc6ff98babf568ad5",
+        "after_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2542143029999977,
+        "tested": 103275,
+        "rejected": 92583,
+        "pair_rejected": 92583,
+        "triple_rejected": 0,
+        "last_conflict": [
+          13,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 6,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7d26b43cfe743a1b4b241a172d3d5b0dabb0d8286d04377d18750220302843fc",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25348485699998946,
+        "tested": 103093,
+        "rejected": 92390,
+        "pair_rejected": 92390,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          36
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 7,
+        "diagnosis": "stalled",
+        "next_diagnosis": "repeat",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2534897609999973,
+        "tested": 98423,
+        "rejected": 88160,
+        "pair_rejected": 88160,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          38
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 8,
+        "diagnosis": "repeat",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2537914690000207,
+        "tested": 103395,
+        "rejected": 92605,
+        "pair_rejected": 92605,
+        "triple_rejected": 0,
+        "last_conflict": [
+          18,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 9,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2536987999999951,
+        "tested": 101918,
+        "rejected": 91392,
+        "pair_rejected": 91392,
+        "triple_rejected": 0,
+        "last_conflict": [
+          0,
+          21
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 10,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "779e41d2fbeff1c6facd4a0511c037cc06fb414c08b9ac0189a0a5711371f3df",
+        "after_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2541253969999957,
+        "tested": 99744,
+        "rejected": 89534,
+        "pair_rejected": 89534,
+        "triple_rejected": 0,
+        "last_conflict": [
+          22,
+          41
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 11,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "b8c8faaf2968d5c8f2de6adadee451d2f043bd921238810d976ce64b15f34d3e",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25411912200002007,
+        "tested": 101560,
+        "rejected": 91066,
+        "pair_rejected": 91066,
+        "triple_rejected": 0,
+        "last_conflict": [
+          41,
+          42
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 12,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "142e35d988db7b20e41876423d880f6123193c375a1777efcf6f3e065ef54722",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2547930890000032,
+        "tested": 103372,
+        "rejected": 92705,
+        "pair_rejected": 92705,
+        "triple_rejected": 0,
+        "last_conflict": [
+          34,
+          40
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 13,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "142e35d988db7b20e41876423d880f6123193c375a1777efcf6f3e065ef54722",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2540633680000042,
+        "tested": 101292,
+        "rejected": 90911,
+        "pair_rejected": 90911,
+        "triple_rejected": 0,
+        "last_conflict": [
+          7,
+          46
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 14,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "50a455df0c3aa031cbdf954d52d044020bfa0d104134f5a87f68d0c9cccf539a",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538244810000094,
+        "tested": 100517,
+        "rejected": 90108,
+        "pair_rejected": 90108,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          18
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 15,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "50a455df0c3aa031cbdf954d52d044020bfa0d104134f5a87f68d0c9cccf539a",
+        "after_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25364983099998994,
+        "tested": 103562,
+        "rejected": 92742,
+        "pair_rejected": 92742,
+        "triple_rejected": 0,
+        "last_conflict": [
+          35,
+          45
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 16,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "after_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2536558159999913,
+        "tested": 102609,
+        "rejected": 92042,
+        "pair_rejected": 92042,
+        "triple_rejected": 0,
+        "last_conflict": [
+          32,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 17,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "7db329bc3a995263002b8b95591651ef81354dea4a8cc5d2ef755ba3bd6e26c2",
+        "after_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2532858170000054,
+        "tested": 102211,
+        "rejected": 91595,
+        "pair_rejected": 91595,
+        "triple_rejected": 0,
+        "last_conflict": [
+          10,
+          36
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 18,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "e523a4b10f832729225107800ceeeb40ecd687b919c427d2f0a348cf62c595e7",
+        "after_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.253857322000016,
+        "tested": 102669,
+        "rejected": 91977,
+        "pair_rejected": 91977,
+        "triple_rejected": 0,
+        "last_conflict": [
+          9,
+          50
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 19,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "68f6b72a238c7a80a57868b4980a89d3ce0189abaf9c6a8cfea0f6939e033e3a",
+        "after_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2546288429999777,
+        "tested": 102689,
+        "rejected": 92058,
+        "pair_rejected": 92058,
+        "triple_rejected": 0,
+        "last_conflict": [
+          6,
+          9
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 20,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "6ae2295c137e4aed77b7a3ab2cdcedfd2bbbf0b5431d3013156d2830d1712497",
+        "after_hash": "ebb0f57455a7553ac423746c1a6a019d3f9734b43115e48357cc03ce5075e0df",
+        "best_score": 16,
+        "current_score": 13,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2549912009999957,
+        "tested": 101403,
+        "rejected": 90999,
+        "pair_rejected": 90999,
+        "triple_rejected": 0,
+        "last_conflict": [
+          43,
+          60
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 21,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "ebb0f57455a7553ac423746c1a6a019d3f9734b43115e48357cc03ce5075e0df",
+        "after_hash": "4ccde0d4af82a2b3b5b4a0e52ecd20fde3b9fd34e51670a8f560e5700dab039b",
+        "best_score": 16,
+        "current_score": 15,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.2538380679999932,
+        "tested": 103573,
+        "rejected": 92843,
+        "pair_rejected": 92843,
+        "triple_rejected": 0,
+        "last_conflict": [
+          38,
+          62
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 22,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "4ccde0d4af82a2b3b5b4a0e52ecd20fde3b9fd34e51670a8f560e5700dab039b",
+        "after_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25367366099999344,
+        "tested": 102581,
+        "rejected": 91988,
+        "pair_rejected": 91988,
+        "triple_rejected": 0,
+        "last_conflict": [
+          5,
+          35
+        ],
+        "termination": "bounded CPU quantum"
+      },
+      {
+        "step": 23,
+        "diagnosis": "stalled",
+        "next_diagnosis": "stalled",
+        "action": 1,
+        "decision": {
+          "policy": "frozen model rule; no persistent archive"
+        },
+        "before_hash": "916940a09372d11a5b2a25830dea3b74830f78559cd83180bd67b1d3afda7a31",
+        "after_hash": "63c3eb1f45cd1b1edf245b816a354154d2cc508a13abf80ed3f227c8c154e761",
+        "best_score": 16,
+        "current_score": 16,
+        "reward": 0.0,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.25367743199998927,
+        "tested": 103764,
+        "rejected": 92978,
+        "pair_rejected": 92978,
+        "triple_rejected": 0,
+        "last_conflict": [
+          48,
+          57
+        ],
+        "termination": "bounded CPU quantum"
+      }
+    ]
+  }
+]

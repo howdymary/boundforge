@@ -1,0 +1,70 @@
+{
+  "valid": true,
+  "strict_improvement": false,
+  "comparison": "equal certificate",
+  "box": {
+    "valid": true,
+    "members": 252303,
+    "counts": [
+      33980,
+      64728,
+      64728,
+      88867
+    ],
+    "exponent": 26,
+    "boxes": 107,
+    "rate_interval_rational": [
+      "629865231952187962994628622880916311490940979122797561622313/401734511064747568885490523085290650630550748445698208825344",
+      "1259730463904375925989257245761832622981881958245595123244627/803469022129495137770981046170581301261101496891396417650688"
+    ]
+  },
+  "bdd": {
+    "valid": true,
+    "members": 252303,
+    "ordered_containments": 252303,
+    "ordered_equal_intersection_triples": 252303,
+    "nodes": 855,
+    "counts": [
+      33980,
+      64728,
+      64728,
+      88867
+    ]
+  },
+  "baseline_box": {
+    "valid": true,
+    "members": 252303,
+    "counts": [
+      33980,
+      64728,
+      64728,
+      88867
+    ],
+    "exponent": 26,
+    "boxes": 107,
+    "rate_interval_rational": [
+      "629865231952187962994628622880916311490940979122797561622313/401734511064747568885490523085290650630550748445698208825344",
+      "1259730463904375925989257245761832622981881958245595123244627/803469022129495137770981046170581301261101496891396417650688"
+    ]
+  },
+  "baseline_bdd": {
+    "valid": true,
+    "members": 252303,
+    "ordered_containments": 252303,
+    "ordered_equal_intersection_triples": 252303,
+    "nodes": 855,
+    "counts": [
+      33980,
+      64728,
+      64728,
+      88867
+    ]
+  },
+  "certificate_sha256": "53381b5f52264c43d56343ab27d698c598462d5abfd83c043365afbae9efb1e8",
+  "verifier_sha256": {
+    "verify_boxes.py": "bed3950e940cbf7de968163cbe7c73e95221208adc7b232992f8a7ef1e40925a",
+    "verify_bdd.cpp": "30cb553a5614018759d55446c1e9bf012df2558c5c7d7526819ce1cb771843a5"
+  },
+  "wall_seconds": 1.701323512999977,
+  "scope": "Reproduction of Pinho PR370, not a new BoundForge construction. Fresh own Cartesian-box and C++ BDD implementations; primary checker replays are in stage_a."
+}
