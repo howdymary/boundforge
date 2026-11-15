@@ -30,6 +30,9 @@ def deficit(cores,ids):
 def propose(problem,space,policy,rng,forced_row=None,allow_pivot=True):
  row,trial=(forced_row,space.add(problem.public[forced_row][3],forced_row))if forced_row is not None else sample_row(problem,space,rng)
  if trial is None:return space,{"diagnosis":"sampled_rows_dependent","scope":"24 sampled rows; not exhaustion"}
+ if policy in ["batch_repair","naive_best_repair"]:
+  from .batch import best_repair
+  return best_repair(problem,space,row,trial,shared=policy=="batch_repair")
  cores,proof=problem.obstruction(trial,row)
  event={"proposed_row":row,"forced_target_pairs":proof,"basis_before":list(space.ids),"diagnosis":"legal_addition"if not cores else"target_collision_forced","diagnostic_is_exact":policy!="shuffled_core"}
  if not cores:return trial,event
