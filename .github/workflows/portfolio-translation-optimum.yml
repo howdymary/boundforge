@@ -1,0 +1,34 @@
+name: BoundForge exact restricted translation optimum
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  optimum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '43684842952'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: record-exact-translation
+          path: boundforge/portfolio/translation_certification
+      - name: Solve and verify exact balancing of the two worst real shifts
+        run: python -u boundforge/portfolio/translation_optimal.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: record-translation-optimum
+          path: boundforge/portfolio/translation_optimum/
+          retention-days: 30
