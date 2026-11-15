@@ -31,3 +31,10 @@ def test_crossover_reuses_exact_prefixes_and_counts_cost():
  assert q["primitives"]==16
  assert task.valid(q["best"])
  assert q["contrast"]==max(sa["score"],ab["score"])-max(sb["score"],ba["score"])
+
+def test_order_credit_distinction_reduces_algebraically():
+ rng=random.Random(733);signed=0;ab_total=ba_total=0
+ for _ in range(100):
+  base=rng.randrange(100);ab=base+rng.randrange(9);ba=base+rng.randrange(9)
+  signed+=ab-ba;ab_total+=max(0,ab-base);ba_total+=max(0,ba-base)
+  assert signed==ab_total-ba_total

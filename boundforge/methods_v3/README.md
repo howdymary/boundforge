@@ -15,3 +15,5 @@ Candidate mechanisms to investigate before implementation:
 Read the source audit before choosing. Any overlap with prior art narrows or rejects the novelty hypothesis. A useful task-specific result is not automatically a general method.
 
 Project code and experiment artifacts stay in this directory. Protected verifiers and prior reports remain unchanged. Remote execution only. No external submissions.
+
+Current evidence: [results through the first two pilots](RESULTS_SO_FAR.md), [exact representation hypothesis](collision/SPECIFICATION.md), [complete experiment artifacts](results/manifest.json). No new-method claim is established yet.
