@@ -14,7 +14,7 @@ def choose(history,policy="diagnostic",context=None):
  if policy=="fixed_precision":return "precision_equioscillation",{"reason":"strong fixed high-precision control","retrieved":[]}
  if not history:return "float_local",{"reason":"cheap local probe before paying higher-precision cost","retrieved":[]}
  last=history[-1];label=last["diagnosis"];retrieved=[r["event_id"]for r in history if r["diagnosis"]==label]
- if label in ["PRECISION_FLOOR","SAMPLED_STAGNATION","TAIL_BUDGET_FAILURE"]:action="precision_equioscillation"if sum(r["operator"]=="precision_equioscillation"for r in history)<2 else "precision_restart"
+ if label in ["PRECISION_FLOOR","SAMPLED_STAGNATION","TAIL_BUDGET_FAILURE","BELOW_CAMPAIGN_GOAL"]:action="precision_equioscillation"if sum(r["operator"]=="precision_equioscillation"for r in history)<2 else "precision_restart"
  elif label=="OPTIMIZER_FAILURE":action="precision_restart"
  elif label=="CERTIFICATION_FAILURE":action="precision_equioscillation"if last["operator"]=="float_local"else"precision_restart"
  else:action="precision_equioscillation"

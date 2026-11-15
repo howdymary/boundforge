@@ -59,7 +59,7 @@ def main(argv=None):
     if filehash(args.out/path)!=sha:raise ValueError("retained artifact changed")
    print(json.dumps(report));return report
  else:
-  state={"status":"running","config_sha256":confhash,"history":[],"elapsed_seconds":0.,"step":0}
+  state={"status":"running","config_sha256":confhash,"history":[],"verified_reference_improvements":[],"elapsed_seconds":0.,"step":0}
   trace.add("campaign_start",config=config,config_sha256=confhash,source_sha=os.environ.get("GITHUB_SHA"),chronology=registry["chronology"],fresh_discovery=False)
   # Baseline reproduction occurs in the trusted acceptance process.
   bp=args.out/"baseline.json";atomic_json(bp,registry["incumbent"])
@@ -101,9 +101,15 @@ def main(argv=None):
    cp=args.out/("candidate-"+str(step)+".json");atomic_json(cp,r["candidate"])
    trace.add("certification_requested",step=step,candidate_sha256=filehash(cp),candidate_path=cp.name,screen_only=True)
    try:
-    accepted=certificate(cp,args.out,registry["incumbent"],r["baseline_test_theta"],args.upstream,deadline);atomic_json(args.out/"candidate.json",r["candidate"])
-    trace.add("certified_improvement",step=step,result=accepted,comparison_scope=registry["reference_scope"],fresh_discovery=False)
-    state["status"]="certified_historical_replay"
+    checked=certificate(cp,args.out,registry["incumbent"],r["baseline_test_theta"],args.upstream,deadline)
+    state["verified_reference_improvements"].append({"step":step,"candidate_path":cp.name,"lower_bound":checked["lower_bound"],"candidate_sha256":checked["candidate_sha256"]})
+    floor=F(registry["existing_project_result"]["lower_bound"])
+    if F(checked["lower_bound"])<=floor:
+     label="BELOW_CAMPAIGN_GOAL";evidence={"verified_external_reference_improvement":True,"certified_bound":checked["lower_bound"],"continuation_goal":str(floor),"screen_diagnosis":label,"screen_evidence":evidence};event=trace.add("valid_improvement_below_continuation_goal",step=step,result=checked,evidence=evidence);accepted=None
+    else:
+     accepted=checked;atomic_json(args.out/"candidate.json",r["candidate"])
+     trace.add("certified_improvement",step=step,result=accepted,comparison_scope=registry["reference_scope"],exceeds_existing_project_claim=True,fresh_discovery=False)
+     state["status"]="certified_historical_replay"
    except Exception as e:
     accepted=None;screen_label=label;screen_evidence=evidence;label="CERTIFICATION_FAILURE";evidence={"screen_diagnosis":screen_label,"screen_evidence":screen_evidence,"type":type(e).__name__,"detail":str(e)[:500],"scope":"specific proposal/cover, no mathematical impossibility conclusion"};event=trace.add("certification_refused",step=step,evidence=evidence)
   state["history"].append({"step":step,"operator":action,"diagnosis":label,"evidence":evidence,"event_id":event,"request_sha256":digest(request),"target":"C51a","context_sha256":digest(registry["incumbent"])})
@@ -113,6 +119,6 @@ def main(argv=None):
  if state["status"]=="running":state["status"]="no_certified_improvement"
  trace.add("campaign_finished",status=state["status"],experiments=state["step"],elapsed_seconds=state["elapsed_seconds"],claimed_fresh_world_record=False)
  files={p.name:filehash(p)for p in args.out.iterdir()if p.is_file()and p.name not in ["checkpoint.json","report.json"]}
- report={"status":state["status"],"run_id":os.environ.get("GITHUB_RUN_ID"),"source_sha":os.environ.get("GITHUB_SHA"),"config_sha256":confhash,"policy":args.policy,"experiments":state["history"],"accepted":accepted,"elapsed_seconds":state["elapsed_seconds"],"artifact_hashes":files,"provider_usage":providers.summary()if providers else{"enabled":False},"comparison_scope":registry["reference_scope"],"existing_project_result":registry["existing_project_result"],"fresh_discovery":False,"scope":"Autonomous execution/reproduction from an earlier external frontier. Controller/optimizers engineered after agent-directed discovery. No hidden-result, new-method or fresh-world-record claim."}
+ report={"status":state["status"],"run_id":os.environ.get("GITHUB_RUN_ID"),"source_sha":os.environ.get("GITHUB_SHA"),"config_sha256":confhash,"policy":args.policy,"experiments":state["history"],"verified_reference_improvements":state["verified_reference_improvements"],"accepted":accepted,"elapsed_seconds":state["elapsed_seconds"],"artifact_hashes":files,"provider_usage":providers.summary()if providers else{"enabled":False},"comparison_scope":registry["reference_scope"],"existing_project_result":registry["existing_project_result"],"fresh_discovery":False,"scope":"Autonomous execution/reproduction from an earlier external frontier. Controller/optimizers engineered after agent-directed discovery. No hidden-result, new-method or fresh-world-record claim."}
  atomic_json(args.out/"report.json",report);trace.save(state);print(json.dumps(report));return report
 if __name__=="__main__":main()
