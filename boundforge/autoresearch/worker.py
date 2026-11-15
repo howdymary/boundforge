@@ -1,5 +1,5 @@
 """Credential-free proposal worker: no repository imports, certificates or answers."""
-import json,math,sys,time
+import json,math,sys,time,resource
 import numpy as np
 from scipy.optimize import minimize,minimize_scalar
 import mpmath as mp
@@ -66,9 +66,9 @@ def precision(req):
  if cn is None:return {"status":"tail_budget_failure","slack":str(slack)}
  return {"status":"proposal","operator":"precision_equioscillation","candidate":{"name":"autonomous computed parameter proposal","K":ks,"alpha":as_,"lower_bound":claim,"N":cn},"baseline_beta":str(oldbeta),"best_beta":str(beta),"gain":str(gain),"baseline_test_theta":mp.nstr(old_t,70,min_fixed=-999,max_fixed=999),"precision":mp.mp.dps,"claim_digits":claimdigits,"tail_depth_selected":cn,"numerical_proof_slack":str(slack),"residuals":[str(v)for v in eq(K,a,tt)],"mechanism":"standard equioscillation and stationarity, prior art"}
 def main():
- req=json.load(sys.stdin);start=time.monotonic()
+ req=json.load(sys.stdin);start=time.monotonic();cpu_start=time.process_time()
  try:r=float_local(req)if req["operator"]=="float_local"else precision(req)
  except Exception as e:r={"status":"optimizer_failure","error_type":type(e).__name__,"detail":str(e)[:200]}
- r["elapsed_seconds"]=time.monotonic()-start;r["request_sha256"]=__import__("hashlib").sha256(json.dumps(req,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+ r["elapsed_seconds"]=time.monotonic()-start;r["cpu_seconds"]=time.process_time()-cpu_start;r["peak_rss_kib"]=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss;r["request_sha256"]=__import__("hashlib").sha256(json.dumps(req,sort_keys=True,separators=(",",":")).encode()).hexdigest()
  print(json.dumps(r))
 if __name__=="__main__":main()

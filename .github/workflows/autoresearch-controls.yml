@@ -1,0 +1,33 @@
+name: BoundForge autonomous controller controls
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  c51certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - name: Fetch immutable source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: gh api "repos/$GITHUB_REPOSITORY/tarball/$SOURCE_SHA" | tar -xz --strip-components=1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r boundforge/autoresearch/requirements.txt
+      - name: Verify math, controller, budget, and checkpoint controls
+        run: python -m pytest -q -p no:cacheprovider boundforge/portfolio/test_portfolio.py boundforge/portfolio/test_c1b.py boundforge/portfolio/test_c1d.py boundforge/portfolio/test_translation.py boundforge/portfolio/test_active.py boundforge/portfolio/test_c51.py boundforge/autoresearch/test_autoresearch.py
+      - name: Build credential-free proposal image
+        run: docker build -t boundforge-research-worker boundforge/autoresearch
+      - name: Paired fixed and diagnostic controls
+        run: python -m boundforge.autoresearch.benchmark
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: autonomous-controls-output
+          path: boundforge/autoresearch/comparison-output/
+          retention-days: 30
